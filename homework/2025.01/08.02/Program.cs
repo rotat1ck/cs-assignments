@@ -40,7 +40,8 @@
                     double m2 = Convert.ToDouble(Console.ReadLine());
                     Console.Write("Enter height: ");
                     double h = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("Perimeter: " + (m1 + m2 + (h * 2)));
+                    double side = Math.Sqrt(Math.Pow((a - b) / 2, 2) + Math.Pow(h, 2));
+                    Console.WriteLine("Perimeter: " + (m1 + m2 + (2 * side)));
                     break;
                 } case 6: {
                     Console.Write("Enter mass: ");

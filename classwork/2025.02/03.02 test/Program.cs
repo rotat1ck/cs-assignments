@@ -1,6 +1,6 @@
 ﻿class Code {
     static void Main() {
-        Four();
+        Five();
     }
 
     static void One() {
@@ -101,9 +101,9 @@
         if ((a <= x && b <= y) || (a <= x && c <= y) || 
             (b <= x && a <= y) || (b <= x && c <= y) || 
             (c <= x && a <= y) || (c <= x && b <= y)) {
-            Console.WriteLine("Кирпич пройдет в отверстие");
+            Console.WriteLine("Brick will fit");
         } else {
-            Console.WriteLine("Кирпич не пройдет в отверстие");
+            Console.WriteLine("Brick wont fit");
         }
         Console.WriteLine();
     }

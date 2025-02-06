@@ -23,19 +23,19 @@ class Code {
                     Five();
                     break;
                 } case ConsoleKey.D5: {
-                    // Six();
+                    Six();
                     break;
                 } case ConsoleKey.D6: {
-                    // Seven();
+                    Seven();
                     break;
                 } case ConsoleKey.D7: {
-                    // Eight();
+                    Eight();
                     break;
                 } case ConsoleKey.D8: {
-                    // Nine();
+                    Nine();
                     break;
                 } case ConsoleKey.D9: {
-                    // Ten();
+                    Ten();
                     break;
                 } default: {
                     invalidInput = true;
@@ -43,6 +43,8 @@ class Code {
                 }
             }
         }
+
+        // 🥨
     }
     static bool invalidInput = false;
 
@@ -216,6 +218,210 @@ class Code {
         mid2 = secondRow[1];
 
         Console.WriteLine($"Average of {mid1} and {mid2}: {(mid1 + mid2) / 2}");
+        Console.WriteLine();
+    }
+
+    static void Six() {
+        Console.Write("Enter day number: ");
+        int day = Convert.ToInt32(Console.ReadLine());
+
+        switch (day) {
+            case 1: {
+                Console.WriteLine("Monday");
+                break;
+            } case 2: {
+                Console.WriteLine("Tuesday");
+                break;
+            } case 3: {
+                Console.WriteLine("Wednesday");
+                break;
+            } case 4: {
+                Console.WriteLine("Thursday");
+                break;
+            } case 5: {
+                Console.WriteLine("Friday");
+                break;
+            } case 6: {
+                Console.WriteLine("Saturday");
+                break;
+            } case 7: {
+                Console.WriteLine("Sunday");
+                break;
+            } default: {
+                Console.WriteLine("Invalid day");
+                break;
+            }
+        }
+        Console.WriteLine();
+    }
+
+    static void Seven() {
+        Console.Write("Enter month number: ");
+        int day = Convert.ToInt32(Console.ReadLine());
+
+        switch (day) {
+            case 1: {
+                Console.WriteLine("January");
+                break;
+            } case 2: {
+                Console.WriteLine("February");
+                break;
+            } case 3: {
+                Console.WriteLine("March");
+                break;
+            } case 4: {
+                Console.WriteLine("April");
+                break;
+            } case 5: {
+                Console.WriteLine("May");
+                break;
+            } case 6: {
+                Console.WriteLine("June");
+                break;
+            } case 7: {
+                Console.WriteLine("July");
+                break;
+            } case 8: {
+                Console.WriteLine("August");
+                break;
+            } case 9: {
+                Console.WriteLine("September");
+                break;
+            } case 10: {
+                Console.WriteLine("October");
+                break;
+            } case 11: {
+                Console.WriteLine("November");
+                break;
+            } case 12: {
+                Console.WriteLine("December");
+                break;
+            } default: {
+                Console.WriteLine("Invalid month");
+                break;
+            }
+        }
+        Console.WriteLine();
+    }
+
+    static void Eight() {
+        int birthYear, birthMonth, birthDay, currentYear, currentMonth, currentDay;
+        
+        Console.Write("Enter birth year, month, day: ");
+        string[] birthdate = Console.ReadLine().Split();
+        birthYear = Convert.ToInt32(birthdate[0]);
+        birthMonth = Convert.ToInt32(birthdate[1]);
+        birthDay = Convert.ToInt32(birthdate[2]);
+
+        Console.Write("Enter current year, month, day: ");
+        string[] curdate = Console.ReadLine().Split();
+        currentYear = Convert.ToInt32(curdate[0]);
+        currentMonth = Convert.ToInt32(curdate[1]);
+        currentDay = Convert.ToInt32(curdate[2]);
+
+        int age = currentYear - birthYear;
+
+        if (currentMonth < birthMonth || (currentMonth == birthMonth && currentDay < birthDay)) {
+            age--;
+        }
+
+        Console.WriteLine($"Age: {age}");
+        Console.WriteLine();
+    }
+
+    static void Nine() {
+        int a, b;
+        Console.Write("Enter A: ");
+        a = Convert.ToInt32(Console.ReadLine());
+        if (a > 50) {
+            Console.WriteLine("A is greater than 50");
+            return;
+        }
+        Console.Write("Enter B: ");
+        b = Convert.ToInt32(Console.ReadLine());
+        if (b < 10) {
+            Console.WriteLine("B is less than 10");
+            return;
+        } if (b > a) {
+            Console.WriteLine("B is greater than A");
+            return;
+        }
+
+        Console.CursorTop = 3;
+        Console.Write("┌────┐\n│  a │\n├────┤\n");
+        for (int i = 20; i <= 35; ++i) {
+            Console.WriteLine($"│ {i} │");
+        }
+        Console.WriteLine("└────┘");
+
+        
+        Console.CursorTop = 3;
+        Console.CursorLeft = 10;
+        Console.WriteLine("┌────┐");
+        Console.CursorLeft = 10;
+        Console.WriteLine("│  d │");
+        Console.CursorLeft = 10;
+        Console.WriteLine("├────┤");
+        for (int i = b; i <= a; ++i) {   
+            Console.CursorLeft = 10;
+            Console.WriteLine($"│ {i} │");
+        }
+        Console.CursorLeft = 10;
+        Console.WriteLine("└────┘");
+
+        void printb(int adgust) {
+            Console.CursorTop = 3;
+            Console.CursorLeft = adgust;
+            Console.WriteLine("┌───────┐");
+            Console.CursorLeft = adgust;
+            Console.WriteLine("│   b   │");
+            Console.CursorLeft = adgust;
+            Console.WriteLine("├───────┤");
+
+            for (int i = 10; i <= b; ++i) {   
+                Console.CursorLeft = adgust; 
+                Console.WriteLine($"│ {i * i, 5} │");
+            }
+            Console.CursorLeft = adgust;
+            Console.WriteLine("└───────┘");
+        }
+
+        void printc(int adgust) {
+            Console.CursorTop = 3;
+            Console.CursorLeft = adgust;
+            Console.WriteLine("┌──────────┐");
+            Console.CursorLeft = adgust;
+            Console.WriteLine("│     c    │");
+            Console.CursorLeft = adgust;
+            Console.WriteLine("├──────────┤"); 
+
+            for (int i = a; i <= 50; ++i) {   
+                Console.CursorLeft = adgust;
+                Console.WriteLine($"│ {i * i * i, 8} │");
+            }
+
+            Console.CursorLeft = adgust;
+            Console.WriteLine("└──────────┘");
+        }
+
+        if (b - 10 > 50 - a) {
+            printc(20);
+            printb(36);
+        } else {
+            printb(20);
+            printc(34);
+        }
+        Console.WriteLine();
+    }
+
+    static void Ten() {
+        double R = 6370;
+        Console.WriteLine("Height above earth │ Distance to horizon");
+        Console.WriteLine("───────────────────┼────────────────────");
+        for (int i = 10; i >= 1; --i) {
+            double d = Math.Sqrt(2 * R * i + i * i);
+            Console.WriteLine($"{i,18} │ {d:F2}");
+        }
         Console.WriteLine();
     }
 }

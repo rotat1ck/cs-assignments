@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-class Code {
+﻿class Code {
     static void Main() {
         Console.Clear();
         while (true) {

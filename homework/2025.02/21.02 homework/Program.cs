@@ -13,12 +13,12 @@ class Code {
                 } case ConsoleKey.D1: {
                     Two();
                     break;
-                // } case ConsoleKey.D2: {
-                //     Three();
-                //     break;
-                // } case ConsoleKey.D3: {
-                //     Four();
-                //     break;
+                } case ConsoleKey.D2: {
+                    Three();
+                    break;
+                } case ConsoleKey.D3: {
+                    Four();
+                    break;
                 // } case ConsoleKey.D4: {
                 //     Five();
                 //     break;
@@ -131,5 +131,75 @@ class Code {
         Console.WriteLine();
     }
 
-    
+    static void Three() {
+        int a, b;
+        Console.Write("Enter A: ");
+        a = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter B: ");
+        b = Convert.ToInt32(Console.ReadLine());
+        int a2 = a;
+
+        Console.WriteLine("┌────────┐");
+        Console.WriteLine("│ Number │");
+        Console.WriteLine("├────────┤");
+        while (a > b) {
+            Console.WriteLine($"│ {Math.Round(Math.Sqrt(a), 3), 6} │");
+            a--;
+        }
+        Console.WriteLine("└────────┘");
+
+
+        Console.CursorTop = 2;
+        Console.CursorLeft = 13;
+        Console.WriteLine("┌────────┐");
+        Console.CursorLeft = 13;
+        Console.WriteLine("│ Number │");
+        Console.CursorLeft = 13;
+        Console.WriteLine("├────────┤");
+        do {
+            Console.CursorLeft = 13;
+            Console.WriteLine($"│ {Math.Round(Math.Sqrt(a2), 3), 6} │");
+            a2--;
+        } while (a2 > b);
+        Console.CursorLeft = 13;
+        Console.WriteLine("└────────┘");
+        Console.WriteLine();
+    }
+
+    static void Four() {
+        int n;
+        Console.Write("Enter N: ");
+        n = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("True statements: ");
+
+        int nCopy = n;
+        int count = 0;
+        int sum = 0;
+        while (nCopy > 0) {
+            sum += nCopy % 10;
+            nCopy /= 10;
+            count++;
+        }
+
+        int[] nums = new int[count];
+        count = 0;
+        while (n > 0) {
+            nums[count] = n % 10;
+            n /= 10;
+            count++;
+        }
+
+        if (sum >= 10) {
+            Console.WriteLine("Sum of every number is greater than 10");
+        }
+
+        int prod = 1;
+        foreach(int i in nums) {
+            prod *= i;
+        } 
+        if (prod >= 50) {
+            Console.WriteLine("Prod of every number is greater than 50");
+        }
+    }
 }

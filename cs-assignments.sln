@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "overload", "classwork\2025.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23.02 homework", "homework\2025.02\23.02 homework\23.02 homework.csproj", "{6807C5EB-B95D-4C2A-B559-FE7E7CAFCA7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "partial, child classes", "classwork\2025.02\partial\partial, child classes.csproj", "{BA663454-F71D-4EE7-97E3-D28034AAF7F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{6807C5EB-B95D-4C2A-B559-FE7E7CAFCA7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6807C5EB-B95D-4C2A-B559-FE7E7CAFCA7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6807C5EB-B95D-4C2A-B559-FE7E7CAFCA7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA663454-F71D-4EE7-97E3-D28034AAF7F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA663454-F71D-4EE7-97E3-D28034AAF7F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA663454-F71D-4EE7-97E3-D28034AAF7F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA663454-F71D-4EE7-97E3-D28034AAF7F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,6 +113,7 @@ Global
 		{3504970A-2B22-42B5-8822-3DDCE8D1585A} = {56CCFA5C-A693-4FF6-A7C4-4989D14315EC}
 		{FB7C496B-5F1B-46E2-ADEB-B2CEA2D4CB88} = {CD82D1C2-7F54-46BB-AE77-4B5AAEE3923F}
 		{6807C5EB-B95D-4C2A-B559-FE7E7CAFCA7F} = {56CCFA5C-A693-4FF6-A7C4-4989D14315EC}
+		{BA663454-F71D-4EE7-97E3-D28034AAF7F1} = {CD82D1C2-7F54-46BB-AE77-4B5AAEE3923F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15A670E3-D554-4E35-B725-E502ADC40A99}

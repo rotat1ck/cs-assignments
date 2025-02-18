@@ -15,5 +15,7 @@
         foreach(int i in student.getGrades(Subjects.Administration)) {
             Console.Write(i + " ");
         }
+
+        Russ
     }
 }

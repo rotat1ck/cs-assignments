@@ -60,16 +60,76 @@ class Code {
         // WriteLine(point > point2);
         // WriteLine(point < point2);
 
-        WriteLine("Enter coords(x, y): ");
-        Point point = new() { 
-            x = int.Parse(ReadLine()), 
-            y = int.Parse(ReadLine()) 
-        };
+        // WriteLine("Enter coords(x, y): ");
+        // Point point = new() { 
+        //     x = int.Parse(ReadLine()), 
+        //     y = int.Parse(ReadLine()) 
+        // };
         
-        if (point) {
-            WriteLine("True coords");
-        } else {
-            WriteLine("False coords");
+        // if (point) {
+        //     WriteLine("True coords");
+        // } else {
+        //     WriteLine("False coords");
+        // }
+
+        // Rectangle rectangle = new() { width = 5, height = 10 };
+        // Square square = new() { lenght = 7 };
+
+        // Rectangle rectSquare = square; // неявное
+        // rectSquare.Draw();
+
+        // Square squareRect = (Square)rectangle; // явное
+        // squareRect.Draw();
+
+        // WriteLine("Enter number: ");
+        // int.TryParse(ReadLine(), out int number);
+        // Square sq1 = number; // неявное
+        // sq1.Draw();
+        // number = (int)square; // явное
+
+        // Shop laptops = new Shop(3);
+        // laptops[0] = new Laptop() { Vendor = "Samsung", Price = 5200 };
+        // laptops[1] = new Laptop() { Vendor = "Asus", Price = 6200 };
+        // laptops[2] = new Laptop() { Vendor = "Acer", Price = 5400 };
+
+        // try {
+        //     for (int i = 0; i < laptops.Lenght; i++) {
+        //         WriteLine($"{laptops[i]}");
+        //     }
+        // } catch (Exception ex) {
+        //     WriteLine(ex.Message);
+        // }
+
+        // MultiArray multi = new MultiArray(2, 3);
+        // for (int i = 0; i < multi.Row; i++, WriteLine()) {
+        //     for (int j = 0; j < multi.Column; j++) {
+        //         multi[i, j] = i + j;
+        //         Write($"{multi[i, j]} ");
+        //     }
+        // }
+
+        Shop laptops = new Shop(3);
+        laptops[0] = new Laptop() { Vendor = "Samsung", Price = 5200 };
+        laptops[1] = new Laptop() { Vendor = "Asus", Price = 6200 };
+        laptops[2] = new Laptop() { Vendor = "Acer", Price = 5400 };
+
+        try {
+            for (int i = 0; i < laptops.Lenght; i++) {
+                WriteLine($"{laptops[i]}");
+            }
+            WriteLine();
+            WriteLine($"Asus: {laptops["Asus"]}");
+
+            // ignore
+            laptops["HP"] = new Laptop();
+            
+            WriteLine($"Price: 5200 {laptops[5200]}");
+            WriteLine($"Price: 15200 {laptops[15200]}");
+
+            // ignore
+            laptops[15200] = new Laptop();
+        } catch (Exception ex) {
+            WriteLine(ex.Message);
         }
     }
 }

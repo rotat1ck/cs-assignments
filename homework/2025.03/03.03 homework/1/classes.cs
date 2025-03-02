@@ -68,5 +68,51 @@ class Paralelogram : Figure {
         this.h = h;
     }
 
-    
+    public override double Perimeter() {
+        return 2 * (a + b);
+    }
+
+    public override double Area() {
+        return a * h;
+    }
+}
+
+class Trapeze : Figure {
+    double a;
+    double b;
+    double c;
+    double d;
+    double h;
+
+    public Trapeze(double a, double b, double c, double d, double h) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+        this.h = h;
+    }
+
+    public override double Perimeter() {
+        return a + b + c + d;
+    }
+
+    public override double Area() {
+        return (a + c) * h / 2;
+    }
+}
+
+class Circle : Figure {
+    double r;
+
+    public Circle(double r) {
+        this.r = r;
+    }
+
+    public override double Perimeter() {
+        return 2 * Math.PI * r;
+    }
+
+    public override double Area() {
+        return Math.PI * r * r;
+    }
 }

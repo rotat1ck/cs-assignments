@@ -25,18 +25,18 @@ class Code {
                 } case ConsoleKey.D5: {
                     Six();
                     break;
-                // } case ConsoleKey.D6: {
-                //     Seven();
-                //     break;
-                // } case ConsoleKey.D7: {
-                //     Eight();
-                //     break;
-                // } case ConsoleKey.D8: {
-                //     Nine();
-                //     break;
-                // } case ConsoleKey.D9: {
-                //     Ten();
-                //     break;
+                } case ConsoleKey.D6: {
+                    Seven();
+                    break;
+                } case ConsoleKey.D7: {
+                    Eight();
+                    break;
+                } case ConsoleKey.D8: {
+                    Nine();
+                    break;
+                } case ConsoleKey.D9: {
+                    Ten();
+                    break;
                 } default: {
                     invalidInput = true;
                     break;
@@ -143,5 +143,70 @@ class Code {
         }
         Console.WriteLine(max);
         Console.WriteLine();
+    }
+
+    static void Seven() {
+        Console.Write("Enter word: ");
+        string? input = Console.ReadLine().ToLower();
+        HashSet<char> letters = new(input);
+        Console.WriteLine("Number of unique letters: " + letters.Count);
+        Console.WriteLine();
+    }
+
+    static void Eight() {
+        Console.Write("Enter first word: ");
+        string? input1 = Console.ReadLine().ToLower();
+        Console.Write("Enter second word: ");
+        string? input2 = Console.ReadLine().ToLower();
+
+        List<char> letters1 = new(input1);
+        HashSet<char> letters2 = new(input2);
+        foreach (char ch in letters1) {
+            if (letters2.Contains(ch)) {
+                Console.WriteLine("YES");
+            } else {
+                Console.WriteLine("NO");
+            }
+        }
+        Console.WriteLine();
+    }
+
+    static void Nine() {
+        Console.Write("Enter first word: ");
+        string? input1 = Console.ReadLine().ToLower();
+        Console.Write("Enter second word: ");
+        string? input2 = Console.ReadLine().ToLower();
+        Console.Write("Enter third word: ");
+        string? input3 = Console.ReadLine().ToLower();
+        string? input = input1 + input2 + input3;
+        Hashtable letters = [];
+
+        foreach (char ch in input) {
+            if (letters.ContainsKey(ch)) {
+                letters[ch] = (int?)letters[ch] + 1;
+            } else {
+                letters[ch] = 1;
+            }
+        }
+
+        foreach (var item in letters.Keys) {
+            if ((int?)letters[item] == 1) {
+                Console.WriteLine($"Non repeated letter: {item}");
+            }
+        }
+        Console.WriteLine();
+    }
+
+    static void Ten() {
+        Console.Write("Enter sentence: ");
+        string[] input = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
+        ArrayList words = new(10);
+
+        foreach (string word in input) {
+            words.Add(word);
+            Console.Write(word + " ");
+        }
+        Console.WriteLine("\n");
     }
 }

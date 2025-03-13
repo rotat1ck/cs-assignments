@@ -99,6 +99,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "delegates", "classwork\2025
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21.03 homework", "homework\2025.03\21.03 homework\21.03 homework.csproj", "{CD5E37B6-3286-4239-8221-E326406AC858}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "events", "classwork\2025.03\actions\events.csproj", "{1E6814FA-0326-47CE-BE72-D834EF37EC6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -257,6 +259,10 @@ Global
 		{CD5E37B6-3286-4239-8221-E326406AC858}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD5E37B6-3286-4239-8221-E326406AC858}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD5E37B6-3286-4239-8221-E326406AC858}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6814FA-0326-47CE-BE72-D834EF37EC6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6814FA-0326-47CE-BE72-D834EF37EC6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6814FA-0326-47CE-BE72-D834EF37EC6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6814FA-0326-47CE-BE72-D834EF37EC6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -308,6 +314,7 @@ Global
 		{617C4964-8B69-4CE1-A34A-48532C5D927F} = {05473A3D-0CC0-4E01-9B4D-0CD9F0A89F63}
 		{F8F898C0-7BF6-4172-8DBC-6FC8EAD80EA2} = {05473A3D-0CC0-4E01-9B4D-0CD9F0A89F63}
 		{CD5E37B6-3286-4239-8221-E326406AC858} = {D74DA034-4424-4B6D-AD9D-1FAAAD2F1540}
+		{1E6814FA-0326-47CE-BE72-D834EF37EC6B} = {05473A3D-0CC0-4E01-9B4D-0CD9F0A89F63}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15A670E3-D554-4E35-B725-E502ADC40A99}

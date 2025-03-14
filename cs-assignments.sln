@@ -99,7 +99,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "delegates", "classwork\2025
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21.03 homework", "homework\2025.03\21.03 homework\21.03 homework.csproj", "{CD5E37B6-3286-4239-8221-E326406AC858}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "events", "classwork\2025.03\actions\events.csproj", "{1E6814FA-0326-47CE-BE72-D834EF37EC6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "actions, anonDelegate, lambda", "classwork\2025.03\actions\actions, anonDelegate, lambda.csproj", "{1E6814FA-0326-47CE-BE72-D834EF37EC6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

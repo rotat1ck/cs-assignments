@@ -138,7 +138,7 @@ class Code {
         string[] input = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
         string pattern = @"[eioayu]";
-        Regex regex = new(pattern);
+        Regex regex = new(pattern, RegexOptions.IgnoreCase);
         var res = from s in input select regex.Matches(s).Count();
         Console.WriteLine($"Result: {res.Sum()}\n");
     }

@@ -131,6 +131,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "events, again", "classwork\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2048game", "classwork\2025.03\2048game\2048game.csproj", "{65E6EEFB-7D65-4F08-B88B-EDE6BE59BEB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "attributes", "classwork\2025.03\attributes\attributes.csproj", "{8F33B571-B644-47A6-9D98-F20D5EE05D40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -349,6 +351,10 @@ Global
 		{65E6EEFB-7D65-4F08-B88B-EDE6BE59BEB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65E6EEFB-7D65-4F08-B88B-EDE6BE59BEB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65E6EEFB-7D65-4F08-B88B-EDE6BE59BEB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F33B571-B644-47A6-9D98-F20D5EE05D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F33B571-B644-47A6-9D98-F20D5EE05D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F33B571-B644-47A6-9D98-F20D5EE05D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F33B571-B644-47A6-9D98-F20D5EE05D40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -416,6 +422,7 @@ Global
 		{9BF0F488-5152-490A-BA27-E046B2B5EBEF} = {05473A3D-0CC0-4E01-9B4D-0CD9F0A89F63}
 		{68DC7AE3-EABC-45B8-B7B3-1C733AD622E8} = {05473A3D-0CC0-4E01-9B4D-0CD9F0A89F63}
 		{65E6EEFB-7D65-4F08-B88B-EDE6BE59BEB8} = {05473A3D-0CC0-4E01-9B4D-0CD9F0A89F63}
+		{8F33B571-B644-47A6-9D98-F20D5EE05D40} = {05473A3D-0CC0-4E01-9B4D-0CD9F0A89F63}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15A670E3-D554-4E35-B725-E502ADC40A99}

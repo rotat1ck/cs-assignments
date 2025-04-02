@@ -143,6 +143,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "serialize", "classwork\2025
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "camel 01.04 homework", "homework\2025.04\camel 01.04 homework\camel 01.04 homework.csproj", "{FE270B3E-0341-4763-B5BA-3371EA86B3A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.04 homework", "homework\2025.04\12.04 homework\12.04 homework.csproj", "{8A4C451F-679B-4477-94D5-3ABDABAC844B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -381,6 +383,10 @@ Global
 		{FE270B3E-0341-4763-B5BA-3371EA86B3A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE270B3E-0341-4763-B5BA-3371EA86B3A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE270B3E-0341-4763-B5BA-3371EA86B3A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A4C451F-679B-4477-94D5-3ABDABAC844B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A4C451F-679B-4477-94D5-3ABDABAC844B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A4C451F-679B-4477-94D5-3ABDABAC844B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A4C451F-679B-4477-94D5-3ABDABAC844B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -454,6 +460,7 @@ Global
 		{EFC716AE-3DEB-4E31-9F08-0BE817D7C4D6} = {EF41CFC5-5AE7-4A12-B376-13BE78F40697}
 		{1DB7F209-4354-4BAF-83B0-1940379A5F90} = {EFC716AE-3DEB-4E31-9F08-0BE817D7C4D6}
 		{FE270B3E-0341-4763-B5BA-3371EA86B3A9} = {B4B93F0F-5BBE-494D-AE45-2106F07822A9}
+		{8A4C451F-679B-4477-94D5-3ABDABAC844B} = {B4B93F0F-5BBE-494D-AE45-2106F07822A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15A670E3-D554-4E35-B725-E502ADC40A99}

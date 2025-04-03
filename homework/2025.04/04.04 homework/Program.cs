@@ -14,6 +14,9 @@
                 } case ConsoleKey.D3: {
                     Three();
                     break;
+                } case ConsoleKey.D4: {
+                    Four();
+                    break;
                 } default: {
                     invalidInput = true;
                     break;
@@ -105,16 +108,55 @@
         List<int> combination = [];
         Backtrack(ref candidates, target, 0, ref combination, ref result);
 
-        foreach (var comb in result) {
-            Console.WriteLine(string.Join(",", comb));
+        foreach (var item in result) {
+            Console.WriteLine(string.Join(", ", item));
         }
     }
 
     static void Three() {
-
+        Console.Write("Enter a number: ");
+        int.TryParse(Console.ReadLine(), out int n);
+        int num = 1;
+        while (num <= n) {
+            num *= 4;
+            if (num == n) {
+                Console.WriteLine(true);
+                break;
+            } else if (num > n) {
+                Console.WriteLine(false);
+                break;
+            }
+        }
     }
 
     static void Four() {
-        
+        Console.Write("Enter amount of days: ");
+        int.TryParse(Console.ReadLine(), out int d);
+
+        List<int> jobDifficulty = [1, 2, 3, 4, 5 ];
+        int n = jobDifficulty.Count;
+        if (n < d) { 
+            Console.WriteLine(-1); return; 
+        }
+        int[,] dp = new int[n + 1, d + 1];
+
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= d; j++) {
+                dp[i, j] = int.MaxValue;
+            }
+        }
+
+        dp[0, 0] = 0;
+        for (int j = 1; j <= d; j++) {
+            for (int i = j; i <= n; i++) {
+                int maxDifficulty = 0;
+                for (int k = i; k >= j; k--) {
+                    maxDifficulty = Math.Max(maxDifficulty, jobDifficulty[k - 1]);
+                    dp[i, j] = Math.Min(dp[i, j], dp[k - 1, j - 1] + maxDifficulty);
+                }
+            }
+        }
+        int result = dp[n, d];
+        Console.WriteLine(result == int.MaxValue ? - 1 : result);
     }
 }

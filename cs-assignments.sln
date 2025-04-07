@@ -151,6 +151,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "json", "classwork\2025.04\j
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gc", "classwork\2025.04\gc\gc.csproj", "{347A9BB3-4F25-488B-9AC0-51075D2B6885}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unittest", "classwork\2025.04\unittest\unittest.csproj", "{5D6A7F0E-022C-4291-813C-0239B08B9EA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -405,6 +407,10 @@ Global
 		{347A9BB3-4F25-488B-9AC0-51075D2B6885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{347A9BB3-4F25-488B-9AC0-51075D2B6885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{347A9BB3-4F25-488B-9AC0-51075D2B6885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D6A7F0E-022C-4291-813C-0239B08B9EA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6A7F0E-022C-4291-813C-0239B08B9EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D6A7F0E-022C-4291-813C-0239B08B9EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D6A7F0E-022C-4291-813C-0239B08B9EA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -482,6 +488,7 @@ Global
 		{7BCB6E21-8C6E-4A0E-9D77-D09FACFB7AD1} = {B4B93F0F-5BBE-494D-AE45-2106F07822A9}
 		{3EA79BC1-2F14-4BC1-8DC2-48F85DEDFCDD} = {EFC716AE-3DEB-4E31-9F08-0BE817D7C4D6}
 		{347A9BB3-4F25-488B-9AC0-51075D2B6885} = {EFC716AE-3DEB-4E31-9F08-0BE817D7C4D6}
+		{5D6A7F0E-022C-4291-813C-0239B08B9EA9} = {EFC716AE-3DEB-4E31-9F08-0BE817D7C4D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15A670E3-D554-4E35-B725-E502ADC40A99}

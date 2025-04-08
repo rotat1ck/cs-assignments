@@ -157,6 +157,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "patterns", "classwork\2025.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18.04 homework", "homework\2025.04\18.04 homework\18.04 homework.csproj", "{65806942-4C86-4D26-A813-89B55C4FECD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18.04 homework№2", "homework\2025.04\18.04 homework№2\18.04 homework№2.csproj", "{36F0F764-4694-407B-BB38-D5F1CFC864E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -423,6 +425,10 @@ Global
 		{65806942-4C86-4D26-A813-89B55C4FECD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65806942-4C86-4D26-A813-89B55C4FECD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65806942-4C86-4D26-A813-89B55C4FECD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F0F764-4694-407B-BB38-D5F1CFC864E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F0F764-4694-407B-BB38-D5F1CFC864E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F0F764-4694-407B-BB38-D5F1CFC864E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F0F764-4694-407B-BB38-D5F1CFC864E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -503,6 +509,7 @@ Global
 		{5D6A7F0E-022C-4291-813C-0239B08B9EA9} = {EFC716AE-3DEB-4E31-9F08-0BE817D7C4D6}
 		{8E09BBEF-2C5C-4BE3-AF0E-20B6FCDA107C} = {EFC716AE-3DEB-4E31-9F08-0BE817D7C4D6}
 		{65806942-4C86-4D26-A813-89B55C4FECD7} = {B4B93F0F-5BBE-494D-AE45-2106F07822A9}
+		{36F0F764-4694-407B-BB38-D5F1CFC864E6} = {B4B93F0F-5BBE-494D-AE45-2106F07822A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15A670E3-D554-4E35-B725-E502ADC40A99}

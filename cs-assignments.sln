@@ -167,6 +167,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20.04 homework", "homework\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prototype pattern", "classwork\2025.04\prototype pattern\prototype pattern.csproj", "{F965F5D5-7B43-4C9C-A7B8-8D3BD5D9FBE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "singletone pattern", "classwork\2025.04\singletone pattern\singletone pattern.csproj", "{8A0D7F21-BA57-448B-8427-7D8AB493D10B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -453,6 +455,10 @@ Global
 		{F965F5D5-7B43-4C9C-A7B8-8D3BD5D9FBE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F965F5D5-7B43-4C9C-A7B8-8D3BD5D9FBE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F965F5D5-7B43-4C9C-A7B8-8D3BD5D9FBE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A0D7F21-BA57-448B-8427-7D8AB493D10B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A0D7F21-BA57-448B-8427-7D8AB493D10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A0D7F21-BA57-448B-8427-7D8AB493D10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A0D7F21-BA57-448B-8427-7D8AB493D10B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -538,6 +544,7 @@ Global
 		{B6D6B44E-758C-48E3-BC53-EA6D023B495C} = {EFC716AE-3DEB-4E31-9F08-0BE817D7C4D6}
 		{703940C1-D78E-4FD5-9039-46BA916AB66B} = {B4B93F0F-5BBE-494D-AE45-2106F07822A9}
 		{F965F5D5-7B43-4C9C-A7B8-8D3BD5D9FBE1} = {EFC716AE-3DEB-4E31-9F08-0BE817D7C4D6}
+		{8A0D7F21-BA57-448B-8427-7D8AB493D10B} = {EFC716AE-3DEB-4E31-9F08-0BE817D7C4D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15A670E3-D554-4E35-B725-E502ADC40A99}

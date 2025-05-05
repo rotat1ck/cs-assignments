@@ -1,0 +1,3 @@
+interface IHuman {
+    void Request();
+}

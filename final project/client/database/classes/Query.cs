@@ -1,0 +1,3 @@
+partial class Database : IDatabase {
+    
+}

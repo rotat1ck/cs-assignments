@@ -1,13 +1,16 @@
 using Microsoft.Data.Sqlite;
 
 partial class Database : IDatabase {
+    static protected SqliteConnection? db = null!;
+    static protected SqliteCommand? cmd = null!;
+
     Database() {
-        if (Isdata) {
-            IDatabase.db = new SqliteConnection("Data Source=client.db");
+        if (!IsDatabasePresent()) {
+            db = new SqliteConnection("Data Source=client.db");
         }
     }
 
     ~Database() {
-        IDatabase.db.Close();
+        db.Close();
     }
 }

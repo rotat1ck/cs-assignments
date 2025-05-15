@@ -1,16 +1,12 @@
-using Microsoft.Data.Sqlite;
-
 interface IDatabase {
-    static protected SqliteConnection? db = null!;
-
     // Base DB functions
-    protected bool IsDatabasePresent();
-    protected bool OpenConnection();
-    protected bool CloseConnection();
+    bool IsDatabasePresent();
+    bool OpenConnection();
+    bool CloseConnection();
     public bool CommitChanges();
 
     // Basic query functions
-    protected Type GetSqlQueryReturnType<T>(); // реализовать switch для автоподставления типа, использовать во всех функциях запросов
+    // Type GetSqlQueryReturnType<T>(); // реализовать switch для автоподставления типа, использовать во всех функциях запросов
     public T Query<T>(string sqlQuery);
 
     // Use-simple query functions

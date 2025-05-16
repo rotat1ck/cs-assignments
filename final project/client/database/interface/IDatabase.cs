@@ -1,3 +1,5 @@
+using Microsoft.Data.Sqlite;
+
 interface IDatabase {
     // Base DB functions
     bool IsDatabasePresent();
@@ -6,8 +8,8 @@ interface IDatabase {
     public bool CommitChanges();
 
     // Basic query functions
-    // Type GetSqlQueryReturnType<T>(); // реализовать switch для автоподставления типа, использовать во всех функциях запросов
-    public T Query<T>(string sqlQuery);
+    List<T> GetSqlQueryResults<T>(SqliteDataReader r);
+    public List<T> Query<T>(string sqlQuery);
 
     // Use-simple query functions
     public T SimpleFirstByComparison<T>(string table, string column, T value);

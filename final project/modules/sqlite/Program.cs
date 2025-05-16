@@ -15,7 +15,6 @@ class Code {
 
                     Console.WriteLine($"Name: {name}, Description: {desc}");
                 }
-            }
         }
     }
 }

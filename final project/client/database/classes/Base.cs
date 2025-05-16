@@ -3,7 +3,7 @@ using Microsoft.Data.Sqlite;
 partial class Database : IDatabase {
     public bool OpenConnection() {
         try {
-            db.Open();
+            db.OpenAsync();
             return true;
         } catch (SqliteException) {
             return false;
@@ -16,7 +16,7 @@ partial class Database : IDatabase {
 
     public bool CloseConnection() {
         try {
-            db.Close();
+            db.CloseAsync();
             return true;
         } catch (SqliteException) {
             return false;

@@ -1,3 +1,4 @@
+using System.Data;
 using Microsoft.Data.Sqlite;
 
 interface IDatabase {
@@ -12,8 +13,11 @@ interface IDatabase {
     public List<T> Query<T>(string sqlQuery);
 
     // Use-simple query functions
-    public T SimpleFirstByComparison<T>(string table, string column, T value);
-    public T SimpleFirstOnJoin<T>(string table, string joinTable, string column, T value);
+    public T SimpleFirstByComparison<T>(string table, string column, T value); // <- trash
+    public T SimpleFirstOnJoin<T>(string table, string joinTable, string column, T value); // <- trash
+
+    DataTable GetSqlObjectQueryResults(SqliteDataReader r);
+    public DataTable ObjectQuery(string sqlQuery);
 
     // Migrations
     // Later...

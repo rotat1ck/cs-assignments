@@ -1,0 +1,14 @@
+class Objects : BaseModel {
+    //new string _tablename = "objects"; // необязательно
+
+    new public int id { get; set; }
+    public int object_type { get; set; }
+    public string name { get; set; }
+    public string description { get; set; }
+    public string location { get; set; }
+    public int number { get; set; }
+
+    public Objects(Database db) : base(db) {
+        
+    }
+}

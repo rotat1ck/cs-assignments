@@ -1,16 +1,7 @@
 using System.Data;
 using System.Reflection;
 
-class BaseModel<T> {
-    protected Database db;
-    protected string _tablename { get; set; }
-    protected int id { get; set; }
-
-    protected BaseModel(Database db) {
-        this.db = db;
-        _tablename = this.GetType().Name.ToLower();
-    }
-
+partial class BaseModel<T> {
     public List<T> Query() {
         DataTable dt = db.ObjectQuery("SELECT * FROM " + _tablename);
         List<T> res = [];

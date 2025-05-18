@@ -7,7 +7,7 @@ static class ModelsTest {
 
         List<Objects> objects = objectsModel.Query();
         foreach (Objects obj in objects) {
-            Console.WriteLine(obj.name + obj.description + obj.location);
+            Console.WriteLine($"House {obj.name}, {obj.description}, {obj.location}");
         }
 
         List<Users> users = usersModel.Query();

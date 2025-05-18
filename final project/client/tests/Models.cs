@@ -5,12 +5,12 @@ static class ModelsTest {
         Objects objectsModel = new Objects(db);
         Users usersModel = new Users(db);
 
-        List<Objects> objects = objectsModel.Query<Objects>();
+        List<Objects> objects = objectsModel.Query();
         foreach (Objects obj in objects) {
             Console.WriteLine(obj.name + obj.description + obj.location);
         }
 
-        List<Users> users = usersModel.Query<Users>();
+        List<Users> users = usersModel.Query();
         foreach (Users user in users) {
             Console.WriteLine($"User {user.id}, {user.username}, {user.email}");
         }

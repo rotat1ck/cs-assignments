@@ -1,7 +1,7 @@
 using System.Data;
 using System.Reflection;
 
-class BaseModel {
+class BaseModel<T> {
     protected Database db;
     protected string _tablename { get; set; }
     protected int id { get; set; }
@@ -11,7 +11,7 @@ class BaseModel {
         _tablename = this.GetType().Name.ToLower();
     }
 
-    public List<T> Query<T>() {
+    public List<T> Query() {
         DataTable dt = db.ObjectQuery("SELECT * FROM " + _tablename);
         List<T> res = [];
         foreach (DataRow obj in dt.Rows) {

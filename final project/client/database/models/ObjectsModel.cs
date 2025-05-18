@@ -1,4 +1,4 @@
-class Objects : BaseModel {
+class Objects : BaseModel<Objects> {
     //new string _tablename = "objects"; // необязательно
 
     new public int id { get; set; }

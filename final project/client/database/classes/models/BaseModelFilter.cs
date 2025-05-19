@@ -24,4 +24,12 @@ partial class BaseModel<T> {
         DataTable dt = db.ObjectQuery(sqlQuery);
         return ParseDataTable(dt);
     }
+
+    public T FilterFirst(params (string key, object value)[] filters) {
+        return Filter(filters)[0];
+    }
+
+    public T FilterLast(params (string key, object value)[] filters) {
+        return Filter(filters)[^1];
+    }
 }

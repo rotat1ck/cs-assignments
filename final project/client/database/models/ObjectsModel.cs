@@ -8,6 +8,8 @@ class Objects : BaseModel<Objects> {
     public string location { get; set; }
     public int number { get; set; }
 
+    public Objects() : base() { }
+
     public Objects(Database db) : base(db) {
         
     }

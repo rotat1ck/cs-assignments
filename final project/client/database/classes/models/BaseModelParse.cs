@@ -2,6 +2,19 @@ using System.Data;
 using System.Reflection;
 
 partial class BaseModel<T> {
+
+    private int ParseAutoIncrementID(T obj) {
+        string sqlQuery = "SELECT seq from sqlite_sequence WHERE name = ";
+        PropertyInfo? property = obj.GetType().GetProperty("_tablename");
+        if (property != null) {
+            sqlQuery += "'" + property.GetValue(obj) + "'";
+        } else {
+            sqlQuery += "'" + obj.GetType().Name.ToLower() + "'";
+        }
+
+        List<int> res = db.Query<int>(sqlQuery);
+        return res[0];
+    }
     private List<T> ParseDataTable(DataTable dt) {
         List<T> res = [];
         foreach (DataRow obj in dt.Rows) {

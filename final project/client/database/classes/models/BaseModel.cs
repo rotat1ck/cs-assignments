@@ -1,7 +1,9 @@
 partial class BaseModel<T> {
     protected Database db;
     protected string _tablename { get; set; }
-    protected int id { get; set; }
+    public int id { get; set; }
+
+    protected BaseModel() { }
 
     protected BaseModel(Database db) {
         this.db = db;

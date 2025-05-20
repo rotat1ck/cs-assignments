@@ -5,8 +5,9 @@ static class ModelsTest {
         Objects objectsModel = new Objects(db);
         Users usersModel = new Users(db);
 
-        TestQuery(objectsModel, usersModel);
-        TestFilter(objectsModel);
+        // TestQuery(objectsModel, usersModel);
+        // TestFilter(objectsModel);
+        TestCRUD(objectsModel);
     }
 
     public static void TestQuery(Objects objectsModel, Users usersModel) {
@@ -40,5 +41,20 @@ static class ModelsTest {
 
         Objects objectLast = objectsModel.FilterLast();
         Console.WriteLine($"FilterLast: {objectLast.id}, {objectLast.description}");
+    }
+
+    public static void TestCRUD(Objects objectsModel) {
+        // Добавиление объектов
+        objectsModel.CreateRecord(new Objects {
+            object_type = 1,
+            name = "Барбоскин хаус",
+            description = "Асталависта бебе",
+            location = "ул. Гойда, д. 18",
+            number = 1048936
+        });
+
+        foreach (var obj in objectsModel.Query()) {
+            Console.WriteLine($"ID: {obj.id}, Name: {obj.name}, Description: {obj.description}, Location: {obj.location}");
+        }
     }
 }

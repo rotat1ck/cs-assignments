@@ -13,6 +13,10 @@ partial class BaseModel<T> {
         }
 
         List<int> res = db.Query<int>(sqlQuery);
+        if (res.Count == 0) {
+            CreateAutoIncrementField(obj);
+            return 0;
+        }
         return res[0];
     }
 
@@ -27,6 +31,18 @@ partial class BaseModel<T> {
 
         db.ObjectQuery(sqlQuery);
     }
+
+    private void CreateAutoIncrementField(T obj) {
+        string sqlQuery = "INSERT INTO sqlite_sequence(name, seq) VALUES (";
+        PropertyInfo? property = obj.GetType().GetProperty("_tablename");
+        if (property != null) {
+            sqlQuery += "'" + property.GetValue(obj) + "'";
+        } else {
+            sqlQuery += "'" + obj.GetType().Name.ToLower() + "'";
+        }
+        sqlQuery += ", 0)";
+    }
+    
     private List<T> ParseDataTable(DataTable dt) {
         List<T> res = [];
         foreach (DataRow obj in dt.Rows) {

@@ -18,7 +18,6 @@ partial class BaseModel<T> {
             }
 
             sqlQuery += " (" + string.Join(", ", columnNames) + ") VALUES (" + string.Join(", ", values) + ")";
-            Console.WriteLine(sqlQuery);
             db.ObjectQuery(sqlQuery);
             UpdateAutoIncrementID(obj, AIId + 1);
         }

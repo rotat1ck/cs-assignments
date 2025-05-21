@@ -15,6 +15,18 @@ partial class BaseModel<T> {
         List<int> res = db.Query<int>(sqlQuery);
         return res[0];
     }
+
+    private void UpdateAutoIncrementID(T obj, int newID) {
+        string sqlQuery = "UPDATE sqlite_sequence set seq = " + newID.ToString() + " WHERE name = ";
+        PropertyInfo? property = obj.GetType().GetProperty("_tablename");
+        if (property != null) {
+            sqlQuery += "'" + property.GetValue(obj) + "'";
+        } else {
+            sqlQuery += "'" + obj.GetType().Name.ToLower() + "'";
+        }
+
+        db.ObjectQuery(sqlQuery);
+    }
     private List<T> ParseDataTable(DataTable dt) {
         List<T> res = [];
         foreach (DataRow obj in dt.Rows) {

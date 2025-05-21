@@ -6,7 +6,11 @@ partial class BaseModel<T> {
     protected BaseModel() { }
 
     protected BaseModel(Database db) {
-        this.db = db;
-        _tablename = this.GetType().Name.ToLower();
+        if (db.IsDatabasePresent()) {
+            this.db = db;
+            _tablename = this.GetType().Name.ToLower();
+        } else {
+            throw new Exception("Database is not present");
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace SqliteDB {
             List<int> res = db.Query<int>(sqlQuery);
             if (res.Count == 0) {
                 CreateAutoIncrementField(obj);
-                return 0;
+                return 1;
             }
             return res[0];
         }
@@ -41,7 +41,7 @@ namespace SqliteDB {
             } else {
                 sqlQuery += "'" + obj.GetType().Name.ToLower() + "'";
             }
-            sqlQuery += ", 0)";
+            sqlQuery += ", '1')";
             db.ObjectQuery(sqlQuery);
         }
         

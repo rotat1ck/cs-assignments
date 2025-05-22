@@ -1,18 +1,15 @@
+namespace SqliteDB;
+    
 using System.Data;
 using Microsoft.Data.Sqlite;
 
-partial class Database : IDatabase {
+public partial class Database : IDatabase {
     public T SimpleFirstByComparison<T>(string table, string column, T value) {
         return Query<T>($"SELECT * FROM {table} WHERE {column} = {value}")[0];
     }
 
-    public T SimpleFirstOnJoin<T>(string table, string joinTable, string column, T value) {
-        return Query<T>($"SELECT * FROM {table}")[0];
-    }
-
     public DataTable GetSqlObjectQueryResults(SqliteDataReader r) {
         DataTable entries = new();
-
         try {
             if (r.HasRows) {
                 for (int i = 0; i < r.FieldCount; i++) {
@@ -29,7 +26,7 @@ partial class Database : IDatabase {
                     entries.Rows[j][i] = r.GetValue(i);
                 }
 
-                j++;
+                    j++;
             }
         } catch (SqliteException ex) {
             throw new InvalidOperationException($"Error reading data from database: {ex.Message}", ex);

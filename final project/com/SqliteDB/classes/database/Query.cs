@@ -1,6 +1,8 @@
+namespace SqliteDB;
+    
 using Microsoft.Data.Sqlite;
 
-partial class Database : IDatabase {
+public partial class Database : IDatabase {
     protected Dictionary<Type, Func<SqliteDataReader, object>> typeGetters = new() {
         { typeof(int), r => r.GetInt32(0) },
         { typeof(string), r => r.GetString(0) },

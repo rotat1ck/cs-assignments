@@ -1,6 +1,8 @@
+namespace SqliteDB;
+    
 using Microsoft.Data.Sqlite;
 
-partial class Database : IDatabase {
+public partial class Database : IDatabase {
     public bool OpenConnection() {
         try {
             db.OpenAsync();
@@ -11,7 +13,7 @@ partial class Database : IDatabase {
     }
 
     public bool IsDatabasePresent() {
-        return File.Exists("client.db");
+        return File.Exists(dbPath);
     }
 
     public bool CloseConnection() {

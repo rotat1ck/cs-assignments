@@ -1,7 +1,9 @@
-using System.Data;
-using Microsoft.Data.Sqlite;
+namespace SqliteDB;
 
-interface IDatabase {
+using Microsoft.Data.Sqlite;
+using System.Data;
+
+public interface IDatabase {
     // Base DB functions
     bool IsDatabasePresent();
     bool OpenConnection();
@@ -14,8 +16,6 @@ interface IDatabase {
 
     // Use-simple query functions
     public T SimpleFirstByComparison<T>(string table, string column, T value); // <- trash
-    public T SimpleFirstOnJoin<T>(string table, string joinTable, string column, T value); // <- trash
-
     DataTable GetSqlObjectQueryResults(SqliteDataReader r);
     public DataTable ObjectQuery(string sqlQuery);
 

@@ -1,4 +1,4 @@
-using System.Data;
+using SqliteDB;
 
 static class ModelsTest {
     public static void Test(Database db) {

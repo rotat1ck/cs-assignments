@@ -1,3 +1,5 @@
+using SqliteDB;
+
 class Users : BaseModel<Users> {
     //new string _tablename = "users"; // необязательно
 

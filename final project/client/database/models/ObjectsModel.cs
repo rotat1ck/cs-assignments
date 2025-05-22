@@ -1,3 +1,5 @@
+using SqliteDB;
+
 class Objects : BaseModel<Objects> {
     //new string _tablename = "objects"; // необязательно
 

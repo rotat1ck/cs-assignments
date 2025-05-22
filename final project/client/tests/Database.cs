@@ -1,4 +1,5 @@
 using System.Data;
+using SqliteDB;
 
 static class DbTest {
     public static void Test(Database db) {

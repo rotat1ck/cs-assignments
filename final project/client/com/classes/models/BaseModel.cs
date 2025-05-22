@@ -2,7 +2,6 @@ namespace SqliteDB {
     partial class BaseModel<T> {
         protected Database db;
         protected string _tablename { get; set; }
-        public int id { get; set; }
 
         protected BaseModel() { }
 

@@ -52,6 +52,7 @@ static class ModelsTest {
             location = "ул. Гойда, д. 18",
             number = 1048936
         });
+        
 
         foreach (var obj in objectsModel.Query()) {
             Console.WriteLine($"ID: {obj.id}, Name: {obj.name}, Description: {obj.description}, Location: {obj.location}");

@@ -42,6 +42,7 @@ namespace SqliteDB {
                 sqlQuery += "'" + obj.GetType().Name.ToLower() + "'";
             }
             sqlQuery += ", 0)";
+            db.ObjectQuery(sqlQuery);
         }
         
         private List<T> ParseDataTable(DataTable dt) {

@@ -45,15 +45,29 @@ static class ModelsTest {
 
     public static void TestCRUD(Objects objectsModel) {
         // Добавиление объектов
-        objectsModel.CreateRecord(new Objects {
+        Objects newObj = new Objects {
             object_type = 1,
             name = "Барбоскин хаус",
             description = "Асталависта бебе",
             location = "ул. Гойда, д. 18",
             number = 1048936
-        });
+        };
+        objectsModel.CreateRecord(newObj);
         
+        Console.WriteLine("First: ");
+        foreach (var obj in objectsModel.Query()) {
+            Console.WriteLine($"ID: {obj.id}, Name: {obj.name}, Description: {obj.description}, Location: {obj.location}");
+        }
 
+        Console.WriteLine("Second: ");
+
+        newObj = objectsModel.Query().Last();
+        newObj.description = "new description";
+        objectsModel.UpdateRecord(newObj);
+
+        newObj.name = "new name";
+        newObj.Commit();
+        
         foreach (var obj in objectsModel.Query()) {
             Console.WriteLine($"ID: {obj.id}, Name: {obj.name}, Description: {obj.description}, Location: {obj.location}");
         }

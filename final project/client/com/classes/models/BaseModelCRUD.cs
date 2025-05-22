@@ -2,6 +2,10 @@ namespace SqliteDB {
     using System.Reflection;
 
     partial class BaseModel<T> {
+        /// <summary>
+        ///     Создает переданный объект в базе
+        /// </summary>
+        /// <param name="obj"></param>
         public void CreateRecord(T obj) {
             string sqlQuery = "INSERT INTO " + this._tablename;
             
@@ -24,18 +28,41 @@ namespace SqliteDB {
             db.ObjectQuery(sqlQuery);
         }
         
+        /// <summary>
+        ///     Обновляет переданный объект в базе, 
+        ///     при отсутсвии поля id у obj - InvalidOperationException
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <exception cref="InvalidOperationException"></exception>
         public void UpdateRecord(T obj) {
-            string sqlQuery = "UPDATE " + this._tablename + "SET ";
+            string sqlQuery = "UPDATE " + this._tablename + " SET ";
             PropertyInfo[] properties = typeof(T).GetProperties();
             PropertyInfo? idProperty = obj.GetType().GetProperty("id");
+            List<string> sqlParams = [];
             if (idProperty != null) {
                 foreach (var property in properties) {
-                    sqlQuery += "'" + property.Name + "' = '" + property.GetValue(obj).ToString() + "'";
+                    sqlParams.Add(property.Name + " = '" + property.GetValue(obj).ToString() + "'");
                 }
-                sqlQuery += " WHERE id = " + idProperty.GetValue(obj);
+                sqlQuery += string.Join(", ", sqlParams);
+                sqlQuery += " WHERE id = " + idProperty.GetValue(obj).ToString();
             } else {
-                throw new Exception("Id property wasn't found");
+                throw new InvalidOperationException("Id property wasn't found");
             }
+            db.ObjectQuery(sqlQuery);
+        }
+
+        /// <summary>
+        ///     Обновляет текущий объект в базе
+        /// </summary>
+        public void Commit() {
+            string sqlQuery = "UPDATE " + this._tablename + " SET ";
+            PropertyInfo[] properties = this.GetType().GetProperties();
+            List<string> sqlParams = [];
+            foreach (var property in properties) {
+                sqlParams.Add(property.Name + " = '" + property.GetValue(this).ToString() + "'");
+            }
+            sqlQuery += string.Join(", ", sqlParams);
+            sqlQuery += " WHERE " + properties[0].Name + " = " + properties[0].GetValue(this).ToString();
             db.ObjectQuery(sqlQuery);
         }
 

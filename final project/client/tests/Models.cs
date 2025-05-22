@@ -52,12 +52,12 @@ static class ModelsTest {
             location = "ул. Гойда, д. 18",
             number = 1048936
         };
-        objectsModel.CreateRecord(newObj);
+        //objectsModel.CreateRecord(newObj);
         
-        Console.WriteLine("First: ");
-        foreach (var obj in objectsModel.Query()) {
-            Console.WriteLine($"ID: {obj.id}, Name: {obj.name}, Description: {obj.description}, Location: {obj.location}");
-        }
+        // Console.WriteLine("First: ");
+        // foreach (var obj in objectsModel.Query()) {
+        //     Console.WriteLine($"ID: {obj.id}, Name: {obj.name}, Description: {obj.description}, Location: {obj.location}");
+        // }
 
         Console.WriteLine("Second: ");
 
@@ -67,9 +67,11 @@ static class ModelsTest {
 
         newObj.name = "new name";
         newObj.Commit();
-        
+
         foreach (var obj in objectsModel.Query()) {
             Console.WriteLine($"ID: {obj.id}, Name: {obj.name}, Description: {obj.description}, Location: {obj.location}");
         }
+
+        objectsModel.DeleteRecord(newObj);
     }
 }

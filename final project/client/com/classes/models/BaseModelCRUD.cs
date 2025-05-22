@@ -66,8 +66,23 @@ namespace SqliteDB {
             db.ObjectQuery(sqlQuery);
         }
 
+        /// <summary>
+        ///     Удаляет переданный объект из базы, 
+        ///     при отсутсвии поля id у obj - InvalidOperationException
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <exception cref="InvalidOperationException"></exception>
         public void DeleteRecord(T obj) {
-
+            string sqlQuery = "DELETE FROM " + this._tablename + " WHERE ";
+            PropertyInfo? idProperty = obj.GetType().GetProperty("id");
+            if (idProperty != null) {
+                sqlQuery += "id = " + idProperty.GetValue(obj).ToString();
+            } else {
+                throw new InvalidOperationException("Id property wasn't found");
+            }
+            db.ObjectQuery(sqlQuery);
+            int AIId = Convert.ToInt32(idProperty.GetValue(obj));
+            UpdateAutoIncrementID(obj, AIId);
         }
     }
 }

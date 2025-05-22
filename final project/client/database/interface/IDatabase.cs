@@ -14,7 +14,6 @@ interface IDatabase {
 
     // Use-simple query functions
     public T SimpleFirstByComparison<T>(string table, string column, T value); // <- trash
-    public T SimpleFirstOnJoin<T>(string table, string joinTable, string column, T value); // <- trash
 
     DataTable GetSqlObjectQueryResults(SqliteDataReader r);
     public DataTable ObjectQuery(string sqlQuery);

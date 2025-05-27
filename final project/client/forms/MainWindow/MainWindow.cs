@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using client.forms.NewObject;
 using SqliteDB;
 
 namespace client
@@ -9,19 +10,17 @@ namespace client
         public MainWindow()
         {
             InitializeComponent();
-
-            
+            UpdateObjectsLayout();
         }
 
         private void NewObjectButton_Click(object sender, EventArgs e) {
-            controller.objectsModel.CreateRecord(new Objects
-            {
-                object_type = 1,
-                name = "Meow 3",
-                description = "Goida Description",
-                location = "Goida Street",
-                number = 123
-            });
+            using (NewObjectForm objectForm = new NewObjectForm()) {
+                if (objectForm.ShowDialog() == DialogResult.OK) {
+                    Objects newObject = objectForm.NewObject;
+                    controller.objectsModel.CreateRecord(newObject);
+                    UpdateObjectsLayout();
+                }
+            }
         }
 
         private void UpdateObjectsLayout() {

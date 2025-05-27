@@ -44,12 +44,14 @@
             resources.ApplyResources(CreateButton, "CreateButton");
             CreateButton.Name = "CreateButton";
             CreateButton.UseVisualStyleBackColor = true;
+            CreateButton.Click += CreateButton_Click;
             // 
             // CancelButton
             // 
             resources.ApplyResources(CancelButton, "CancelButton");
             CancelButton.Name = "CancelButton";
             CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
             // 
             // CreateLabel
             // 

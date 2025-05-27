@@ -1,6 +1,6 @@
 using SqliteDB;
 
-class Objects : BaseModel<Objects> {
+public class Objects : BaseModel<Objects> {
     //new string _tablename = "objects"; // необязательно
 
     public int id { get; set; }

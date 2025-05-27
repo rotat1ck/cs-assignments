@@ -4,5 +4,8 @@
     <Compile Update="forms\MainWindow\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\NewObject\NewObjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -81,7 +81,5 @@ public partial class BaseModel<T> {
             throw new InvalidOperationException("Id property wasn't found");
         }
         db.ObjectQuery(sqlQuery);
-        int AIId = Convert.ToInt32(idProperty.GetValue(obj));
-        UpdateAutoIncrementID(obj, AIId);
     }
 }

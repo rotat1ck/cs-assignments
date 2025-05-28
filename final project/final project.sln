@@ -8,14 +8,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteDB", "com\SqliteDB\SqliteDB.csproj", "{A2BC6F61-B29E-4EE3-B7FB-4B088181D346}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "client\client.csproj", "{53489CD1-8C82-47AF-A47D-FF70513225E6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A2BC6F61-B29E-4EE3-B7FB-4B088181D346} = {A2BC6F61-B29E-4EE3-B7FB-4B088181D346}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A2BC6F61-B29E-4EE3-B7FB-4B088181D346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -26,6 +26,9 @@ Global
 		{53489CD1-8C82-47AF-A47D-FF70513225E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53489CD1-8C82-47AF-A47D-FF70513225E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53489CD1-8C82-47AF-A47D-FF70513225E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A2BC6F61-B29E-4EE3-B7FB-4B088181D346} = {CAB9F54C-44E4-4A92-B848-3A1E3FA3002F}

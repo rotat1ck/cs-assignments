@@ -16,9 +16,9 @@
   <ItemGroup>
     <EmbeddedResource Remove="Form1.resx" />
   </ItemGroup>
-
+	
   <ItemGroup>
-    <ProjectReference Include="..\com\SqliteDB\SqliteDB.csproj" />
+	<PackageReference Include="SqliteDB" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

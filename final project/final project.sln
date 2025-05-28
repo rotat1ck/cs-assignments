@@ -8,9 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteDB", "com\SqliteDB\SqliteDB.csproj", "{A2BC6F61-B29E-4EE3-B7FB-4B088181D346}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "client\client.csproj", "{53489CD1-8C82-47AF-A47D-FF70513225E6}"
-	ProjectSection(ProjectDependencies) = postProject
-		{A2BC6F61-B29E-4EE3-B7FB-4B088181D346} = {A2BC6F61-B29E-4EE3-B7FB-4B088181D346}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

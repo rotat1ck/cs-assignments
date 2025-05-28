@@ -1,7 +1,4 @@
-﻿using System.Windows.Forms;
-using client.forms.MainWindow;
-using client.forms.NewObject;
-using SqliteDB;
+﻿using client.forms.NewObject;
 
 namespace client
 {

@@ -13,6 +13,6 @@ public class Objects : BaseModel<Objects> {
     public Objects() : base() { }
 
     public Objects(Database db) : base(db) {
-        
+
     }
 }

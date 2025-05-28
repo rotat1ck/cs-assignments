@@ -12,6 +12,6 @@ public class Users : BaseModel<Users> {
     public Users() : base() { }
 
     public Users(Database db) : base(db) {
-        
+
     }
 }

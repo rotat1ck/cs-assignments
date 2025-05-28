@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using client.forms.MainWindow;
 using client.forms.NewObject;
 using SqliteDB;
 
@@ -7,8 +8,7 @@ namespace client
     public partial class MainWindow : Form
     {
         private DBController controller = new("client.db");
-        public MainWindow()
-        {
+        public MainWindow() {
             InitializeComponent();
             UpdateObjectsLayout();
         }
@@ -36,8 +36,7 @@ namespace client
 
                 Button deleteButton = new Button {
                     Size = new Size(75, 30),
-                    Text = "Delete",
-                    Tag = obj
+                    Text = "Delete"
                 };
 
                 deleteButton.Click += (s, e) => {

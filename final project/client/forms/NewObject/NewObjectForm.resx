@@ -119,10 +119,14 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="CreateButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 314</value>
+    <value>14, 393</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CreateButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="CreateButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 35</value>
+    <value>149, 47</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="CreateButton.TabIndex" type="System.Int32, mscorlib">
@@ -144,10 +148,13 @@
     <value>12</value>
   </data>
   <data name="CancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>192, 314</value>
+    <value>218, 393</value>
+  </data>
+  <data name="CancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="CancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 35</value>
+    <value>149, 47</value>
   </data>
   <data name="CancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -171,10 +178,10 @@
     <value>True</value>
   </data>
   <data name="CreateLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 9</value>
+    <value>109, 12</value>
   </data>
   <data name="CreateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 15</value>
+    <value>182, 20</value>
   </data>
   <data name="CreateLabel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -202,10 +209,10 @@
     <value>NoControl</value>
   </data>
   <data name="NameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 50</value>
+    <value>14, 60</value>
   </data>
   <data name="NameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 15</value>
+    <value>42, 20</value>
   </data>
   <data name="NameLabel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -226,10 +233,13 @@
     <value>9</value>
   </data>
   <data name="NameInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 47</value>
+    <value>113, 57</value>
+  </data>
+  <data name="NameInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="NameInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 23</value>
+    <value>254, 27</value>
   </data>
   <data name="NameInput.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -250,10 +260,10 @@
     <value>True</value>
   </data>
   <data name="DescriptionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 150</value>
+    <value>14, 180</value>
   </data>
   <data name="DescriptionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 15</value>
+    <value>82, 20</value>
   </data>
   <data name="DescriptionLabel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -274,10 +284,13 @@
     <value>7</value>
   </data>
   <data name="ObjectTypeInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 97</value>
+    <value>113, 117</value>
+  </data>
+  <data name="ObjectTypeInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="ObjectTypeInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 23</value>
+    <value>254, 27</value>
   </data>
   <data name="ObjectTypeInput.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -301,10 +314,10 @@
     <value>NoControl</value>
   </data>
   <data name="LocationLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 200</value>
+    <value>14, 240</value>
   </data>
   <data name="LocationLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 15</value>
+    <value>54, 20</value>
   </data>
   <data name="LocationLabel.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -325,10 +338,13 @@
     <value>5</value>
   </data>
   <data name="DescriptionInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 147</value>
+    <value>113, 177</value>
+  </data>
+  <data name="DescriptionInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="DescriptionInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 23</value>
+    <value>254, 27</value>
   </data>
   <data name="DescriptionInput.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -352,10 +368,10 @@
     <value>NoControl</value>
   </data>
   <data name="NumberLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 250</value>
+    <value>14, 300</value>
   </data>
   <data name="NumberLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 15</value>
+    <value>90, 20</value>
   </data>
   <data name="NumberLabel.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -376,10 +392,13 @@
     <value>3</value>
   </data>
   <data name="LocationInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 197</value>
+    <value>113, 237</value>
+  </data>
+  <data name="LocationInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="LocationInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 23</value>
+    <value>254, 27</value>
   </data>
   <data name="LocationInput.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -403,10 +422,10 @@
     <value>NoControl</value>
   </data>
   <data name="ObjectTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 100</value>
+    <value>14, 120</value>
   </data>
   <data name="ObjectTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 15</value>
+    <value>98, 20</value>
   </data>
   <data name="ObjectTypeLabel.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -427,10 +446,13 @@
     <value>1</value>
   </data>
   <data name="NumberInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 247</value>
+    <value>113, 297</value>
+  </data>
+  <data name="NumberInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="NumberInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 23</value>
+    <value>254, 27</value>
   </data>
   <data name="NumberInput.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -451,10 +473,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
+    <value>8, 20</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>334, 361</value>
+    <value>382, 453</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Новый объект</value>

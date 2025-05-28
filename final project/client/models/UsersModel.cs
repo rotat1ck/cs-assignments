@@ -9,6 +9,8 @@ public class Users : BaseModel<Users> {
     public string password { get; set; }
     public string email { get; set; }
 
+    public Users() : base() { }
+
     public Users(Database db) : base(db) {
         
     }

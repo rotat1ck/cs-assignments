@@ -1,18 +1,13 @@
-﻿using System.Windows.Forms;
-using client.forms.MainWindow;
-using client.forms.NewObject;
-using SqliteDB;
+﻿using client.forms.NewObject;
+using client.models.data;
 
-namespace client
-{
-    public partial class MainWindow : Form
-    {
-        private DBController controller = new("client.db");
-        public MainWindow() {
+namespace client{
+    public partial class ObjectsManagementForm : Form {
+        private DBController controller = new DBController("client.db");
+        public ObjectsManagementForm() {
             InitializeComponent();
             UpdateObjectsLayout();
         }
-
         private void NewObjectButton_Click(object sender, EventArgs e) {
             using (NewObjectForm objectForm = new NewObjectForm()) {
                 if (objectForm.ShowDialog() == DialogResult.OK) {

@@ -1,4 +1,6 @@
 using SqliteDB;
+using client.models.data;
+using client.models.linking;
 
 static class ModelsTest {
     public static void Test(Database db) {

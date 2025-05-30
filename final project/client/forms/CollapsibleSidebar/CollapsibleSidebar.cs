@@ -6,29 +6,26 @@ using System.Threading.Tasks;
 
 namespace client.forms.MainWindow
 {
-    public class CollapsibleSidebar : MenuStrip
-    {
+    public class CollapsibleSidebar : MenuStrip {
         private bool _expanded = false;
         private const int CollapsedWidth = 50;
         private const int ExpandedWidth = 200;
-
+        private Form currentActiveForm;
+        private Panel contentPanel = new Panel();
         public event Action<string> MenuItemClicked;
 
-        private class MenuItemData
-        {
+        private class MenuItemData {
             public string Icon { get; set; }
             public string Text { get; set; }
             public bool Checked { get; set; }
         }
 
-        public CollapsibleSidebar()
-        {
+        public CollapsibleSidebar() {
             InitializeSidebar();
             SetupMenuItems();
         }
 
-        private void InitializeSidebar()
-        {
+        private void InitializeSidebar() {
             this.Width = CollapsedWidth;
             this.Dock = DockStyle.Left;
             this.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
@@ -38,8 +35,8 @@ namespace client.forms.MainWindow
             this.ForeColor = Color.White;
         }
 
-        private void SetupMenuItems()
-        {
+        private void SetupMenuItems() {
+            //шторка
             var menuItems = new[]
             {
                 new MenuItemData { Icon = "📊", Text = "Управление объектами", Checked = false },
@@ -60,19 +57,8 @@ namespace client.forms.MainWindow
             toggleButton.Click += (s, e) => this.ToggleSidebar();
             this.Items.Insert(0, toggleButton);
 
-            this.MenuItemClicked += (menuItem) => {
-                if (menuItem == "Выход") {
-                    Application.Exit();
-                }
-                else {
-                    MessageBox.Show($"В работе"); // ДОДЕЛАТЬ
-                }
-            };
-
-            foreach (var item in menuItems)
-            {
-                var menuItem = new ToolStripButton
-                {
+            foreach (var item in menuItems) {
+                var menuItem = new ToolStripButton {
                     Text = _expanded ? $"{item.Icon} {item.Text}" : item.Icon,
                     Tag = item,
                     DisplayStyle = ToolStripItemDisplayStyle.Text,
@@ -90,27 +76,68 @@ namespace client.forms.MainWindow
             }
         }
 
-        private void MenuItem_Click(object sender, EventArgs e)
-        {
-            if (sender is ToolStripButton btn && btn.Tag is MenuItemData item)
-            {
-                MenuItemClicked?.Invoke(item.Text);
+        private void MenuItem_Click(object sender, EventArgs e) {
+            if (sender is ToolStripButton btn && btn.Tag is MenuItemData item) { OpenChildForm(item.Text); }
+        }
+
+        private void OpenChildForm(string menuItemText) {
+            Form childForm = null;
+
+            switch (menuItemText) {
+                case "Управление объектами":
+                    childForm = new ObjectsManagementForm();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
+
+                case "Задачи":
+                    childForm = new TasksForm();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
+
+                case "Документация":
+                    childForm = new DocumentationForm();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
+
+                case "Сотрудники":
+                    childForm = new EmployeesForm();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
+
+                case "Учетная запись":
+                    childForm = new AccountForm();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
+
+                case "Выход":
+                    Application.Exit();
+                    return;
+                default:
+                    MessageBox.Show($"Недоступно.");
+                    return;
             }
         }
 
-        public void ToggleSidebar()
-        {
+        // анимка для свертывания шапки
+        public void ToggleSidebar() {
             _expanded = !_expanded;
             this.Width = _expanded ? ExpandedWidth : CollapsedWidth;
             UpdateButtonsState();
         }
 
-        private void UpdateButtonsState()
-        {
-            foreach (ToolStripItem item in this.Items)
-            {
-                if (item is ToolStripButton btn && btn.Tag is MenuItemData menuItem)
-                {
+        private void UpdateButtonsState() {
+            foreach (ToolStripItem item in this.Items) {
+                if (item is ToolStripButton btn && btn.Tag is MenuItemData menuItem) {
                     btn.Text = _expanded ? $"{menuItem.Icon} {menuItem.Text}" : menuItem.Icon;
                     btn.Width = _expanded ? ExpandedWidth - 10 : CollapsedWidth - 10;
                 }

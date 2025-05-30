@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SqliteDB;
+﻿using SqliteDB;
+using client.models.data;
+using client.models.linking;
 
 namespace client {
     internal class DBController {

@@ -1,4 +1,4 @@
-﻿using client.forms.NewObject;
+﻿using client.forms.Modals.NewObject;
 using client.models.data;
 
 namespace client{

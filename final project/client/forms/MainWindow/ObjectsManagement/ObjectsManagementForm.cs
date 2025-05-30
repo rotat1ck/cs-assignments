@@ -3,7 +3,6 @@ using client.models.data;
 
 namespace client{
     public partial class ObjectsManagementForm : Form {
-        private DBController controller = new DBController("client.db");
         public ObjectsManagementForm() {
             InitializeComponent();
             UpdateObjectsLayout();
@@ -12,7 +11,7 @@ namespace client{
             using (NewObjectForm objectForm = new NewObjectForm()) {
                 if (objectForm.ShowDialog() == DialogResult.OK) {
                     Objects newObject = objectForm.NewObject;
-                    controller.objectsModel.CreateRecord(newObject);
+                    DBController.objectsModel.CreateRecord(newObject);
                     UpdateObjectsLayout();
                 }
             }
@@ -20,7 +19,7 @@ namespace client{
 
         private void UpdateObjectsLayout() {
             ObjectsLayout.Controls.Clear();
-            List<Objects> objects = controller.objectsModel.Query();
+            List<Objects> objects = DBController.objectsModel.Query();
 
             foreach (Objects obj in objects) {
                 Button objButton = new Button {
@@ -37,7 +36,7 @@ namespace client{
                 deleteButton.Click += (s, e) => {
                     ObjectsLayout.Controls.Remove(objButton);
                     ObjectsLayout.Controls.Remove(deleteButton);
-                    controller.objectsModel.DeleteRecord(obj);
+                    DBController.objectsModel.DeleteRecord(obj);
                 };
                 ObjectsLayout.Controls.Add(deleteButton);
             }

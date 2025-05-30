@@ -1,6 +1,6 @@
 ﻿using SqliteDB;
 
-namespace client.models {
+namespace client.models.data {
     public class Photos : BaseModel<Photos> {
         public int id { get; set; }
         public string name { get; set; }

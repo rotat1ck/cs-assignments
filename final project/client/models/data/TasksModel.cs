@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SqliteDB;
+﻿using SqliteDB;
 
-namespace client.models {
+namespace client.models.data {
     public class Tasks : BaseModel<Tasks> {
         public int id { get; set; }
         public string name { get; set; }

@@ -1,6 +1,6 @@
 ﻿using SqliteDB;
 
-namespace client.models {
+namespace client.models.data {
     public class Employees : BaseModel<Employees> {
         public int id { get; set; }
         public int role_id { get; set; }

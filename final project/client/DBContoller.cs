@@ -1,4 +1,6 @@
 ﻿using SqliteDB;
+using client.models.data;
+using client.models.linking;
 
 namespace client {
     internal class DBController {

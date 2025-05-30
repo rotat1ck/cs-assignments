@@ -1,4 +1,6 @@
-﻿namespace client.forms.NewObject {
+﻿using client.models.data;
+
+namespace client.forms.NewObject {
     public partial class NewObjectForm : Form {
         public Objects NewObject { get; private set; }
 

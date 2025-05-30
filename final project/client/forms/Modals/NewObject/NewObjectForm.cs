@@ -1,6 +1,6 @@
 ﻿using client.models.data;
 
-namespace client.forms.NewObject {
+namespace client.forms.Modals.NewObject {
     public partial class NewObjectForm : Form {
         public Objects NewObject { get; private set; }
 

@@ -27,6 +27,7 @@
     <Folder Include="forms\MainWindow\Documentation\" />
     <Folder Include="forms\MainWindow\Employees\" />
     <Folder Include="forms\MainWindow\ObjectsManagement\" />
+    <Folder Include="forms\Новая папка\" />
     <Folder Include="models\data\" />
   </ItemGroup>
 	

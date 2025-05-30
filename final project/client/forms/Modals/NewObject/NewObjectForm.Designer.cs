@@ -1,4 +1,4 @@
-﻿namespace client.forms.NewObject {
+﻿namespace client.forms.Modals.NewObject {
     partial class NewObjectForm {
         /// <summary>
         /// Required designer variable.

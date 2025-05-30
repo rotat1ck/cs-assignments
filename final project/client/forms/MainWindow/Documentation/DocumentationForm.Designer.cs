@@ -27,7 +27,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocumentationForm));
             collapsibleSidebar1 = new CollapsibleSidebar();
             label1 = new Label();
             SuspendLayout();
@@ -59,7 +58,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources.photo_2025_05_30_11_56_46;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(682, 453);
             Controls.Add(collapsibleSidebar1);
             Controls.Add(label1);

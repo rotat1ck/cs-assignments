@@ -7,10 +7,10 @@ class Code {
         Users usersModel = new Users(db);
 
         Users user = usersModel.Filter(5);
-        user.username = "fgdhdfgdfg";
-        user.email = "' DELETE * FROM users --";
+        user.username = "123123123";
+        user.email = """""'; DELETE * FROM users --"""";
         user.password = "goidaaa";
 
-        usersModel.UpdateRecord(user);
+        user.Commit();
     }
 }

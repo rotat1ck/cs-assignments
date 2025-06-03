@@ -66,14 +66,22 @@ public partial class BaseModel<T> {
     public void Commit() {
         SqliteCommand cmd = db.GetEmptyCommand();
         string sqlQuery = "UPDATE " + this._tablename + " SET ";
-        PropertyInfo[] properties = this.GetType().GetProperties();
+
+        PropertyInfo[] properties = typeof(T).GetProperties();
         List<string> sqlParams = [];
-        foreach (var property in properties) {
-            sqlParams.Add(property.Name + " = @" + property.Name);
+
+        for (int i = 1; i < properties.Length; ++i) {
+            sqlParams.Add(properties[i].Name + " = @" + properties[i].Name);
         }
         sqlQuery += string.Join(", ", sqlParams);
-        sqlQuery += " WHERE " + properties[0].Name + " = " + properties[0].GetValue(this).ToString();
-        db.ObjectQuery(sqlQuery);
+        sqlQuery += " WHERE " + properties[0].Name + " = @" + properties[0].Name;
+
+        cmd.CommandText = sqlQuery;
+
+        foreach (var property in properties) {
+            cmd.Parameters.AddWithValue("@" + property.Name, property.GetValue(this).ToString());
+        }
+        db.DirectQuery(cmd);
     }
 
     /// <summary>
@@ -82,13 +90,14 @@ public partial class BaseModel<T> {
     /// <param name="obj"></param>
     /// <exception cref="InvalidOperationException"></exception>
     public void DeleteRecord(T obj) {
-        string sqlQuery = "DELETE FROM " + this._tablename + " WHERE ";
-        PropertyInfo? idProperty = obj.GetType().GetProperty("id");
-        if (idProperty != null) {
-            sqlQuery += "id = " + idProperty.GetValue(obj).ToString();
-        } else {
-            throw new InvalidOperationException("Id property wasn't found");
-        }
-        db.ObjectQuery(sqlQuery);
+        SqliteCommand cmd = db.GetEmptyCommand();
+        PropertyInfo[] properties = typeof(T).GetProperties();
+
+        string sqlQuery = "DELETE FROM " + this._tablename + " WHERE " + properties[0].Name + " = @" + properties[0].Name;
+
+        cmd.CommandText = sqlQuery;
+        cmd.Parameters.AddWithValue("@" + properties[0].Name, properties[0].GetValue(obj).ToString());
+
+        db.DirectQuery(cmd);
     }
 }

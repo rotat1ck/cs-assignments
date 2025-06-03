@@ -1,6 +1,7 @@
 namespace SqliteDB;
     
 using System.Reflection;
+using Microsoft.Data.Sqlite;
 
 public partial class BaseModel<T> {
     /// <summary>
@@ -8,24 +9,30 @@ public partial class BaseModel<T> {
     /// </summary>
     /// <param name="obj"></param>
     public void CreateRecord(T obj) {
+        SqliteCommand cmd = db.GetEmptyCommand();
         string sqlQuery = "INSERT INTO " + this._tablename;
         
         PropertyInfo[] properties = typeof(T).GetProperties();
         PropertyInfo? idProperty = obj.GetType().GetProperty("id");
         string[] columnNames = new string[properties.Length];
-        string[] values =  new string[properties.Length];
+        string[] values = new string[properties.Length];
         if (idProperty != null) {
             int AIId = ParseAutoIncrementID(obj);
             idProperty.SetValue(obj, AIId);
     
             for (int i = 0; i < properties.Length; i++) {
                 columnNames[i] = properties[i].Name;
-                values[i] = "'" + properties[i].GetValue(obj).ToString() + "'";
+                values[i] = properties[i].GetValue(obj).ToString();
             }
             UpdateAutoIncrementID(obj, AIId + 1);
         }
-        sqlQuery += " (" + string.Join(", ", columnNames) + ") VALUES (" + string.Join(", ", values) + ")";
-        db.ObjectQuery(sqlQuery);
+        sqlQuery += " (" + string.Join(", ", columnNames) + ") VALUES (@" + string.Join(", @", columnNames) + ")";
+        cmd.CommandText = sqlQuery;
+
+        for (int i = 0; i < columnNames.Length; ++i) {
+            cmd.Parameters.AddWithValue("@" + columnNames[i], values[i]);
+        }
+        db.DirectQuery(cmd);
     }
     
     /// <summary>

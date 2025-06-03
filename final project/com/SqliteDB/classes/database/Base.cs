@@ -35,6 +35,6 @@ public partial class Database : IDatabase {
     }
 
     public SqliteCommand GetEmptyCommand() {
-
+        return db.CreateCommand();
     }
 }

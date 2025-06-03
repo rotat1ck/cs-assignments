@@ -33,4 +33,8 @@ public partial class Database : IDatabase {
             return false;
         }
     }
+
+    public SqliteCommand GetEmptyCommand() {
+
+    }
 }

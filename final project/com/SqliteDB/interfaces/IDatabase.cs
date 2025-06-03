@@ -9,6 +9,7 @@ public interface IDatabase {
     bool OpenConnection();
     bool CloseConnection();
     public bool CommitChanges();
+    SqliteCommand GetEmptyCommand();
 
     // Basic query functions
     List<T> GetSqlQueryResults<T>(SqliteDataReader r);

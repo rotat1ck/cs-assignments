@@ -36,37 +36,42 @@ public partial class BaseModel<T> {
     }
     
     /// <summary>
-    ///     Обновляет переданный объект в базе, 
-    ///     при отсутсвии поля id у obj - InvalidOperationException
+    ///     Обновляет переданный объект в базе
     /// </summary>
     /// <param name="obj"></param>
-    /// <exception cref="InvalidOperationException"></exception>
     public void UpdateRecord(T obj) {
+        SqliteCommand cmd = db.GetEmptyCommand();
         string sqlQuery = "UPDATE " + this._tablename + " SET ";
+
         PropertyInfo[] properties = typeof(T).GetProperties();
-        PropertyInfo? idProperty = obj.GetType().GetProperty("id");
         List<string> sqlParams = [];
-        if (idProperty != null) {
-            foreach (var property in properties) {
-                sqlParams.Add(property.Name + " = '" + property.GetValue(obj).ToString() + "'");
+
+        foreach (var property in properties) {
+            if (property.Name != "id") {
+                sqlParams.Add(property.Name + " = @" + property.Name);
             }
-            sqlQuery += string.Join(", ", sqlParams);
-            sqlQuery += " WHERE id = " + idProperty.GetValue(obj).ToString();
-        } else {
-            throw new InvalidOperationException("Id property wasn't found");
         }
-        db.ObjectQuery(sqlQuery);
+        sqlQuery += string.Join(", ", sqlParams);
+        sqlQuery += " WHERE " + properties[0].Name + " = @" + properties[0].Name;
+        
+        cmd.CommandText = sqlQuery;
+
+        foreach (var property in properties) {
+            cmd.Parameters.AddWithValue("@" + property.Name, property.GetValue(obj).ToString());
+        }
+        db.DirectQuery(cmd);
     }
 
     /// <summary>
     ///     Обновляет текущий объект в базе
     /// </summary>
     public void Commit() {
+        SqliteCommand cmd = db.GetEmptyCommand();
         string sqlQuery = "UPDATE " + this._tablename + " SET ";
         PropertyInfo[] properties = this.GetType().GetProperties();
         List<string> sqlParams = [];
         foreach (var property in properties) {
-            sqlParams.Add(property.Name + " = '" + property.GetValue(this).ToString() + "'");
+            sqlParams.Add(property.Name + " = @" + property.Name);
         }
         sqlQuery += string.Join(", ", sqlParams);
         sqlQuery += " WHERE " + properties[0].Name + " = " + properties[0].GetValue(this).ToString();

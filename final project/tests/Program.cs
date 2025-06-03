@@ -6,13 +6,10 @@ class Code {
         Database db = new("client.db");
         Users usersModel = new Users(db);
 
-        Users user = new Users {
-            employee_id = 1,
-            username = "rotatick",
-            password = "' DELETE * FROM users --",
-            email = "goida@gmail.com"
-        };
+        Users user = usersModel.Filter(5);
+        user.username = "123";
+        user.email = "' DELETE * FROM users --";
 
-        usersModel.CreateRecord(user);
+        usersModel.UpdateRecord(user);
     }
 }

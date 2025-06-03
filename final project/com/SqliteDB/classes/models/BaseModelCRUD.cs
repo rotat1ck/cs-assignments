@@ -61,7 +61,7 @@ public partial class BaseModel<T> {
     }
 
     /// <summary>
-    ///     Обновляет текущий объект в базе
+    ///     Обновляет текущий объект в базе по первому свойству
     /// </summary>
     public void Commit() {
         SqliteCommand cmd = db.GetEmptyCommand();
@@ -85,10 +85,9 @@ public partial class BaseModel<T> {
     }
 
     /// <summary>
-    ///     Удаляет переданный объект из базы
+    ///     Удаляет переданный объект из базы по первому свойству
     /// </summary>
     /// <param name="obj"></param>
-    /// <exception cref="InvalidOperationException"></exception>
     public void DeleteRecord(T obj) {
         SqliteCommand cmd = db.GetEmptyCommand();
         PropertyInfo[] properties = typeof(T).GetProperties();

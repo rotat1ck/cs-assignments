@@ -1,29 +1,45 @@
 namespace SqliteDB;
 
 using System.Data;
+using Microsoft.Data.Sqlite;
 
 public partial class BaseModel<T> {
+    /// <summary>
+    ///     Фильтр по id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns>Экземпляр объекта типа T</returns>
     public T Filter(int id) {
-        string sqlQuery = "SELECT * FROM " + _tablename + " WHERE id = " + id;
-        DataTable dt = db.ObjectQuery(sqlQuery);
+        SqliteCommand cmd = db.GetEmptyCommand();
+        string sqlQuery = "SELECT * FROM " + _tablename + " WHERE id = @id";
+
+        cmd.CommandText = sqlQuery;
+        cmd.Parameters.AddWithValue("@id", id);
+
+        DataTable dt = db.DirectQuery(cmd);
         return ParseDataTable(dt)[0];
     }
     public List<T> Filter(params (string key, object value)[] filters) {
+        SqliteCommand cmd = db.GetEmptyCommand();
         string sqlQuery = "SELECT * FROM " + _tablename;
-        List<T> res = [];
+        List<string> sqlParams = [];
 
         if (filters.Length > 0) {
             sqlQuery += " WHERE ";
         } 
         
         for (int i = 0; i < filters.Length; i++) {
-            sqlQuery += filters[i].key + " = '" + filters[i].value + "'";
-            if (filters.Length - i > 1) {
-                sqlQuery += " AND ";
-            }
+            sqlParams.Add(filters[i].key + " = @value" + i);
+        }
+        sqlQuery += string.Join(" AND ", sqlParams);
+
+        cmd.CommandText = sqlQuery;
+
+        for (int i = 0; i < filters.Length; i++) {
+            cmd.Parameters.AddWithValue($"@value{i}", filters[i].value);
         }
 
-        DataTable dt = db.ObjectQuery(sqlQuery);
+        DataTable dt = db.DirectQuery(cmd);
         return ParseDataTable(dt);
     }
 

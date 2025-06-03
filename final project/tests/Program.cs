@@ -6,11 +6,10 @@ class Code {
         Database db = new("client.db");
         Users usersModel = new Users(db);
 
-        Users user = usersModel.Filter(5);
-        user.username = "123123123";
-        user.email = """""'; DELETE * FROM users --"""";
-        user.password = "goidaaa";
+        List<Users> users = usersModel.Filter(("id", "5"));
 
-        user.Commit();
+        foreach (var user in users) {
+            Console.WriteLine($"{user.id} + {user.username}");
+        }
     }
 }

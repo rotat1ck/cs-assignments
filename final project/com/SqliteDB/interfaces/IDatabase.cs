@@ -9,6 +9,7 @@ public interface IDatabase {
     bool OpenConnection();
     bool CloseConnection();
     public bool CommitChanges();
+    SqliteCommand GetEmptyCommand();
 
     // Basic query functions
     List<T> GetSqlQueryResults<T>(SqliteDataReader r);
@@ -18,6 +19,7 @@ public interface IDatabase {
     public T SimpleFirstByComparison<T>(string table, string column, T value); // <- trash
     DataTable GetSqlObjectQueryResults(SqliteDataReader r);
     public DataTable ObjectQuery(string sqlQuery);
+    public DataTable DirectQuery(SqliteCommand sqliteCommand);
 
     // Migrations
     // Later...

@@ -8,6 +8,8 @@
     <PackageId>SqliteDB</PackageId>
     <Title>SqliteDB</Title>
     <Authors>rotatick</Authors>
+    <Version>1.1.0</Version>
+    <RepositoryUrl>https://github.com/rotat1ck/cs-assignments/tree/main/final%20project/com/SqliteDB</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

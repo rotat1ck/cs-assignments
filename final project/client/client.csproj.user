@@ -22,7 +22,7 @@
     <Compile Update="forms\Modals\NewObject\NewObjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="forms\Modals\NewTask\NewTasksForm.cs">
+    <Compile Update="forms\Modals\NewTask\NewTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

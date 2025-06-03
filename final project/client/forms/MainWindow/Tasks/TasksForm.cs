@@ -1,4 +1,5 @@
 ﻿using client.models.data;
+using client.forms.Modals.NewTask;
 
 namespace client.forms.MainWindow
 {
@@ -6,10 +7,6 @@ namespace client.forms.MainWindow
         public TasksForm() {
             InitializeComponent();
             UpdateTasksList();
-        }
-
-        private void NewTaskButton_Click(object sender, EventArgs e) {
-
         }
 
         private void UpdateTasksList() {
@@ -20,6 +17,13 @@ namespace client.forms.MainWindow
                 Button taskButton = new Button {
                     Size = new Size(200, 30),
                     Text = task.name
+                };
+                taskButton.Click += (s, e) => {
+                    CurrentTaskLabel.Visible = true;
+                    CurrentTaskLayout.Visible = true;
+
+                    CurrentTaskName.Text = task.name;
+                    CurrentTaskContent.Text = task.content;
                 };
                 TasksLayout.Controls.Add(taskButton);
 
@@ -34,6 +38,16 @@ namespace client.forms.MainWindow
                     DBController.tasksModel.DeleteRecord(task);
                 };
                 TasksLayout.Controls.Add(deleteButton);
+            }
+        }
+
+        private void NewTaskButton_Click(object sender, EventArgs e) {
+            using (NewTaskForm taskForm = new NewTaskForm()) {
+                if (taskForm.ShowDialog() == DialogResult.OK) {
+                    Tasks newTask = taskForm.Task;
+                    DBController.tasksModel.CreateRecord(newTask);
+                    UpdateTasksList();
+                }
             }
         }
     }

@@ -36,7 +36,7 @@ public partial class BaseModel<T> {
     }
     
     /// <summary>
-    ///     Обновляет переданный объект в базе
+    ///     Обновляет переданный объект в базе по первому свойству
     /// </summary>
     /// <param name="obj"></param>
     public void UpdateRecord(T obj) {
@@ -46,10 +46,8 @@ public partial class BaseModel<T> {
         PropertyInfo[] properties = typeof(T).GetProperties();
         List<string> sqlParams = [];
 
-        foreach (var property in properties) {
-            if (property.Name != "id") {
-                sqlParams.Add(property.Name + " = @" + property.Name);
-            }
+        for (int i = 1; i < properties.Length; ++i) {
+            sqlParams.Add(properties[i].Name + " = @" + properties[i].Name);
         }
         sqlQuery += string.Join(", ", sqlParams);
         sqlQuery += " WHERE " + properties[0].Name + " = @" + properties[0].Name;
@@ -79,8 +77,7 @@ public partial class BaseModel<T> {
     }
 
     /// <summary>
-    ///     Удаляет переданный объект из базы, 
-    ///     при отсутсвии поля id у obj - InvalidOperationException
+    ///     Удаляет переданный объект из базы
     /// </summary>
     /// <param name="obj"></param>
     /// <exception cref="InvalidOperationException"></exception>

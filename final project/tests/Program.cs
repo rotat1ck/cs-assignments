@@ -7,8 +7,9 @@ class Code {
         Users usersModel = new Users(db);
 
         Users user = usersModel.Filter(5);
-        user.username = "123";
+        user.username = "fgdhdfgdfg";
         user.email = "' DELETE * FROM users --";
+        user.password = "goidaaa";
 
         usersModel.UpdateRecord(user);
     }

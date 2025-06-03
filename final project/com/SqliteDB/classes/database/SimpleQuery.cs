@@ -26,7 +26,7 @@ public partial class Database : IDatabase {
                     entries.Rows[j][i] = r.GetValue(i);
                 }
 
-                    j++;
+                j++;
             }
         } catch (SqliteException ex) {
             throw new InvalidOperationException($"Error reading data from database: {ex.Message}", ex);
@@ -40,6 +40,13 @@ public partial class Database : IDatabase {
         OpenConnection();
         cmd = db.CreateCommand();
         cmd.CommandText = sqlQuery;
+
+        return GetSqlObjectQueryResults(cmd.ExecuteReader());
+    }
+
+    public DataTable DirectQuery(SqliteCommand sqliteCommand) {
+        OpenConnection();
+        cmd = sqliteCommand;
 
         return GetSqlObjectQueryResults(cmd.ExecuteReader());
     }

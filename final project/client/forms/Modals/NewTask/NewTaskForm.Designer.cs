@@ -98,7 +98,7 @@
             CreateButton.UseVisualStyleBackColor = true;
             CreateButton.Click += CreateButton_Click;
             // 
-            // NewTasksForm
+            // NewTaskForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -110,8 +110,13 @@
             Controls.Add(CreateLabel);
             Controls.Add(CancelButton);
             Controls.Add(CreateButton);
-            Name = "NewTasksForm";
+            MaximizeBox = false;
+            MaximumSize = new Size(350, 230);
+            MinimizeBox = false;
+            MinimumSize = new Size(350, 230);
+            Name = "NewTaskForm";
             Text = "Новая задача";
+            TopMost = true;
             ResumeLayout(false);
             PerformLayout();
         }

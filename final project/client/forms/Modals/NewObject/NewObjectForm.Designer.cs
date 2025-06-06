@@ -125,6 +125,8 @@
             Controls.Add(CreateLabel);
             Controls.Add(CancelButton);
             Controls.Add(CreateButton);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "NewObjectForm";
             ResumeLayout(false);
             PerformLayout();

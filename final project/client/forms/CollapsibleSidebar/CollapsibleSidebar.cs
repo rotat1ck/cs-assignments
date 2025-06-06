@@ -39,13 +39,15 @@ namespace client.forms.MainWindow
             //шторка
             var menuItems = new[]
             {
-                new MenuItemData { Icon = "📊", Text = "Управление объектами", Checked = false },
-                new MenuItemData { Icon = "✅", Text = "Задачи", Checked = true },
+                new MenuItemData { Icon = "📊", Text = "Управление объектами", Checked = true },
+                new MenuItemData { Icon = "✅", Text = "Задачи", Checked = false },
                 new MenuItemData { Icon = "📄", Text = "Документация", Checked = false },
                 new MenuItemData { Icon = "👥", Text = "Сотрудники", Checked = false },
                 new MenuItemData { Icon = "👤", Text = "Учетная запись", Checked = false },
                 new MenuItemData { Icon = "🚪", Text = "Выход", Checked = false }
             };
+
+            // Toggle button
             var toggleButton = new ToolStripButton {
                 Text = "≡",
                 DisplayStyle = ToolStripItemDisplayStyle.Text,
@@ -54,6 +56,7 @@ namespace client.forms.MainWindow
                 BackColor = Color.FromArgb(50, 50, 50),
                 ForeColor = Color.White
             };
+
             toggleButton.Click += (s, e) => this.ToggleSidebar();
             this.Items.Insert(0, toggleButton);
 
@@ -71,13 +74,23 @@ namespace client.forms.MainWindow
                 };
 
                 menuItem.Click += MenuItem_Click;
-
                 this.Items.Add(menuItem);
             }
         }
 
         private void MenuItem_Click(object sender, EventArgs e) {
-            if (sender is ToolStripButton btn && btn.Tag is MenuItemData item) { OpenChildForm(item.Text); }
+            if (sender is ToolStripButton btn && btn.Tag is MenuItemData item) {
+                foreach (ToolStripItem menuItem in this.Items) {
+                    if (menuItem is ToolStripButton button && button.Tag is MenuItemData data) {
+                        data.Checked = false;
+                        button.Checked = false;
+                    }
+                }
+
+                item.Checked = true;
+                btn.Checked = true;
+                OpenChildForm(item.Text);
+            }
         }
 
         private void OpenChildForm(string menuItemText) {

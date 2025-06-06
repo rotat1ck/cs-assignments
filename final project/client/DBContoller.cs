@@ -5,6 +5,7 @@ using client.models.linking;
 namespace client {
     public static class DBController {
         public static Database db;
+        public static Users? currentUser = null!;
 
         public static Objects objectsModel;
         public static Documents documentsModel;

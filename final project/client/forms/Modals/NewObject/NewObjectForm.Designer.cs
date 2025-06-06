@@ -1,4 +1,4 @@
-﻿namespace client.forms.NewObject {
+﻿namespace client.forms.Modals.NewObject {
     partial class NewObjectForm {
         /// <summary>
         /// Required designer variable.
@@ -125,6 +125,8 @@
             Controls.Add(CreateLabel);
             Controls.Add(CancelButton);
             Controls.Add(CreateButton);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "NewObjectForm";
             ResumeLayout(false);
             PerformLayout();

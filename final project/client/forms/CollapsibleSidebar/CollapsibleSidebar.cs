@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using client.models.data;
 
 namespace client.forms.MainWindow
 {
@@ -37,15 +38,20 @@ namespace client.forms.MainWindow
 
         private void SetupMenuItems() {
             //шторка
-            var menuItems = new[]
-            {
+            var menuItems = new List<MenuItemData> {
                 new MenuItemData { Icon = "📊", Text = "Управление объектами", Checked = true },
                 new MenuItemData { Icon = "✅", Text = "Задачи", Checked = false },
                 new MenuItemData { Icon = "📄", Text = "Документация", Checked = false },
-                new MenuItemData { Icon = "👥", Text = "Сотрудники", Checked = false },
                 new MenuItemData { Icon = "👤", Text = "Учетная запись", Checked = false },
                 new MenuItemData { Icon = "🚪", Text = "Выход", Checked = false }
             };
+
+            Users user = DBController.currentUser;
+            if (user != null) {
+                if (user.rights > 0) {
+                    menuItems.Insert(4, new MenuItemData { Icon = "👥", Text = "Сотрудники", Checked = false });
+                }
+            }
 
             // Toggle button
             var toggleButton = new ToolStripButton {

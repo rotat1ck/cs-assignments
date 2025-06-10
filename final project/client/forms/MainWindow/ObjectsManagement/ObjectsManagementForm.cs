@@ -24,7 +24,7 @@ namespace client{
             foreach (Objects obj in objects) {
                 Button objButton = new Button {
                     Size = new Size(240, 30),
-                    Text = obj.name + ", " + obj.number
+                    Text = obj.name
                 };
                 ObjectsLayout.Controls.Add(objButton);
 

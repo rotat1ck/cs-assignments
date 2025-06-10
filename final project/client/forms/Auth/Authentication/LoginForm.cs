@@ -22,6 +22,7 @@ namespace client.forms.Auth.Authentication {
             List<Users> userByUsername = DBController.usersModel.Filter(("username", UsernameInput.Text), ("password", UsernameInput.Text));
 
             if (userByUsername.Count > 0) {
+                DBController.currentUser = userByUsername[userByUsername.Count - 1];
                 childForm = new ObjectsManagementForm();
                 this.Hide();
                 childForm.StartPosition = FormStartPosition.CenterScreen;
@@ -32,6 +33,7 @@ namespace client.forms.Auth.Authentication {
             List<Users> userByEmail = DBController.usersModel.Filter(("email", UsernameInput.Text), ("password", UsernameInput.Text));
 
             if (userByEmail.Count > 0) {
+                DBController.currentUser = userByEmail[userByEmail.Count - 1];
                 childForm = new ObjectsManagementForm();
                 this.Hide();
                 childForm.StartPosition = FormStartPosition.CenterScreen;

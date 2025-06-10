@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using client.forms.Auth.Authentication;
 using client.models.data;
 
 namespace client.forms.MainWindow
@@ -46,9 +47,9 @@ namespace client.forms.MainWindow
                 new MenuItemData { Icon = "🚪", Text = "Выход", Checked = false }
             };
 
-            Users user = DBController.currentUser;
-            if (user != null) {
-                if (user.rights > 0) {
+            
+            if (DBController.currentUser != null) {
+                if (DBController.currentUser.rights > 0) {
                     menuItems.Insert(4, new MenuItemData { Icon = "👥", Text = "Сотрудники", Checked = false });
                 }
             }
@@ -139,8 +140,11 @@ namespace client.forms.MainWindow
                     break;
 
                 case "Выход":
-                    Application.Exit();
-                    return;
+                    childForm = new LoginForm();
+                    this.Parent.Hide();
+                    childForm.StartPosition = FormStartPosition.CenterScreen;
+                    childForm.Show();
+                    break;
                 default:
                     MessageBox.Show($"Недоступно.");
                     return;

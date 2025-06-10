@@ -119,10 +119,14 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="CreateButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 293</value>
+    <value>218, 384</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CreateButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="CreateButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 35</value>
+    <value>149, 47</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="CreateButton.TabIndex" type="System.Int32, mscorlib">
@@ -141,13 +145,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CreateButton.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>8</value>
   </data>
   <data name="CancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>192, 293</value>
+    <value>14, 384</value>
+  </data>
+  <data name="CancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="CancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 35</value>
+    <value>149, 47</value>
   </data>
   <data name="CancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -165,16 +172,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CancelButton.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>7</value>
   </data>
   <data name="CreateLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="CreateLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 9</value>
+    <value>109, 12</value>
   </data>
   <data name="CreateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 15</value>
+    <value>182, 20</value>
   </data>
   <data name="CreateLabel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -192,26 +199,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CreateLabel.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="NameLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="NameLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>6</value>
   </data>
   <data name="NameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 45</value>
+    <value>0, 0</value>
   </data>
   <data name="NameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 15</value>
+    <value>100, 23</value>
   </data>
   <data name="NameLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="NameLabel.Text" xml:space="preserve">
-    <value>Имя:</value>
+    <value>15</value>
   </data>
   <data name="&gt;&gt;NameLabel.Name" xml:space="preserve">
     <value>NameLabel</value>
@@ -223,13 +220,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;NameLabel.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>5</value>
   </data>
   <data name="NameInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 43</value>
+    <value>14, 60</value>
+  </data>
+  <data name="NameInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="NameInput.PlaceholderText" xml:space="preserve">
+    <value>Название:</value>
   </data>
   <data name="NameInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 23</value>
+    <value>353, 27</value>
   </data>
   <data name="NameInput.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -244,91 +247,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;NameInput.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="DescriptionLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="DescriptionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 135</value>
-  </data>
-  <data name="DescriptionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 15</value>
-  </data>
-  <data name="DescriptionLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="DescriptionLabel.Text" xml:space="preserve">
-    <value>Описание:</value>
-  </data>
-  <data name="&gt;&gt;DescriptionLabel.Name" xml:space="preserve">
-    <value>DescriptionLabel</value>
-  </data>
-  <data name="&gt;&gt;DescriptionLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DescriptionLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;DescriptionLabel.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="ObjectTypeInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 88</value>
-  </data>
-  <data name="ObjectTypeInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 23</value>
-  </data>
-  <data name="ObjectTypeInput.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;ObjectTypeInput.Name" xml:space="preserve">
-    <value>ObjectTypeInput</value>
-  </data>
-  <data name="&gt;&gt;ObjectTypeInput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ObjectTypeInput.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ObjectTypeInput.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="LocationLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LocationLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LocationLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 180</value>
-  </data>
-  <data name="LocationLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 15</value>
-  </data>
-  <data name="LocationLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="LocationLabel.Text" xml:space="preserve">
-    <value>Адрес:</value>
-  </data>
-  <data name="&gt;&gt;LocationLabel.Name" xml:space="preserve">
-    <value>LocationLabel</value>
-  </data>
-  <data name="&gt;&gt;LocationLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LocationLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;LocationLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="DescriptionInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 133</value>
+    <value>14, 240</value>
+  </data>
+  <data name="DescriptionInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="DescriptionInput.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="DescriptionInput.PlaceholderText" xml:space="preserve">
+    <value>Описание:</value>
   </data>
   <data name="DescriptionInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 23</value>
+    <value>353, 129</value>
   </data>
   <data name="DescriptionInput.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -343,43 +277,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;DescriptionInput.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="NumberLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="NumberLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="NumberLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 225</value>
-  </data>
-  <data name="NumberLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 15</value>
-  </data>
-  <data name="NumberLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="NumberLabel.Text" xml:space="preserve">
-    <value>Кад. номер:</value>
-  </data>
-  <data name="&gt;&gt;NumberLabel.Name" xml:space="preserve">
-    <value>NumberLabel</value>
-  </data>
-  <data name="&gt;&gt;NumberLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NumberLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;NumberLabel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="LocationInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 178</value>
+    <value>14, 180</value>
+  </data>
+  <data name="LocationInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="LocationInput.PlaceholderText" xml:space="preserve">
+    <value>Адрес:</value>
   </data>
   <data name="LocationInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 23</value>
+    <value>353, 27</value>
   </data>
   <data name="LocationInput.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -396,41 +306,17 @@
   <data name="&gt;&gt;LocationInput.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="ObjectTypeLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ObjectTypeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ObjectTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 90</value>
-  </data>
-  <data name="ObjectTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 15</value>
-  </data>
-  <data name="ObjectTypeLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="ObjectTypeLabel.Text" xml:space="preserve">
-    <value>Тип объекта:</value>
-  </data>
-  <data name="&gt;&gt;ObjectTypeLabel.Name" xml:space="preserve">
-    <value>ObjectTypeLabel</value>
-  </data>
-  <data name="&gt;&gt;ObjectTypeLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ObjectTypeLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ObjectTypeLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="NumberInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 223</value>
+    <value>219, 120</value>
+  </data>
+  <data name="NumberInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="NumberInput.PlaceholderText" xml:space="preserve">
+    <value>Кад. номер:</value>
   </data>
   <data name="NumberInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 23</value>
+    <value>148, 27</value>
   </data>
   <data name="NumberInput.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -445,22 +331,46 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;NumberInput.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ObjectTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 120</value>
+  </data>
+  <data name="ObjectTypeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 28</value>
+  </data>
+  <data name="ObjectTypeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;ObjectTypeComboBox.Name" xml:space="preserve">
+    <value>ObjectTypeComboBox</value>
+  </data>
+  <data name="&gt;&gt;ObjectTypeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ObjectTypeComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ObjectTypeComboBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
+    <value>8, 20</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>334, 341</value>
+    <value>379, 444</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>350, 380</value>
+    <value>397, 491</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>350, 380</value>
+    <value>397, 491</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Новый объект</value>

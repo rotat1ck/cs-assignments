@@ -1,3 +1,5 @@
+using client.forms.Auth.Authentication;
+
 namespace client;
 
 static class Program
@@ -12,6 +14,6 @@ static class Program
         // see https://aka.ms/applicationconfiguration.
         DBController.InitDB("client.db");
         ApplicationConfiguration.Initialize();
-        Application.Run(new ObjectsManagementForm());
+        Application.Run(new LoginForm());
     }    
 }

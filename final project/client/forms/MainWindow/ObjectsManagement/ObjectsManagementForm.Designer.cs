@@ -27,10 +27,10 @@
             collapsibleSidebar1 = new forms.MainWindow.CollapsibleSidebar();
             ObjectsLayout = new TableLayoutPanel();
             ObjectsLabel = new Label();
-            label1 = new Label();
-            panel1 = new Panel();
-            label2 = new Label();
-            panel2 = new Panel();
+            ObjectInfoLabel = new Label();
+            ObjectInfoLayout = new Panel();
+            TasksLabel = new Label();
+            TasksLayout = new TableLayoutPanel();
             SuspendLayout();
             // 
             // NewObjectButton
@@ -81,41 +81,51 @@
             ObjectsLabel.TabIndex = 6;
             ObjectsLabel.Text = "Список объектов";
             // 
-            // label1
+            // ObjectInfoLabel
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Location = new Point(463, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 20);
-            label1.TabIndex = 7;
-            label1.Text = "label1";
+            ObjectInfoLabel.AutoSize = true;
+            ObjectInfoLabel.BackColor = Color.Transparent;
+            ObjectInfoLabel.Location = new Point(463, 9);
+            ObjectInfoLabel.Name = "ObjectInfoLabel";
+            ObjectInfoLabel.Size = new Size(175, 20);
+            ObjectInfoLabel.TabIndex = 7;
+            ObjectInfoLabel.Text = "Информация о объекте";
+            ObjectInfoLabel.Visible = false;
             // 
-            // panel1
+            // ObjectInfoLayout
             // 
-            panel1.BackColor = Color.Transparent;
-            panel1.Location = new Point(464, 32);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(206, 263);
-            panel1.TabIndex = 8;
+            ObjectInfoLayout.BackColor = Color.Transparent;
+            ObjectInfoLayout.Location = new Point(464, 32);
+            ObjectInfoLayout.Name = "ObjectInfoLayout";
+            ObjectInfoLayout.Size = new Size(206, 263);
+            ObjectInfoLayout.TabIndex = 8;
+            ObjectInfoLayout.Visible = false;
             // 
-            // label2
+            // TasksLabel
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Location = new Point(65, 309);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 20);
-            label2.TabIndex = 9;
-            label2.Text = "label2";
+            TasksLabel.AutoSize = true;
+            TasksLabel.BackColor = Color.Transparent;
+            TasksLabel.Location = new Point(65, 309);
+            TasksLabel.Name = "TasksLabel";
+            TasksLabel.Size = new Size(176, 20);
+            TasksLabel.TabIndex = 9;
+            TasksLabel.Text = "Прикрепленные задачи";
+            TasksLabel.Visible = false;
             // 
-            // panel2
+            // TasksLayout
             // 
-            panel2.BackColor = Color.Transparent;
-            panel2.Location = new Point(65, 332);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(251, 109);
-            panel2.TabIndex = 10;
+            TasksLayout.AutoScroll = true;
+            TasksLayout.BackColor = Color.Transparent;
+            TasksLayout.ColumnCount = 2;
+            TasksLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            TasksLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            TasksLayout.Location = new Point(65, 332);
+            TasksLayout.Name = "TasksLayout";
+            TasksLayout.RowCount = 1;
+            TasksLayout.RowStyles.Add(new RowStyle());
+            TasksLayout.Size = new Size(393, 109);
+            TasksLayout.TabIndex = 10;
+            TasksLayout.Visible = false;
             // 
             // ObjectsManagementForm
             // 
@@ -125,11 +135,11 @@
             BackgroundImage = Properties.Resources.photo_2025_05_30_11_56_46;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(682, 453);
+            Controls.Add(TasksLayout);
             Controls.Add(NewObjectButton);
-            Controls.Add(panel2);
-            Controls.Add(label2);
-            Controls.Add(panel1);
-            Controls.Add(label1);
+            Controls.Add(TasksLabel);
+            Controls.Add(ObjectInfoLayout);
+            Controls.Add(ObjectInfoLabel);
             Controls.Add(ObjectsLabel);
             Controls.Add(collapsibleSidebar1);
             Controls.Add(ObjectsLayout);
@@ -140,7 +150,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(700, 500);
             Name = "ObjectsManagementForm";
-            Text = "MainWindow";
+            Text = "Object Management";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -152,9 +162,9 @@
         private forms.MainWindow.CollapsibleSidebar collapsibleSidebar1;
         private TableLayoutPanel ObjectsLayout;
         private Label ObjectsLabel;
-        private Label label1;
-        private Panel panel1;
-        private Label label2;
-        private Panel panel2;
+        private Label ObjectInfoLabel;
+        private Panel ObjectInfoLayout;
+        private Label TasksLabel;
+        private TableLayoutPanel TasksLayout;
     }
 }

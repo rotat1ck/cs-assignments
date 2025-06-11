@@ -26,6 +26,14 @@ namespace client{
                     Size = new Size(240, 30),
                     Text = obj.name
                 };
+                
+                objButton.Click += (s, e) => {
+                    ObjectInfoLabel.Visible = true;
+                    ObjectInfoLabel.Visible = true;
+
+                    TasksLabel.Visible = true;
+                    TasksLayout.Visible = true;
+                };
                 ObjectsLayout.Controls.Add(objButton);
 
                 Button deleteButton = new Button {

@@ -18,14 +18,14 @@
   </ItemGroup>
 	
   <ItemGroup>
-	<PackageReference Include="SqliteDB" Version="1.0.0" />
+	<PackageReference Include="SqliteDB" Version="1.1.0" />
   </ItemGroup>
 	
   <ItemGroup>
+    <Folder Include="forms\MainWindow\Employees\User\" />
     <Folder Include="forms\MainWindow\Tasks\" />
     <Folder Include="forms\MainWindow\Account\" />
     <Folder Include="forms\MainWindow\Documentation\" />
-    <Folder Include="forms\MainWindow\Employees\" />
     <Folder Include="forms\MainWindow\ObjectsManagement\" />
     <Folder Include="models\data\" />
   </ItemGroup>

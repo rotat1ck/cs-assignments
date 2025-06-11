@@ -1,4 +1,5 @@
 ﻿using client.models.data;
+using client.models.linking;
 
 namespace client.forms.Modals.NewObject {
     public partial class NewObjectForm : Form {
@@ -6,11 +7,14 @@ namespace client.forms.Modals.NewObject {
 
         public NewObjectForm() {
             InitializeComponent();
+            ObjectTypeComboBox.DataSource = DBController.objects_TypesModel.Query();
+            ObjectTypeComboBox.DisplayMember = "name";
         }
 
         private void CreateButton_Click(object sender, EventArgs e) {
+            var objectType = (Objects_Types)ObjectTypeComboBox.SelectedItem;
             NewObject = new Objects {
-                object_type = int.Parse(ObjectTypeInput.Text),
+                object_type = objectType.id,
                 name = NameInput.Text,
                 description = DescriptionInput.Text,
                 location = LocationInput.Text,

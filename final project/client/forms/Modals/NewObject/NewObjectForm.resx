@@ -119,14 +119,10 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="CreateButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>218, 384</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="CreateButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>191, 288</value>
   </data>
   <data name="CreateButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 47</value>
+    <value>130, 35</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="CreateButton.TabIndex" type="System.Int32, mscorlib">
@@ -148,13 +144,10 @@
     <value>8</value>
   </data>
   <data name="CancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 384</value>
-  </data>
-  <data name="CancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>12, 288</value>
   </data>
   <data name="CancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 47</value>
+    <value>130, 35</value>
   </data>
   <data name="CancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -178,10 +171,10 @@
     <value>True</value>
   </data>
   <data name="CreateLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>109, 12</value>
+    <value>95, 9</value>
   </data>
   <data name="CreateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 20</value>
+    <value>141, 15</value>
   </data>
   <data name="CreateLabel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -205,7 +198,7 @@
     <value>0, 0</value>
   </data>
   <data name="NameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
+    <value>88, 17</value>
   </data>
   <data name="NameLabel.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -223,16 +216,13 @@
     <value>5</value>
   </data>
   <data name="NameInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 60</value>
-  </data>
-  <data name="NameInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>12, 45</value>
   </data>
   <data name="NameInput.PlaceholderText" xml:space="preserve">
     <value>Название:</value>
   </data>
   <data name="NameInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>353, 27</value>
+    <value>309, 23</value>
   </data>
   <data name="NameInput.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -250,10 +240,7 @@
     <value>4</value>
   </data>
   <data name="DescriptionInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 240</value>
-  </data>
-  <data name="DescriptionInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>12, 180</value>
   </data>
   <data name="DescriptionInput.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -262,7 +249,7 @@
     <value>Описание:</value>
   </data>
   <data name="DescriptionInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>353, 129</value>
+    <value>309, 98</value>
   </data>
   <data name="DescriptionInput.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -280,16 +267,13 @@
     <value>3</value>
   </data>
   <data name="LocationInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 180</value>
-  </data>
-  <data name="LocationInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>12, 135</value>
   </data>
   <data name="LocationInput.PlaceholderText" xml:space="preserve">
     <value>Адрес:</value>
   </data>
   <data name="LocationInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>353, 27</value>
+    <value>309, 23</value>
   </data>
   <data name="LocationInput.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -307,16 +291,13 @@
     <value>2</value>
   </data>
   <data name="NumberInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 120</value>
-  </data>
-  <data name="NumberInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>192, 90</value>
   </data>
   <data name="NumberInput.PlaceholderText" xml:space="preserve">
     <value>Кад. номер:</value>
   </data>
   <data name="NumberInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 27</value>
+    <value>130, 23</value>
   </data>
   <data name="NumberInput.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -334,10 +315,14 @@
     <value>1</value>
   </data>
   <data name="ObjectTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 120</value>
+    <value>12, 90</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ObjectTypeComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="ObjectTypeComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 28</value>
+    <value>165, 23</value>
   </data>
   <data name="ObjectTypeComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -358,19 +343,16 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 20</value>
+    <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>379, 444</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>333, 339</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>397, 491</value>
+    <value>349, 378</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>397, 491</value>
+    <value>349, 378</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Новый объект</value>

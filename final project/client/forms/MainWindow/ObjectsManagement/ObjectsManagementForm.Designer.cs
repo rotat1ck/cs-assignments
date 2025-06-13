@@ -27,8 +27,8 @@
             collapsibleSidebar1 = new client.forms.MainWindow.CollapsibleSidebar();
             ObjectsLayout = new TableLayoutPanel();
             ObjectsLabel = new Label();
-            ObjectInfoLabel = new Label();
-            ObjectInfoLayout = new Panel();
+            ChosenInfoLabel = new Label();
+            ChosenInfoLayout = new Panel();
             TasksLabel = new Label();
             TasksLayout = new TableLayoutPanel();
             SuspendLayout();
@@ -84,26 +84,26 @@
             ObjectsLabel.TabIndex = 6;
             ObjectsLabel.Text = "Список объектов";
             // 
-            // ObjectInfoLabel
+            // ChosenInfoLabel
             // 
-            ObjectInfoLabel.AutoSize = true;
-            ObjectInfoLabel.BackColor = Color.Transparent;
-            ObjectInfoLabel.Location = new Point(405, 7);
-            ObjectInfoLabel.Name = "ObjectInfoLabel";
-            ObjectInfoLabel.Size = new Size(138, 15);
-            ObjectInfoLabel.TabIndex = 7;
-            ObjectInfoLabel.Text = "Информация о объекте";
-            ObjectInfoLabel.Visible = false;
+            ChosenInfoLabel.AutoSize = true;
+            ChosenInfoLabel.BackColor = Color.Transparent;
+            ChosenInfoLabel.Location = new Point(405, 7);
+            ChosenInfoLabel.Name = "ChosenInfoLabel";
+            ChosenInfoLabel.Size = new Size(145, 15);
+            ChosenInfoLabel.TabIndex = 7;
+            ChosenInfoLabel.Text = "Информация об объекте";
+            ChosenInfoLabel.Visible = false;
             // 
-            // ObjectInfoLayout
+            // ChosenInfoLayout
             // 
-            ObjectInfoLayout.BackColor = Color.Transparent;
-            ObjectInfoLayout.Location = new Point(406, 24);
-            ObjectInfoLayout.Margin = new Padding(3, 2, 3, 2);
-            ObjectInfoLayout.Name = "ObjectInfoLayout";
-            ObjectInfoLayout.Size = new Size(180, 197);
-            ObjectInfoLayout.TabIndex = 8;
-            ObjectInfoLayout.Visible = false;
+            ChosenInfoLayout.BackColor = Color.Transparent;
+            ChosenInfoLayout.Location = new Point(406, 24);
+            ChosenInfoLayout.Margin = new Padding(3, 2, 3, 15);
+            ChosenInfoLayout.Name = "ChosenInfoLayout";
+            ChosenInfoLayout.Size = new Size(180, 197);
+            ChosenInfoLayout.TabIndex = 8;
+            ChosenInfoLayout.Visible = false;
             // 
             // TasksLabel
             // 
@@ -144,8 +144,8 @@
             Controls.Add(TasksLayout);
             Controls.Add(NewObjectButton);
             Controls.Add(TasksLabel);
-            Controls.Add(ObjectInfoLayout);
-            Controls.Add(ObjectInfoLabel);
+            Controls.Add(ChosenInfoLayout);
+            Controls.Add(ChosenInfoLabel);
             Controls.Add(ObjectsLabel);
             Controls.Add(ObjectsLayout);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -168,8 +168,8 @@
         private forms.MainWindow.CollapsibleSidebar collapsibleSidebar1;
         private TableLayoutPanel ObjectsLayout;
         private Label ObjectsLabel;
-        private Label ObjectInfoLabel;
-        private Panel ObjectInfoLayout;
+        private Label ChosenInfoLabel;
+        private Panel ChosenInfoLayout;
         private Label TasksLabel;
         private TableLayoutPanel TasksLayout;
     }

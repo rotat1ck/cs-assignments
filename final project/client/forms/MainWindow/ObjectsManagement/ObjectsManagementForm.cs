@@ -46,11 +46,59 @@ namespace client{
         }
 
         private void ObjectButton_Click(Objects obj) {
-            ObjectInfoLabel.Visible = true;
-            ObjectInfoLabel.Visible = true;
+            ChosenInfoLabel.Visible = true;
+            ChosenInfoLabel.Text = "Информация об объекте";
+            ChosenInfoLayout.Visible = true;
 
             TasksLabel.Visible = true;
             TasksLayout.Visible = true;
+
+            ChosenInfoLayout.Controls.Clear();
+            TasksLayout.Controls.Clear();
+
+            // Описание
+            ChosenInfoLayout.Controls.Add(new TextBox {
+                Text = obj.description,
+                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
+                Dock = DockStyle.Top,
+                Multiline = true,
+                Margin = new Padding(0, 0, 0, 15)
+            });
+
+            // Адрес
+            ChosenInfoLayout.Controls.Add(new TextBox {
+                Text = obj.location,
+                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
+                Dock = DockStyle.Top,
+                Margin = new Padding(0, 0, 0, 15)
+            });
+
+            // Тип и номер
+            Panel panel = new FlowLayoutPanel {
+                AutoSize = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Dock = DockStyle.Top,
+                Margin = new Padding(0, 0, 0, 15)
+            };
+            panel.Controls.Add(new ComboBox {
+                DataSource = DBController.objects_TypesModel.Query(),
+                DisplayMember = "name",
+                DropDownStyle = ComboBoxStyle.DropDownList
+            });
+            panel.Controls.Add(new TextBox {
+                Text = obj.number.ToString(),
+                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
+            });
+            ChosenInfoLayout.Controls.Add(panel);
+
+            // Название
+            ChosenInfoLayout.Controls.Add(new TextBox {
+                Text = obj.name,
+                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
+                Dock = DockStyle.Top,
+                Margin = new Padding(0, 0, 0, 15)
+            });
 
             List<Tasks_Objects> linkedTasks = DBController.tasks_ObjectsModel.Filter(("object_id", obj.id));
             foreach (var tasksId in linkedTasks) {
@@ -78,6 +126,7 @@ namespace client{
         }
 
         private void TaskButton_Click(Tasks task) {
+            ChosenInfoLabel.Text = "Информация о задаче";
             throw new NotImplementedException();
         }
     }

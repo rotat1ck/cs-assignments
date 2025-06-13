@@ -82,7 +82,7 @@
             // 
             // ObjectTypeComboBox
             // 
-            ObjectTypeComboBox.FormattingEnabled = true;
+            ObjectTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             resources.ApplyResources(ObjectTypeComboBox, "ObjectTypeComboBox");
             ObjectTypeComboBox.Name = "ObjectTypeComboBox";
             // 

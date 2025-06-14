@@ -31,6 +31,8 @@
             ChosenInfoLayout = new Panel();
             TasksLabel = new Label();
             TasksLayout = new TableLayoutPanel();
+            SaveObjectInfoButton = new Button();
+            NewTaskButton = new Button();
             SuspendLayout();
             // 
             // NewObjectButton
@@ -132,6 +134,27 @@
             TasksLayout.TabIndex = 10;
             TasksLayout.Visible = false;
             // 
+            // SaveObjectInfoButton
+            // 
+            SaveObjectInfoButton.Location = new Point(406, 228);
+            SaveObjectInfoButton.Name = "SaveObjectInfoButton";
+            SaveObjectInfoButton.Size = new Size(181, 23);
+            SaveObjectInfoButton.TabIndex = 11;
+            SaveObjectInfoButton.Text = "Сохранить изменения";
+            SaveObjectInfoButton.UseVisualStyleBackColor = true;
+            SaveObjectInfoButton.Visible = false;
+            SaveObjectInfoButton.Click += SaveObjectInfoButton_Click;
+            // 
+            // NewTaskButton
+            // 
+            NewTaskButton.Location = new Point(482, 264);
+            NewTaskButton.Name = "NewTaskButton";
+            NewTaskButton.Size = new Size(105, 40);
+            NewTaskButton.TabIndex = 12;
+            NewTaskButton.Text = "Привязать задачу";
+            NewTaskButton.UseVisualStyleBackColor = true;
+            NewTaskButton.Visible = false;
+            // 
             // ObjectsManagementForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -140,6 +163,8 @@
             BackgroundImage = Properties.Resources.photo_2025_05_30_11_56_46;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(598, 346);
+            Controls.Add(NewTaskButton);
+            Controls.Add(SaveObjectInfoButton);
             Controls.Add(collapsibleSidebar1);
             Controls.Add(TasksLayout);
             Controls.Add(NewObjectButton);
@@ -172,5 +197,7 @@
         private Panel ChosenInfoLayout;
         private Label TasksLabel;
         private TableLayoutPanel TasksLayout;
+        private Button SaveObjectInfoButton;
+        private Button NewTaskButton;
     }
 }

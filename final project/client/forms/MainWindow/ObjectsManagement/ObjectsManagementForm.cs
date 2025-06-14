@@ -4,9 +4,24 @@ using client.models.linking;
 
 namespace client{
     public partial class ObjectsManagementForm : Form {
+        private TextBox descriptionInput;
+        private TextBox addressInput;
+        private Panel panel;
+        private ComboBox typeInput;
+        private TextBox numberInput;
+        private TextBox nameInput;
+        private bool isObjectChosen;
+
+        Objects currentObject;
+        Tasks currentTask;
+
         public ObjectsManagementForm() {
             InitializeComponent();
             UpdateObjectsLayout();
+
+            if (DBController.currentUser.rights < 1) {
+                NewObjectButton.Visible = false;
+            }
         }
         private void NewObjectButton_Click(object sender, EventArgs e) {
             using (NewObjectForm objectForm = new NewObjectForm()) {
@@ -33,7 +48,7 @@ namespace client{
 
                 Button deleteButton = new Button {
                     Size = new Size(75, 30),
-                    Text = "Delete"
+                    Text = "Удалить"
                 };
 
                 deleteButton.Click += (s, e) => {
@@ -41,11 +56,15 @@ namespace client{
                     ObjectsLayout.Controls.Remove(deleteButton);
                     DBController.objectsModel.DeleteRecord(obj);
                 };
-                ObjectsLayout.Controls.Add(deleteButton);
+                if (DBController.currentUser.rights > 0) {
+                    ObjectsLayout.Controls.Add(deleteButton);
+                }
             }
         }
-
         private void ObjectButton_Click(Objects obj) {
+            isObjectChosen = true;
+            currentObject = obj;
+
             ChosenInfoLabel.Visible = true;
             ChosenInfoLabel.Text = "Информация об объекте";
             ChosenInfoLayout.Visible = true;
@@ -53,52 +72,15 @@ namespace client{
             TasksLabel.Visible = true;
             TasksLayout.Visible = true;
 
+            if (DBController.currentUser.rights > 0) {
+                SaveObjectInfoButton.Visible = true;
+                NewTaskButton.Visible = true;
+            }
+
             ChosenInfoLayout.Controls.Clear();
             TasksLayout.Controls.Clear();
 
-            // Описание
-            ChosenInfoLayout.Controls.Add(new TextBox {
-                Text = obj.description,
-                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
-                Dock = DockStyle.Top,
-                Multiline = true,
-                Margin = new Padding(0, 0, 0, 15)
-            });
-
-            // Адрес
-            ChosenInfoLayout.Controls.Add(new TextBox {
-                Text = obj.location,
-                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
-                Dock = DockStyle.Top,
-                Margin = new Padding(0, 0, 0, 15)
-            });
-
-            // Тип и номер
-            Panel panel = new FlowLayoutPanel {
-                AutoSize = true,
-                FlowDirection = FlowDirection.LeftToRight,
-                WrapContents = false,
-                Dock = DockStyle.Top,
-                Margin = new Padding(0, 0, 0, 15)
-            };
-            panel.Controls.Add(new ComboBox {
-                DataSource = DBController.objects_TypesModel.Query(),
-                DisplayMember = "name",
-                DropDownStyle = ComboBoxStyle.DropDownList
-            });
-            panel.Controls.Add(new TextBox {
-                Text = obj.number.ToString(),
-                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
-            });
-            ChosenInfoLayout.Controls.Add(panel);
-
-            // Название
-            ChosenInfoLayout.Controls.Add(new TextBox {
-                Text = obj.name,
-                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
-                Dock = DockStyle.Top,
-                Margin = new Padding(0, 0, 0, 15)
-            });
+            ObjectButton_Fill(obj);
 
             List<Tasks_Objects> linkedTasks = DBController.tasks_ObjectsModel.Filter(("object_id", obj.id));
             foreach (var tasksId in linkedTasks) {
@@ -121,13 +103,114 @@ namespace client{
                     TasksLayout.Controls.Remove(deleteButton);
                     DBController.tasks_ObjectsModel.DeleteRecord(tasksId);
                 };
-                TasksLayout.Controls.Add(deleteButton);
+                if (DBController.currentUser.rights > 0) {
+                    TasksLayout.Controls.Add(deleteButton);
+                }
             }
         }
 
         private void TaskButton_Click(Tasks task) {
+            ChosenInfoLayout.Controls.Clear();
+
+            isObjectChosen = false;
+            currentTask = task;
             ChosenInfoLabel.Text = "Информация о задаче";
-            throw new NotImplementedException();
+
+            // Описание
+            descriptionInput = new TextBox {
+                Text = task.content,
+                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
+                Dock = DockStyle.Top,
+                Multiline = true,
+                Height = 100
+            };
+            ChosenInfoLayout.Controls.Add(descriptionInput);
+
+            // Название
+            nameInput = new TextBox {
+                Text = task.name,
+                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
+                Dock = DockStyle.Top
+            };
+            ChosenInfoLayout.Controls.Add(nameInput);
+        }
+
+        private void ObjectButton_Fill(Objects obj) {
+            // Описание
+            descriptionInput = new TextBox {
+                Text = obj.description,
+                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
+                Dock = DockStyle.Top,
+                Multiline = true,
+                Height = 100
+            };
+            ChosenInfoLayout.Controls.Add(descriptionInput);
+
+            // Адрес
+            addressInput = new TextBox {
+                Text = obj.location,
+                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
+                Dock = DockStyle.Top
+            };
+            ChosenInfoLayout.Controls.Add(addressInput);
+
+            // Тип и номер
+            panel = new FlowLayoutPanel {
+                AutoSize = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Dock = DockStyle.Top
+            };
+
+            typeInput = new ComboBox {
+                DataSource = DBController.objects_TypesModel.Query(),
+                DisplayMember = "name",
+                ValueMember = "id",
+                DropDownStyle = ComboBoxStyle.DropDownList
+            };
+            var dataSource = typeInput.DataSource as List<Objects_Types>;
+            foreach (var item in dataSource) {
+                if (item.id == obj.object_type) {
+                    MessageBox.Show(item.name + " " + item.id);
+                    
+                    typeInput.SelectedItem = item;
+                    
+                    break;
+                }
+            }
+
+            numberInput = new TextBox {
+                Text = obj.number.ToString(),
+                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
+            };
+            panel.Controls.Add(typeInput);
+            panel.Controls.Add(numberInput);
+            ChosenInfoLayout.Controls.Add(panel);
+
+            // Название
+            nameInput = new TextBox {
+                Text = obj.name,
+                ReadOnly = true ? DBController.currentUser.rights < 1 : false,
+                Dock = DockStyle.Top
+            };
+            ChosenInfoLayout.Controls.Add(nameInput);
+        }
+
+        private void SaveObjectInfoButton_Click(object sender, EventArgs e) {
+            if (isObjectChosen) {
+                currentObject.object_type = int.Parse(typeInput.SelectedValue.ToString());
+                currentObject.name = nameInput.Text;
+                currentObject.description = descriptionInput.Text;
+                currentObject.location = addressInput.Text;
+                currentObject.number = int.Parse(numberInput.Text);
+                
+                DBController.objectsModel.UpdateRecord(currentObject);
+            } else {
+                currentTask.name = nameInput.Text;
+                currentTask.content = descriptionInput.Text;
+
+                DBController.tasksModel.UpdateRecord(currentTask);
+            }
         }
     }
 }

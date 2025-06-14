@@ -163,18 +163,14 @@ namespace client{
             };
 
             typeInput = new ComboBox {
-                DataSource = DBController.objects_TypesModel.Query(),
                 DisplayMember = "name",
                 ValueMember = "id",
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            var dataSource = typeInput.DataSource as List<Objects_Types>;
-            foreach (var item in dataSource) {
+            foreach (var item in DBController.objects_TypesModel.Query()) {
+                typeInput.Items.Add(item);
                 if (item.id == obj.object_type) {
-                    MessageBox.Show(item.name + " " + item.id);
-                    
                     typeInput.SelectedItem = item;
-                    
                     break;
                 }
             }

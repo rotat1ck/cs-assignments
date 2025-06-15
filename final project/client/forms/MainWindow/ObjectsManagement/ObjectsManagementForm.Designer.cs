@@ -154,6 +154,7 @@
             NewTaskButton.Text = "Привязать задачу";
             NewTaskButton.UseVisualStyleBackColor = true;
             NewTaskButton.Visible = false;
+            NewTaskButton.Click += NewTaskButton_Click;
             // 
             // ObjectsManagementForm
             // 
@@ -181,7 +182,7 @@
             MinimizeBox = false;
             MinimumSize = new Size(614, 385);
             Name = "ObjectsManagementForm";
-            Text = "Object Management";
+            Text = "Управление объектами";
             ResumeLayout(false);
             PerformLayout();
         }

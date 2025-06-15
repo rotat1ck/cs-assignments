@@ -1,4 +1,5 @@
-﻿using client.forms.Modals.NewObject;
+﻿using client.forms.Modals.LinkTask;
+using client.forms.Modals.NewObject;
 using client.models.data;
 using client.models.linking;
 
@@ -30,6 +31,33 @@ namespace client{
                     DBController.objectsModel.CreateRecord(newObject);
                     UpdateObjectsLayout();
                 }
+            }
+        }
+
+        private void NewTaskButton_Click(object sender, EventArgs e) {
+            using (LinkTaskForm taskForm = new LinkTaskForm(currentObject)) {
+                if (taskForm.ShowDialog() == DialogResult.OK) {
+                    Tasks_Objects newLink = taskForm.newLink;
+                    DBController.tasks_ObjectsModel.CreateRecord(newLink);
+                    ObjectButton_Click(currentObject);
+                }
+            }
+        }
+
+        private void SaveObjectInfoButton_Click(object sender, EventArgs e) {
+            if (isObjectChosen) {
+                currentObject.object_type = int.Parse(typeInput.SelectedValue.ToString());
+                currentObject.name = nameInput.Text;
+                currentObject.description = descriptionInput.Text;
+                currentObject.location = addressInput.Text;
+                currentObject.number = int.Parse(numberInput.Text);
+
+                DBController.objectsModel.UpdateRecord(currentObject);
+            } else {
+                currentTask.name = nameInput.Text;
+                currentTask.content = descriptionInput.Text;
+
+                DBController.tasksModel.UpdateRecord(currentTask);
             }
         }
 
@@ -111,6 +139,7 @@ namespace client{
 
         private void TaskButton_Click(Tasks task) {
             ChosenInfoLayout.Controls.Clear();
+            NewTaskButton.Visible = false;
 
             isObjectChosen = false;
             currentTask = task;
@@ -171,7 +200,6 @@ namespace client{
                 typeInput.Items.Add(item);
                 if (item.id == obj.object_type) {
                     typeInput.SelectedItem = item;
-                    break;
                 }
             }
 
@@ -190,23 +218,6 @@ namespace client{
                 Dock = DockStyle.Top
             };
             ChosenInfoLayout.Controls.Add(nameInput);
-        }
-
-        private void SaveObjectInfoButton_Click(object sender, EventArgs e) {
-            if (isObjectChosen) {
-                currentObject.object_type = int.Parse(typeInput.SelectedValue.ToString());
-                currentObject.name = nameInput.Text;
-                currentObject.description = descriptionInput.Text;
-                currentObject.location = addressInput.Text;
-                currentObject.number = int.Parse(numberInput.Text);
-                
-                DBController.objectsModel.UpdateRecord(currentObject);
-            } else {
-                currentTask.name = nameInput.Text;
-                currentTask.content = descriptionInput.Text;
-
-                DBController.tasksModel.UpdateRecord(currentTask);
-            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace client.forms.Auth.Authentication {
+namespace client.forms.Auth.Authentication {
     partial class LoginForm {
         /// <summary>
         /// Required designer variable.

@@ -29,7 +29,7 @@ public partial class BaseModel<T> {
         } 
         
         for (int i = 0; i < filters.Length; i++) {
-            sqlParams.Add(filters[i].key + " = @value" + i);
+            sqlParams.Add("@" + filters[i].key + " = @value" + i);
         }
         sqlQuery += string.Join(" AND ", sqlParams);
 

@@ -29,21 +29,18 @@
             CreateLabel = new Label();
             NameLabel = new Label();
             NameInput = new TextBox();
-            DescriptionLabel = new Label();
-            ObjectTypeInput = new TextBox();
-            LocationLabel = new Label();
             DescriptionInput = new TextBox();
-            NumberLabel = new Label();
             LocationInput = new TextBox();
-            ObjectTypeLabel = new Label();
             NumberInput = new TextBox();
+            ObjectTypeComboBox = new ComboBox();
             SuspendLayout();
             // 
             // CreateButton
             // 
+            CreateButton.BackColor = Color.FromArgb(192, 255, 192);
             resources.ApplyResources(CreateButton, "CreateButton");
             CreateButton.Name = "CreateButton";
-            CreateButton.UseVisualStyleBackColor = true;
+            CreateButton.UseVisualStyleBackColor = false;
             CreateButton.Click += CreateButton_Click;
             // 
             // CancelButton
@@ -68,58 +65,35 @@
             resources.ApplyResources(NameInput, "NameInput");
             NameInput.Name = "NameInput";
             // 
-            // DescriptionLabel
-            // 
-            resources.ApplyResources(DescriptionLabel, "DescriptionLabel");
-            DescriptionLabel.Name = "DescriptionLabel";
-            // 
-            // ObjectTypeInput
-            // 
-            resources.ApplyResources(ObjectTypeInput, "ObjectTypeInput");
-            ObjectTypeInput.Name = "ObjectTypeInput";
-            // 
-            // LocationLabel
-            // 
-            resources.ApplyResources(LocationLabel, "LocationLabel");
-            LocationLabel.Name = "LocationLabel";
-            // 
             // DescriptionInput
             // 
             resources.ApplyResources(DescriptionInput, "DescriptionInput");
             DescriptionInput.Name = "DescriptionInput";
-            // 
-            // NumberLabel
-            // 
-            resources.ApplyResources(NumberLabel, "NumberLabel");
-            NumberLabel.Name = "NumberLabel";
             // 
             // LocationInput
             // 
             resources.ApplyResources(LocationInput, "LocationInput");
             LocationInput.Name = "LocationInput";
             // 
-            // ObjectTypeLabel
-            // 
-            resources.ApplyResources(ObjectTypeLabel, "ObjectTypeLabel");
-            ObjectTypeLabel.Name = "ObjectTypeLabel";
-            // 
             // NumberInput
             // 
             resources.ApplyResources(NumberInput, "NumberInput");
             NumberInput.Name = "NumberInput";
             // 
+            // ObjectTypeComboBox
+            // 
+            ObjectTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            resources.ApplyResources(ObjectTypeComboBox, "ObjectTypeComboBox");
+            ObjectTypeComboBox.Name = "ObjectTypeComboBox";
+            // 
             // NewObjectForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(ObjectTypeComboBox);
             Controls.Add(NumberInput);
-            Controls.Add(ObjectTypeLabel);
             Controls.Add(LocationInput);
-            Controls.Add(NumberLabel);
             Controls.Add(DescriptionInput);
-            Controls.Add(LocationLabel);
-            Controls.Add(ObjectTypeInput);
-            Controls.Add(DescriptionLabel);
             Controls.Add(NameInput);
             Controls.Add(NameLabel);
             Controls.Add(CreateLabel);
@@ -139,13 +113,9 @@
         private Label CreateLabel;
         private Label NameLabel;
         private TextBox NameInput;
-        private Label DescriptionLabel;
-        private TextBox ObjectTypeInput;
-        private Label LocationLabel;
         private TextBox DescriptionInput;
-        private Label NumberLabel;
         private TextBox LocationInput;
-        private Label ObjectTypeLabel;
         private TextBox NumberInput;
+        private ComboBox ObjectTypeComboBox;
     }
 }

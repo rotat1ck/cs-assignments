@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +20,7 @@ namespace client.forms.Auth.Authentication {
             Form childForm = null;
 
             List<Users> userByUsername = DBController.usersModel.Filter(("username", UsernameInput.Text), ("password", UsernameInput.Text));
+
             if (userByUsername.Count > 0) {
                 DBController.currentUser = userByUsername[userByUsername.Count - 1];
                 childForm = new ObjectsManagementForm();
@@ -30,6 +31,7 @@ namespace client.forms.Auth.Authentication {
             }
 
             List<Users> userByEmail = DBController.usersModel.Filter(("email", UsernameInput.Text), ("password", UsernameInput.Text));
+
             if (userByEmail.Count > 0) {
                 DBController.currentUser = userByEmail[userByEmail.Count - 1];
                 childForm = new ObjectsManagementForm();
@@ -40,11 +42,6 @@ namespace client.forms.Auth.Authentication {
             }
 
             MessageBox.Show("Incorrent username/email or password");
-        }
-
-        private void UsernameInput_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Enter)
-                PasswordInput.Select();
         }
 
         private void PasswordInput_KeyDown(object sender, KeyEventArgs e) {

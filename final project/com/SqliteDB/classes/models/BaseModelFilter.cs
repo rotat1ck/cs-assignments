@@ -1,5 +1,6 @@
 namespace SqliteDB;
 
+using System.ComponentModel;
 using System.Data;
 using Microsoft.Data.Sqlite;
 
@@ -17,7 +18,12 @@ public partial class BaseModel<T> {
         cmd.Parameters.AddWithValue("@id", id);
 
         DataTable dt = db.DirectQuery(cmd);
-        return ParseDataTable(dt)[0];
+        List<T> res = ParseDataTable(dt);
+
+        if (res.Count != 0) {
+            return res[0];
+        }
+        return default;
     }
     public List<T> Filter(params (string key, object value)[] filters) {
         SqliteCommand cmd = db.GetEmptyCommand();
@@ -44,10 +50,18 @@ public partial class BaseModel<T> {
     }
 
     public T FilterFirst(params (string key, object value)[] filters) {
-        return Filter(filters)[0];
+        List<T> res = Filter(filters);
+        if (res.Count != 0) {
+            return res[0];
+        }
+        return default;
     }
 
     public T FilterLast(params (string key, object value)[] filters) {
-        return Filter(filters)[^1];
+        List<T> res = Filter(filters);
+        if (res.Count != 0) {
+            return res[^1];
+        }
+        return default;
     }
 }

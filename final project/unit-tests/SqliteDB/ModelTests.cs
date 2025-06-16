@@ -29,12 +29,6 @@ namespace unit_tests.SqliteDB {
         public static Users usersModel = new Users(db);
 
         [TestMethod]
-        public void Init() {
-            
-            
-        }
-
-        [TestMethod]
         public void QueryAll() {
             usersModel.Query();
         }
@@ -42,6 +36,48 @@ namespace unit_tests.SqliteDB {
         [TestMethod]
         public void Filter() {
             usersModel.Filter(("username", "goida"));
+        }
+
+        [TestMethod]
+        public void FilterById() {
+            usersModel.Filter(2);
+        }
+
+        [TestMethod]
+        public void FilterFirst() {
+            usersModel.FilterFirst();
+        }
+
+        [TestMethod]
+        public void CreateRecord() {
+            if (usersModel.Query().Count() == 0) {
+                usersModel.CreateRecord(new Users {
+                    username = "username",
+                    password = "password",
+                    email = "email",
+                    rights = 0,
+                    employee_id = 0
+                });
+            }
+        }
+
+        [TestMethod]
+        public void DeleteRecord() {
+            List<Users> users = usersModel.Query();
+            if (users.Count() > 0) {
+                usersModel.DeleteRecord(users[0]);
+            }
+        }
+
+        [TestMethod]
+        public void UpdateRecord() {
+            List<Users> users = usersModel.Query();
+            if (users.Count() > 0) {
+                users[0].username = "new username";
+                users[0].password = "new password";
+                users[0].email = "new email";
+                usersModel.UpdateRecord(users[0]);
+            }
         }
     }
 }

@@ -46,7 +46,7 @@ namespace client{
 
         private void SaveObjectInfoButton_Click(object sender, EventArgs e) {
             if (isObjectChosen) {
-                currentObject.object_type = int.Parse(typeInput.SelectedValue.ToString());
+                currentObject.object_type = ((Objects_Types)typeInput.SelectedItem).id;
                 currentObject.name = nameInput.Text;
                 currentObject.description = descriptionInput.Text;
                 currentObject.location = addressInput.Text;

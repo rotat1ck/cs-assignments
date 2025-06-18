@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace client.forms.MainWindow
 {
-    public partial class DocumentationForm : Form
+    public partial class AttachmentsForm : Form
     {
-        public DocumentationForm()
+        public AttachmentsForm()
         {
             InitializeComponent();
         }

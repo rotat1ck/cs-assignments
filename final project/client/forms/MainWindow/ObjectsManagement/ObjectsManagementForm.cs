@@ -50,7 +50,7 @@ namespace client{
                 currentObject.name = nameInput.Text;
                 currentObject.description = descriptionInput.Text;
                 currentObject.location = addressInput.Text;
-                currentObject.number = int.Parse(numberInput.Text);
+                  currentObject.number = int.Parse(numberInput.Text);
 
                 DBController.objectsModel.UpdateRecord(currentObject);
             } else {

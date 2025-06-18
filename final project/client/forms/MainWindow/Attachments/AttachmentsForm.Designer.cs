@@ -1,6 +1,6 @@
 ﻿namespace client.forms.MainWindow
 {
-    partial class DocumentationForm
+    partial class AttachmentsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -54,7 +54,7 @@
             label1.TabIndex = 1;
             label1.Text = "ДОКУМЕНТЫ";
             // 
-            // DocumentationForm
+            // AttachmentsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -68,8 +68,8 @@
             MaximumSize = new Size(700, 500);
             MinimizeBox = false;
             MinimumSize = new Size(700, 500);
-            Name = "DocumentationForm";
-            Text = "DocumentationForm";
+            Name = "AttachmentsForm";
+            Text = "Прикрепленные материалы";
             ResumeLayout(false);
             PerformLayout();
         }

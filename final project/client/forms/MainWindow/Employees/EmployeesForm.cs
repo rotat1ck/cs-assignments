@@ -14,7 +14,17 @@ namespace client.forms.MainWindow
 {
     public partial class EmployeesForm : Form
     {
-        public Employees currentEmployee;
+        private Employees currentEmployee;
+        private Users currentUser;
+
+        private TextBox lastNameInput;
+        private TextBox firstNameInput;
+        private ComboBox positionInput;
+        private ComboBox roleInput;
+
+        private TextBox usernameInput;
+        private TextBox passwordInput;
+        private TextBox emailInput;
         public EmployeesForm() {
             InitializeComponent();
             EmployeesLayout_Fill();
@@ -35,6 +45,10 @@ namespace client.forms.MainWindow
                 };
                 employeeButton.Click += (s, e) => {
                     currentEmployee = employee;
+                    List<Users> linkedUser = DBController.usersModel.Filter(("employee_id", employee.id));
+                    if (linkedUser.Count != 0) {
+                        currentUser = linkedUser[0];
+                    }
 
                     EmployeeAccountLabel.Visible = true;
                     EmployeeAccountLayout.Visible = true;
@@ -70,7 +84,51 @@ namespace client.forms.MainWindow
         private void EmployeeInfo_Fill() {
             EmployeeInfoLayout.Controls.Clear();
 
+            // Роль
+            roleInput = new ComboBox {
+                DisplayMember = "name",
+                ValueMember = "id",
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Dock = DockStyle.Top
+            };
+            foreach (var role in DBController.rolesModel.Query()) {
+                roleInput.Items.Add(role);
+                if (role.id == currentEmployee.role_id) {
+                    roleInput.SelectedItem = role;
+                }
+            }
+            EmployeeInfoLayout.Controls.Add(roleInput);
 
+            // Позиция
+            positionInput = new ComboBox {
+                DisplayMember = "name",
+                ValueMember = "id",
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Dock = DockStyle.Top
+            };
+            foreach (var position in DBController.positionsModel.Query()) {
+                positionInput.Items.Add(position);
+                if (position.id == currentEmployee.position_id) {
+                    positionInput.SelectedItem = position;
+                }
+            }
+            EmployeeInfoLayout.Controls.Add(positionInput);
+
+            // Имя
+            firstNameInput = new TextBox {
+                Text = currentEmployee.first_name,
+                ReadOnly = true ? currentUser != null && currentUser.rights > DBController.currentUser.rights : false,
+                Dock = DockStyle.Top
+            };
+            EmployeeInfoLayout.Controls.Add(firstNameInput);
+
+            // Фамилия
+            lastNameInput = new TextBox {
+                Text = currentEmployee.last_name,
+                ReadOnly = true ? currentUser != null && currentUser.rights > DBController.currentUser.rights : false,
+                Dock = DockStyle.Top
+            };
+            EmployeeInfoLayout.Controls.Add(lastNameInput);
         }
 
         private void EmployeeAccount_Fill() {

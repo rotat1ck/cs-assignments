@@ -94,6 +94,7 @@
             EmployeeInfoLabel.Size = new Size(157, 15);
             EmployeeInfoLabel.TabIndex = 4;
             EmployeeInfoLabel.Text = "Информация о сотруднике";
+            EmployeeInfoLabel.Visible = false;
             // 
             // EmployeeInfoLayout
             // 
@@ -102,6 +103,7 @@
             EmployeeInfoLayout.Name = "EmployeeInfoLayout";
             EmployeeInfoLayout.Size = new Size(235, 136);
             EmployeeInfoLayout.TabIndex = 5;
+            EmployeeInfoLayout.Visible = false;
             // 
             // EmployeeAccountLayout
             // 
@@ -110,6 +112,7 @@
             EmployeeAccountLayout.Name = "EmployeeAccountLayout";
             EmployeeAccountLayout.Size = new Size(235, 90);
             EmployeeAccountLayout.TabIndex = 7;
+            EmployeeAccountLayout.Visible = false;
             // 
             // EmployeeAccountLabel
             // 
@@ -119,6 +122,7 @@
             EmployeeAccountLabel.Size = new Size(187, 15);
             EmployeeAccountLabel.TabIndex = 6;
             EmployeeAccountLabel.Text = "Информация об учетной записи";
+            EmployeeAccountLabel.Visible = false;
             // 
             // EmployeeInfoSaveButton
             // 
@@ -128,6 +132,7 @@
             EmployeeInfoSaveButton.TabIndex = 8;
             EmployeeInfoSaveButton.Text = "Сохранить изменения";
             EmployeeInfoSaveButton.UseVisualStyleBackColor = true;
+            EmployeeInfoSaveButton.Visible = false;
             // 
             // button1
             // 
@@ -137,6 +142,7 @@
             button1.TabIndex = 9;
             button1.Text = "Сброс пароля";
             button1.UseVisualStyleBackColor = true;
+            button1.Visible = false;
             // 
             // button2
             // 
@@ -146,6 +152,7 @@
             button2.TabIndex = 10;
             button2.Text = "Сохранить изменения";
             button2.UseVisualStyleBackColor = true;
+            button2.Visible = false;
             // 
             // EmployeesForm
             // 

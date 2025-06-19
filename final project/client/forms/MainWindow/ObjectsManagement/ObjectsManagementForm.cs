@@ -3,7 +3,7 @@ using client.forms.Modals.NewObject;
 using client.models.data;
 using client.models.linking;
 
-namespace client{
+namespace client {
     public partial class ObjectsManagementForm : Form {
         private TextBox descriptionInput;
         private TextBox addressInput;
@@ -84,9 +84,11 @@ namespace client{
                     ObjectsLayout.Controls.Remove(deleteButton);
                     DBController.objectsModel.DeleteRecord(obj);
                 };
-                if (DBController.currentUser.rights > 0) {
-                    ObjectsLayout.Controls.Add(deleteButton);
+                if (DBController.currentUser.rights < 1) {
+                    deleteButton.Enabled = false;
                 }
+                ObjectsLayout.Controls.Add(deleteButton);
+                
             }
         }
         private void ObjectButton_Click(Objects obj) {
@@ -121,9 +123,11 @@ namespace client{
                 taskButton.Click += (s, e) => TaskButton_Click(task);
                 TasksLayout.Controls.Add(taskButton);
 
+                
                 Button deleteButton = new Button {
                     Size = new Size(65, 30),
                     Text = "Отвязать"
+
                 };
 
                 deleteButton.Click += (s, e) => {
@@ -131,9 +135,10 @@ namespace client{
                     TasksLayout.Controls.Remove(deleteButton);
                     DBController.tasks_ObjectsModel.DeleteRecord(tasksId);
                 };
-                if (DBController.currentUser.rights > 0) {
-                    TasksLayout.Controls.Add(deleteButton);
+                if (DBController.currentUser.rights < 1) {
+                    deleteButton.Enabled = false;
                 }
+                TasksLayout.Controls.Add(deleteButton);
             }
         }
 

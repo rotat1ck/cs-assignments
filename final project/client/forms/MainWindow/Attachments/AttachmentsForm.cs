@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace client.forms.MainWindow
 {
-    public partial class AttachmentsForm : Form
-    {
-        public AttachmentsForm()
-        {
+    public partial class AttachmentsForm : Form {
+        public AttachmentsForm() {
             InitializeComponent();
+
+            if (DBController.currentUser.rights < 1) {
+                NewPhotoButton.Visible = false;
+                NewDocumentButton.Visible = false;
+            }
         }
     }
 }

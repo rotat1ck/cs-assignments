@@ -88,7 +88,6 @@ namespace client {
                     deleteButton.Enabled = false;
                 }
                 ObjectsLayout.Controls.Add(deleteButton);
-                
             }
         }
         private void ObjectButton_Click(Objects obj) {

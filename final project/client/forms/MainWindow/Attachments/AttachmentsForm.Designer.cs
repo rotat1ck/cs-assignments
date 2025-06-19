@@ -32,7 +32,7 @@
             DocumentsListLabel = new Label();
             DocumentsLayout = new TableLayoutPanel();
             PhotosListLabel = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            PhotosLayout = new TableLayoutPanel();
             NewPhotoButton = new Button();
             SuspendLayout();
             // 
@@ -60,6 +60,7 @@
             NewDocumentButton.TabIndex = 13;
             NewDocumentButton.Text = "Новый документ";
             NewDocumentButton.UseVisualStyleBackColor = true;
+            NewDocumentButton.Click += NewDocumentButton_Click;
             // 
             // DocumentsListLabel
             // 
@@ -97,21 +98,21 @@
             PhotosListLabel.TabIndex = 22;
             PhotosListLabel.Text = "Список фото";
             // 
-            // tableLayoutPanel1
+            // PhotosLayout
             // 
-            tableLayoutPanel1.AutoScroll = true;
-            tableLayoutPanel1.BackColor = Color.Transparent;
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.Location = new Point(57, 201);
-            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(344, 131);
-            tableLayoutPanel1.TabIndex = 23;
+            PhotosLayout.AutoScroll = true;
+            PhotosLayout.BackColor = Color.Transparent;
+            PhotosLayout.ColumnCount = 3;
+            PhotosLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            PhotosLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            PhotosLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            PhotosLayout.Location = new Point(57, 201);
+            PhotosLayout.Margin = new Padding(3, 2, 3, 2);
+            PhotosLayout.Name = "PhotosLayout";
+            PhotosLayout.RowCount = 1;
+            PhotosLayout.RowStyles.Add(new RowStyle());
+            PhotosLayout.Size = new Size(344, 131);
+            PhotosLayout.TabIndex = 23;
             // 
             // NewPhotoButton
             // 
@@ -122,6 +123,7 @@
             NewPhotoButton.TabIndex = 24;
             NewPhotoButton.Text = "Новое фото";
             NewPhotoButton.UseVisualStyleBackColor = true;
+            NewPhotoButton.Click += NewPhotoButton_Click;
             // 
             // AttachmentsForm
             // 
@@ -132,7 +134,7 @@
             ClientSize = new Size(598, 346);
             Controls.Add(NewDocumentButton);
             Controls.Add(NewPhotoButton);
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(PhotosLayout);
             Controls.Add(PhotosListLabel);
             Controls.Add(DocumentsListLabel);
             Controls.Add(DocumentsLayout);
@@ -156,7 +158,7 @@
         private Label DocumentsListLabel;
         private TableLayoutPanel DocumentsLayout;
         private Label PhotosListLabel;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel PhotosLayout;
         private Button NewPhotoButton;
     }
 }

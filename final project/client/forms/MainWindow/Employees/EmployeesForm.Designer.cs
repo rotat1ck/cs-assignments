@@ -27,22 +27,27 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            label1 = new Label();
+            EmployeesLabel = new Label();
             collapsibleSidebar1 = new CollapsibleSidebar();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            EmployeesLayout = new TableLayoutPanel();
+            NewEmployeeButton = new Button();
+            EmployeeInfoLabel = new Label();
+            EmployeeInfoLayout = new Panel();
+            EmployeeAccountLayout = new Panel();
+            EmployeeAccountLabel = new Label();
+            EmployeeInfoSaveButton = new Button();
             button1 = new Button();
-            label2 = new Label();
-            panel1 = new Panel();
+            button2 = new Button();
             SuspendLayout();
             // 
-            // label1
+            // EmployeesLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(57, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(121, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Список сотрудников";
+            EmployeesLabel.AutoSize = true;
+            EmployeesLabel.Location = new Point(57, 9);
+            EmployeesLabel.Name = "EmployeesLabel";
+            EmployeesLabel.Size = new Size(121, 15);
+            EmployeesLabel.TabIndex = 1;
+            EmployeesLabel.Text = "Список сотрудников";
             // 
             // collapsibleSidebar1
             // 
@@ -59,44 +64,88 @@
             collapsibleSidebar1.TabIndex = 0;
             collapsibleSidebar1.Text = "collapsibleSidebar1";
             // 
-            // tableLayoutPanel1
+            // EmployeesLayout
             // 
-            tableLayoutPanel1.BackColor = Color.Transparent;
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Location = new Point(57, 27);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(319, 307);
-            tableLayoutPanel1.TabIndex = 2;
+            EmployeesLayout.BackColor = Color.Transparent;
+            EmployeesLayout.ColumnCount = 2;
+            EmployeesLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 63.636364F));
+            EmployeesLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 36.363636F));
+            EmployeesLayout.Location = new Point(57, 29);
+            EmployeesLayout.Name = "EmployeesLayout";
+            EmployeesLayout.RowCount = 1;
+            EmployeesLayout.RowStyles.Add(new RowStyle());
+            EmployeesLayout.Size = new Size(265, 305);
+            EmployeesLayout.TabIndex = 2;
+            // 
+            // NewEmployeeButton
+            // 
+            NewEmployeeButton.Location = new Point(182, 4);
+            NewEmployeeButton.Name = "NewEmployeeButton";
+            NewEmployeeButton.Size = new Size(140, 24);
+            NewEmployeeButton.TabIndex = 3;
+            NewEmployeeButton.Text = "Добавить сотрудника";
+            NewEmployeeButton.UseVisualStyleBackColor = true;
+            // 
+            // EmployeeInfoLabel
+            // 
+            EmployeeInfoLabel.AutoSize = true;
+            EmployeeInfoLabel.Location = new Point(348, 9);
+            EmployeeInfoLabel.Name = "EmployeeInfoLabel";
+            EmployeeInfoLabel.Size = new Size(157, 15);
+            EmployeeInfoLabel.TabIndex = 4;
+            EmployeeInfoLabel.Text = "Информация о сотруднике";
+            // 
+            // EmployeeInfoLayout
+            // 
+            EmployeeInfoLayout.BackColor = Color.Transparent;
+            EmployeeInfoLayout.Location = new Point(348, 29);
+            EmployeeInfoLayout.Name = "EmployeeInfoLayout";
+            EmployeeInfoLayout.Size = new Size(235, 136);
+            EmployeeInfoLayout.TabIndex = 5;
+            // 
+            // EmployeeAccountLayout
+            // 
+            EmployeeAccountLayout.BackColor = Color.Transparent;
+            EmployeeAccountLayout.Location = new Point(348, 215);
+            EmployeeAccountLayout.Name = "EmployeeAccountLayout";
+            EmployeeAccountLayout.Size = new Size(235, 90);
+            EmployeeAccountLayout.TabIndex = 7;
+            // 
+            // EmployeeAccountLabel
+            // 
+            EmployeeAccountLabel.AutoSize = true;
+            EmployeeAccountLabel.Location = new Point(348, 197);
+            EmployeeAccountLabel.Name = "EmployeeAccountLabel";
+            EmployeeAccountLabel.Size = new Size(187, 15);
+            EmployeeAccountLabel.TabIndex = 6;
+            EmployeeAccountLabel.Text = "Информация об учетной записи";
+            // 
+            // EmployeeInfoSaveButton
+            // 
+            EmployeeInfoSaveButton.Location = new Point(348, 171);
+            EmployeeInfoSaveButton.Name = "EmployeeInfoSaveButton";
+            EmployeeInfoSaveButton.Size = new Size(235, 23);
+            EmployeeInfoSaveButton.TabIndex = 8;
+            EmployeeInfoSaveButton.Text = "Сохранить изменения";
+            EmployeeInfoSaveButton.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            button1.Location = new Point(443, 293);
+            button1.Location = new Point(490, 311);
             button1.Name = "button1";
-            button1.Size = new Size(140, 41);
-            button1.TabIndex = 3;
-            button1.Text = "Добавить сотрудника";
+            button1.Size = new Size(93, 23);
+            button1.TabIndex = 9;
+            button1.Text = "Сброс пароля";
             button1.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // button2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(383, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(157, 15);
-            label2.TabIndex = 4;
-            label2.Text = "Информация о сотруднике";
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Transparent;
-            panel1.Location = new Point(383, 27);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(200, 260);
-            panel1.TabIndex = 5;
+            button2.Location = new Point(348, 311);
+            button2.Name = "button2";
+            button2.Size = new Size(136, 23);
+            button2.TabIndex = 10;
+            button2.Text = "Сохранить изменения";
+            button2.UseVisualStyleBackColor = true;
             // 
             // EmployeesForm
             // 
@@ -105,11 +154,16 @@
             BackgroundImage = Properties.Resources.photo_2025_05_30_11_56_46;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(598, 346);
-            Controls.Add(panel1);
-            Controls.Add(label2);
+            Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(tableLayoutPanel1);
-            Controls.Add(label1);
+            Controls.Add(EmployeeInfoSaveButton);
+            Controls.Add(EmployeeAccountLayout);
+            Controls.Add(EmployeeAccountLabel);
+            Controls.Add(EmployeeInfoLayout);
+            Controls.Add(EmployeeInfoLabel);
+            Controls.Add(NewEmployeeButton);
+            Controls.Add(EmployeesLayout);
+            Controls.Add(EmployeesLabel);
             Controls.Add(collapsibleSidebar1);
             MainMenuStrip = collapsibleSidebar1;
             Margin = new Padding(3, 2, 3, 2);
@@ -125,11 +179,16 @@
 
         #endregion
 
-        private Label label1;
+        private Label EmployeesLabel;
         private CollapsibleSidebar collapsibleSidebar1;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel EmployeesLayout;
+        private Button NewEmployeeButton;
+        private Label EmployeeInfoLabel;
+        private Panel EmployeeInfoLayout;
+        private Panel EmployeeAccountLayout;
+        private Label EmployeeAccountLabel;
+        private Button EmployeeInfoSaveButton;
         private Button button1;
-        private Label label2;
-        private Panel panel1;
+        private Button button2;
     }
 }

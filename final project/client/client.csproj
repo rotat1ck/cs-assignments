@@ -22,7 +22,6 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <Folder Include="forms\MainWindow\Employees\User\" />
     <Folder Include="forms\MainWindow\Tasks\" />
     <Folder Include="forms\MainWindow\Account\" />
     <Folder Include="forms\MainWindow\ObjectsManagement\" />

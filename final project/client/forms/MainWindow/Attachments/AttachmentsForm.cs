@@ -9,6 +9,8 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using client.forms.Modals.NewDocument;
+using client.forms.Modals.NewPhoto;
 using client.models.data;
 using client.models.linking;
 
@@ -119,11 +121,21 @@ namespace client.forms.MainWindow
         }
 
         private void NewPhotoButton_Click(object sender, EventArgs e) {
-
+            using (NewPhotoForm form = new NewPhotoForm()) {
+                if (form.ShowDialog() == DialogResult.OK) {
+                    DBController.photosModel.CreateRecord(form.Photo);
+                    PhotosSection_Fill();
+                }
+            }
         }
 
         private void NewDocumentButton_Click(object sender, EventArgs e) {
-
+            using (NewDocumentForm form = new NewDocumentForm()) {
+                if (form.ShowDialog() == DialogResult.OK) {
+                    DBController.documentsModel.CreateRecord(form.Document);
+                    DocumentsSection_Fill();
+                }
+            }
         }
     }
 }

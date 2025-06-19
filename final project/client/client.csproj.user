@@ -28,7 +28,13 @@
     <Compile Update="forms\Modals\LinkTask\LinkTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\Modals\NewDocument\NewDocumentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\Modals\NewObject\NewObjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Modals\NewPhoto\NewPhotoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\Modals\NewTask\NewTaskForm.cs">

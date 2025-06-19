@@ -1,6 +1,7 @@
 ﻿using SqliteDB;
 using client.models.data;
 using client.models.linking;
+using client.models.misc;
 
 namespace client {
     public static class DBController {
@@ -21,6 +22,8 @@ namespace client {
         public static Objects_Types objects_TypesModel;
         public static Photos_Objects photos_ObjectsModel;
         public static Tasks_Objects tasks_ObjectsModel;
+
+        public static Settings settingsModel;
 
         public static void InitDB(string dbPath) {
             try {
@@ -46,6 +49,8 @@ namespace client {
             objects_TypesModel = new Objects_Types(db);
             photos_ObjectsModel = new Photos_Objects(db);
             tasks_ObjectsModel = new Tasks_Objects(db);
+
+            settingsModel = new Settings(db);
         }
     }
 }

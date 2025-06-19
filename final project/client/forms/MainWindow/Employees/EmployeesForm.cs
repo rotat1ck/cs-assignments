@@ -12,8 +12,7 @@ using client.models.linking;
 
 namespace client.forms.MainWindow
 {
-    public partial class EmployeesForm : Form
-    {
+    public partial class EmployeesForm : Form {
         private Employees currentEmployee;
         private Users currentUser;
 
@@ -25,6 +24,7 @@ namespace client.forms.MainWindow
         private TextBox usernameInput;
         private TextBox passwordInput;
         private TextBox emailInput;
+
         public EmployeesForm() {
             InitializeComponent();
             EmployeesLayout_Fill();
@@ -32,6 +32,14 @@ namespace client.forms.MainWindow
             if (DBController.currentUser.rights < 1) {
                 NewEmployeeButton.Visible = false;
             }
+        }
+        private void EmployeeInfoSaveButton_Click(object sender, EventArgs e) {
+            currentEmployee.first_name = firstNameInput.Text;
+            currentEmployee.last_name = lastNameInput.Text;
+            currentEmployee.role_id = ((Roles)roleInput.SelectedItem).id;
+            currentEmployee.position_id = ((Positions)positionInput.SelectedItem).id;
+            DBController.employeesModel.UpdateRecord(currentEmployee);
+            EmployeesLayout_Fill();
         }
 
         private void EmployeesLayout_Fill() {
@@ -54,6 +62,7 @@ namespace client.forms.MainWindow
                     EmployeeAccountLayout.Visible = true;
                     EmployeeInfoLabel.Visible = true;
                     EmployeeInfoLayout.Visible = true;
+                    EmployeeInfoSaveButton.Visible = false ? currentUser != null && currentUser.rights > DBController.currentUser.rights : true;
 
                     EmployeeInfo_Fill();
                     EmployeeAccount_Fill();
@@ -91,7 +100,7 @@ namespace client.forms.MainWindow
                 DropDownStyle = ComboBoxStyle.DropDownList,
                 Dock = DockStyle.Top
             };
-            foreach (var role in DBController.rolesModel.Query()) {
+            foreach (Roles role in DBController.rolesModel.Query()) {
                 roleInput.Items.Add(role);
                 if (role.id == currentEmployee.role_id) {
                     roleInput.SelectedItem = role;
@@ -106,7 +115,7 @@ namespace client.forms.MainWindow
                 DropDownStyle = ComboBoxStyle.DropDownList,
                 Dock = DockStyle.Top
             };
-            foreach (var position in DBController.positionsModel.Query()) {
+            foreach (Positions position in DBController.positionsModel.Query()) {
                 positionInput.Items.Add(position);
                 if (position.id == currentEmployee.position_id) {
                     positionInput.SelectedItem = position;
@@ -134,7 +143,41 @@ namespace client.forms.MainWindow
         private void EmployeeAccount_Fill() {
             EmployeeAccountLayout.Controls.Clear();
 
+            if (currentUser != null) {
+                // username
+                Label notFound = new Label {
+                    Text = "Учетная запись данного работника не зарегистрирована",
+                    Dock = DockStyle.Fill
+                };
+                EmployeeAccountLayout.Controls.Add(notFound);
+                return;
+            }
 
+            // email
+            emailInput = new TextBox {
+                Text = currentUser.email,
+                ReadOnly = true ? currentUser != null && currentUser.rights > DBController.currentUser.rights : false,
+                Dock = DockStyle.Top
+            };
+            EmployeeAccountLayout.Controls.Add(emailInput);
+
+            // password
+            passwordInput = new TextBox {
+                Text = currentUser.password,
+                ReadOnly = true ? currentUser != null && currentUser.rights > DBController.currentUser.rights : false,
+                Dock = DockStyle.Top
+            };
+            if (DBController.settingsModel.Filter(("name", "password-hashing"))[0].value == 0) {
+                EmployeeAccountLayout.Controls.Add(passwordInput);
+            }
+
+            // username
+            usernameInput = new TextBox {
+                Text = currentUser.username,
+                ReadOnly = true ? currentUser != null && currentUser.rights > DBController.currentUser.rights : false,
+                Dock = DockStyle.Top
+            };
+            EmployeeAccountLayout.Controls.Add(usernameInput);
         }
     }
 }

@@ -43,6 +43,7 @@
             // EmployeesLabel
             // 
             EmployeesLabel.AutoSize = true;
+            EmployeesLabel.BackColor = Color.Transparent;
             EmployeesLabel.Location = new Point(57, 9);
             EmployeesLabel.Name = "EmployeesLabel";
             EmployeesLabel.Size = new Size(121, 15);
@@ -89,6 +90,7 @@
             // EmployeeInfoLabel
             // 
             EmployeeInfoLabel.AutoSize = true;
+            EmployeeInfoLabel.BackColor = Color.Transparent;
             EmployeeInfoLabel.Location = new Point(348, 9);
             EmployeeInfoLabel.Name = "EmployeeInfoLabel";
             EmployeeInfoLabel.Size = new Size(157, 15);
@@ -117,6 +119,7 @@
             // EmployeeAccountLabel
             // 
             EmployeeAccountLabel.AutoSize = true;
+            EmployeeAccountLabel.BackColor = Color.Transparent;
             EmployeeAccountLabel.Location = new Point(348, 197);
             EmployeeAccountLabel.Name = "EmployeeAccountLabel";
             EmployeeAccountLabel.Size = new Size(187, 15);
@@ -133,6 +136,7 @@
             EmployeeInfoSaveButton.Text = "Сохранить изменения";
             EmployeeInfoSaveButton.UseVisualStyleBackColor = true;
             EmployeeInfoSaveButton.Visible = false;
+            EmployeeInfoSaveButton.Click += EmployeeInfoSaveButton_Click;
             // 
             // button1
             // 

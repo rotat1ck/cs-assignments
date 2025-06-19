@@ -42,7 +42,7 @@ namespace client.forms.MainWindow
             var menuItems = new List<MenuItemData> {
                 new MenuItemData { Icon = "📊", Text = "Управление объектами", Checked = true },
                 new MenuItemData { Icon = "✅", Text = "Задачи", Checked = false },
-                new MenuItemData { Icon = "📄", Text = "Документация", Checked = false },
+                new MenuItemData { Icon = "🗃️", Text = "Материалы", Checked = false },
                 new MenuItemData { Icon = "👤", Text = "Учетная запись", Checked = false },
                 new MenuItemData { Icon = "🚪", Text = "Выход", Checked = false }
             };
@@ -118,8 +118,8 @@ namespace client.forms.MainWindow
                     childForm.Show();
                     break;
 
-                case "Документация":
-                    childForm = new DocumentationForm();
+                case "Материалы":
+                    childForm = new AttachmentsForm();
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();

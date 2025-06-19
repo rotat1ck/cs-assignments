@@ -1,5 +1,6 @@
 ﻿using client.models.data;
 using client.forms.Modals.NewTask;
+using client.models.linking;
 
 namespace client.forms.MainWindow
 {
@@ -7,6 +8,10 @@ namespace client.forms.MainWindow
         public TasksForm() {
             InitializeComponent();
             UpdateTasksList();
+
+            if (DBController.currentUser.rights < 1) {
+                NewTaskButton.Visible = false;
+            }
         }
 
         private void UpdateTasksList() {
@@ -15,7 +20,7 @@ namespace client.forms.MainWindow
 
             foreach (Tasks task in tasks) {
                 Button taskButton = new Button {
-                    Size = new Size(200, 30),
+                    Size = new Size(250, 30),
                     Text = task.name
                 };
                 taskButton.Click += (s, e) => {
@@ -29,14 +34,21 @@ namespace client.forms.MainWindow
 
                 Button deleteButton = new Button {
                     Size = new Size(75, 30),
-                    Text = "Delete"
+                    Text = "Удалить"
                 };
 
                 deleteButton.Click += (s, e) => {
                     TasksLayout.Controls.Remove(taskButton);
                     TasksLayout.Controls.Remove(deleteButton);
                     DBController.tasksModel.DeleteRecord(task);
+                    List<Tasks_Objects> linkedObjects = DBController.tasks_ObjectsModel.Filter(("task_id", task.id));
+                    foreach (Tasks_Objects link in linkedObjects) {
+                        DBController.tasks_ObjectsModel.DeleteRecord(link);
+                    }
                 };
+                if (DBController.currentUser.rights < 1) {
+                    deleteButton.Enabled = false;
+                }
                 TasksLayout.Controls.Add(deleteButton);
             }
         }

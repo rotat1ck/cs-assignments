@@ -34,8 +34,10 @@ namespace client.forms.Modals.LinkTask {
                 TasksList.Items.Add(task);
             }
             TasksList.DisplayMember = "name";
-            TasksList.SelectedIndex = 0;
-            DescriptionLabel.Text = ((Tasks)TasksList.SelectedItem).content;
+            if (TasksList.Items.Count > 0) {
+                TasksList.SelectedIndex = 0;
+                DescriptionLabel.Text = ((Tasks)TasksList.SelectedItem).content;
+            }
         }
 
         private void TasksList_Update(object sender, EventArgs e) {

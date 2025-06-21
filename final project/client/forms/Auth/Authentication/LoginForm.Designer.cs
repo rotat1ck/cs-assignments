@@ -36,9 +36,9 @@ namespace client.forms.Auth.Authentication {
             // SignInLabel
             // 
             SignInLabel.Font = new Font("Segoe UI", 16F);
-            SignInLabel.Location = new Point(11, 13);
+            SignInLabel.Location = new Point(10, 10);
             SignInLabel.Name = "SignInLabel";
-            SignInLabel.Size = new Size(240, 40);
+            SignInLabel.Size = new Size(210, 30);
             SignInLabel.TabIndex = 0;
             SignInLabel.Text = "Cherry: Sign In";
             SignInLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -46,38 +46,36 @@ namespace client.forms.Auth.Authentication {
             // UsernameLabel
             // 
             UsernameLabel.Font = new Font("Segoe UI", 10F);
-            UsernameLabel.Location = new Point(11, 107);
+            UsernameLabel.Location = new Point(10, 80);
             UsernameLabel.Name = "UsernameLabel";
-            UsernameLabel.Size = new Size(320, 40);
+            UsernameLabel.Size = new Size(280, 30);
             UsernameLabel.TabIndex = 1;
             UsernameLabel.Text = "Username or email:";
             UsernameLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // UsernameInput
             // 
-            UsernameInput.Location = new Point(11, 147);
-            UsernameInput.Margin = new Padding(3, 4, 3, 4);
+            UsernameInput.Location = new Point(10, 110);
             UsernameInput.Name = "UsernameInput";
-            UsernameInput.Size = new Size(319, 27);
+            UsernameInput.Size = new Size(280, 23);
             UsernameInput.TabIndex = 2;
             // 
             // label1
             // 
             label1.Font = new Font("Segoe UI", 10F);
-            label1.Location = new Point(11, 213);
+            label1.Location = new Point(10, 160);
             label1.Name = "label1";
-            label1.Size = new Size(320, 40);
+            label1.Size = new Size(280, 30);
             label1.TabIndex = 3;
             label1.Text = "Password:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // PasswordInput
             // 
-            PasswordInput.Location = new Point(11, 253);
-            PasswordInput.Margin = new Padding(3, 4, 3, 4);
+            PasswordInput.Location = new Point(10, 190);
             PasswordInput.Name = "PasswordInput";
             PasswordInput.PasswordChar = '*';
-            PasswordInput.Size = new Size(319, 27);
+            PasswordInput.Size = new Size(280, 23);
             PasswordInput.TabIndex = 4;
             PasswordInput.UseSystemPasswordChar = true;
             PasswordInput.KeyDown += PasswordInput_KeyDown;
@@ -85,9 +83,9 @@ namespace client.forms.Auth.Authentication {
             // label2
             // 
             label2.Font = new Font("Segoe UI", 10F);
-            label2.Location = new Point(11, 400);
+            label2.Location = new Point(10, 300);
             label2.Name = "label2";
-            label2.Size = new Size(196, 40);
+            label2.Size = new Size(172, 30);
             label2.TabIndex = 5;
             label2.Text = "Don't have an account?";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -95,10 +93,9 @@ namespace client.forms.Auth.Authentication {
             // RegisterButton
             // 
             RegisterButton.Font = new Font("Segoe UI", 10F);
-            RegisterButton.Location = new Point(206, 400);
-            RegisterButton.Margin = new Padding(3, 4, 3, 4);
+            RegisterButton.Location = new Point(180, 300);
             RegisterButton.Name = "RegisterButton";
-            RegisterButton.Size = new Size(126, 40);
+            RegisterButton.Size = new Size(110, 30);
             RegisterButton.TabIndex = 6;
             RegisterButton.Text = "Register";
             RegisterButton.UseVisualStyleBackColor = true;
@@ -106,10 +103,9 @@ namespace client.forms.Auth.Authentication {
             // SignInButton
             // 
             SignInButton.Font = new Font("Segoe UI", 20F);
-            SignInButton.Location = new Point(11, 453);
-            SignInButton.Margin = new Padding(3, 4, 3, 4);
+            SignInButton.Location = new Point(10, 340);
             SignInButton.Name = "SignInButton";
-            SignInButton.Size = new Size(320, 67);
+            SignInButton.Size = new Size(280, 50);
             SignInButton.TabIndex = 7;
             SignInButton.Text = "Sign In";
             SignInButton.UseVisualStyleBackColor = true;
@@ -117,9 +113,9 @@ namespace client.forms.Auth.Authentication {
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(347, 535);
+            ClientSize = new Size(304, 401);
             Controls.Add(SignInButton);
             Controls.Add(RegisterButton);
             Controls.Add(label2);
@@ -128,7 +124,8 @@ namespace client.forms.Auth.Authentication {
             Controls.Add(UsernameInput);
             Controls.Add(UsernameLabel);
             Controls.Add(SignInLabel);
-            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(320, 440);
+            MinimumSize = new Size(320, 440);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sign In";

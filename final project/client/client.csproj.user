@@ -31,6 +31,9 @@
     <Compile Update="forms\Modals\NewDocument\NewDocumentForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\Modals\NewEmployee\NewEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\Modals\NewObject\NewObjectForm.cs">
       <SubType>Form</SubType>
     </Compile>

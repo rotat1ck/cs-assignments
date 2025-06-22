@@ -141,6 +141,7 @@
             RolesComboBox.Size = new Size(223, 23);
             RolesComboBox.TabIndex = 35;
             RolesComboBox.ValueMember = "id";
+            RolesComboBox.KeyDown += RolesComboBox_KeyDown;
             // 
             // NewEmployeeForm
             // 

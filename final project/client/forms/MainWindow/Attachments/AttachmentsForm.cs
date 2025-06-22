@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using client.forms.Modals.NewDocument;
 using client.forms.Modals.NewPhoto;
 using client.models.data;
@@ -48,7 +39,11 @@ namespace client.forms.MainWindow
                         FileName = document.link,
                         UseShellExecute = true
                     };
-                    Process.Start(funSystemCall100PercentNotRemoteShell);
+                    try {
+                        Process.Start(funSystemCall100PercentNotRemoteShell);
+                    } catch (Win32Exception) {
+                        MessageBox.Show($"Не удалось перейти по: {document.link}");
+                    }
                 };
                 DocumentsLayout.Controls.Add(contentLabel);
 
@@ -94,7 +89,11 @@ namespace client.forms.MainWindow
                         FileName = photo.link,
                         UseShellExecute = true
                     };
-                    Process.Start(funSystemCall100PercentNotRemoteShell);
+                    try {
+                        Process.Start(funSystemCall100PercentNotRemoteShell);
+                    } catch (Win32Exception) {
+                        MessageBox.Show($"Не удалось перейти по: {photo.link}");
+                    }
                 };
                 PhotosLayout.Controls.Add(contentLabel);
 

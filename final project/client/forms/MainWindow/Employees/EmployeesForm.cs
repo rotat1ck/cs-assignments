@@ -37,7 +37,10 @@ namespace client.forms.MainWindow
 
         private void NewEmployeeButton_Click(object sender, EventArgs e) {
             using (NewEmployeeForm form = new NewEmployeeForm()) {
-                form.ShowDialog();
+                if (form.ShowDialog() == DialogResult.OK) {
+                    DBController.employeesModel.CreateRecord(form.NewEmployee);
+                    EmployeesLayout_Fill();
+                }
             }
         }
 

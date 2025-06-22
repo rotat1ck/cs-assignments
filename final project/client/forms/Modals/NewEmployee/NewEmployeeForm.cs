@@ -11,24 +11,12 @@ using client.models.data;
 
 namespace client.forms.Modals.NewEmployee {
     public partial class NewEmployeeForm : Form {
-        public static Positions newPosition;
+        public Employees NewEmployee;
+
         public NewEmployeeForm() {
             InitializeComponent();
             PositionComboBox_Fill();
             RolesComboBox_Fill();
-        }
-
-        private void PositionComboBox_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode == Keys.Enter && PositionComboBox.Text != "") {
-                Positions position = DBController.positionsModel.Filter(("name", PositionComboBox.Text))[0];
-                if (position == null) {
-                    DBController.positionsModel.CreateRecord(new Positions {
-                        name = PositionComboBox.Text,
-                    });
-                    PositionComboBox.SelectedItem = position;
-                    PositionComboBox_Fill();
-                }
-            }
         }
 
         private void PositionComboBox_Fill() {
@@ -51,7 +39,39 @@ namespace client.forms.Modals.NewEmployee {
             }
         }
 
+        private void PositionComboBox_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter && PositionComboBox.Text != "") {
+                List<Positions> positions = DBController.positionsModel.Filter(("name", PositionComboBox.Text));
+                if (positions.Count == 0) {
+                    DBController.positionsModel.CreateRecord(new Positions {
+                        name = PositionComboBox.Text,
+                    });
+                    PositionComboBox_Fill();
+                    PositionComboBox.SelectedItem = DBController.positionsModel.Filter(("name", PositionComboBox.Text))[0];
+                }
+            }
+        }
+
+        private void RolesComboBox_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter && RolesComboBox.Text != "") {
+                List<Roles> roles = DBController.rolesModel.Filter(("name", RolesComboBox.Text));
+                if (roles.Count == 0) {
+                    DBController.rolesModel.CreateRecord(new Roles {
+                        name = RolesComboBox.Text,
+                    });
+                    RolesComboBox_Fill();
+                    RolesComboBox.SelectedItem = DBController.rolesModel.Filter(("name", RolesComboBox.Text))[0];
+                }
+            }
+        }
+
         private void CreateButton_Click(object sender, EventArgs e) {
+            NewEmployee = new Employees {
+                first_name = FirstNameInput.Text,
+                last_name = LastNameInput.Text,
+                position_id = ((Positions)PositionComboBox.SelectedItem).id,
+                role_id = ((Roles)RolesComboBox.SelectedItem).id
+            };
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

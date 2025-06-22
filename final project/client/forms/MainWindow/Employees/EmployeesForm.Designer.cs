@@ -36,8 +36,8 @@
             EmployeeAccountLayout = new Panel();
             EmployeeAccountLabel = new Label();
             EmployeeInfoSaveButton = new Button();
-            button1 = new Button();
-            button2 = new Button();
+            EmployeeAccountPasswordResetButton = new Button();
+            EmployeeAccountSaveButton = new Button();
             SuspendLayout();
             // 
             // EmployeesLabel
@@ -139,25 +139,26 @@
             EmployeeInfoSaveButton.Visible = false;
             EmployeeInfoSaveButton.Click += EmployeeInfoSaveButton_Click;
             // 
-            // button1
+            // EmployeeAccountPasswordResetButton
             // 
-            button1.Location = new Point(490, 311);
-            button1.Name = "button1";
-            button1.Size = new Size(93, 23);
-            button1.TabIndex = 9;
-            button1.Text = "Сброс пароля";
-            button1.UseVisualStyleBackColor = true;
-            button1.Visible = false;
+            EmployeeAccountPasswordResetButton.Location = new Point(490, 311);
+            EmployeeAccountPasswordResetButton.Name = "EmployeeAccountPasswordResetButton";
+            EmployeeAccountPasswordResetButton.Size = new Size(93, 23);
+            EmployeeAccountPasswordResetButton.TabIndex = 9;
+            EmployeeAccountPasswordResetButton.Text = "Сброс пароля";
+            EmployeeAccountPasswordResetButton.UseVisualStyleBackColor = true;
+            EmployeeAccountPasswordResetButton.Visible = false;
             // 
-            // button2
+            // EmployeeAccountSaveButton
             // 
-            button2.Location = new Point(348, 311);
-            button2.Name = "button2";
-            button2.Size = new Size(136, 23);
-            button2.TabIndex = 10;
-            button2.Text = "Сохранить изменения";
-            button2.UseVisualStyleBackColor = true;
-            button2.Visible = false;
+            EmployeeAccountSaveButton.Location = new Point(348, 311);
+            EmployeeAccountSaveButton.Name = "EmployeeAccountSaveButton";
+            EmployeeAccountSaveButton.Size = new Size(136, 23);
+            EmployeeAccountSaveButton.TabIndex = 10;
+            EmployeeAccountSaveButton.Text = "Сохранить изменения";
+            EmployeeAccountSaveButton.UseVisualStyleBackColor = true;
+            EmployeeAccountSaveButton.Visible = false;
+            EmployeeAccountSaveButton.Click += EmployeeAccountSaveButton_Click;
             // 
             // EmployeesForm
             // 
@@ -166,8 +167,8 @@
             BackgroundImage = Properties.Resources.photo_2025_05_30_11_56_46;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(598, 346);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(EmployeeAccountSaveButton);
+            Controls.Add(EmployeeAccountPasswordResetButton);
             Controls.Add(EmployeeInfoSaveButton);
             Controls.Add(EmployeeAccountLayout);
             Controls.Add(EmployeeAccountLabel);
@@ -202,5 +203,7 @@
         private Button EmployeeInfoSaveButton;
         private Button button1;
         private Button button2;
+        private Button EmployeeAccountPasswordResetButton;
+        private Button EmployeeAccountSaveButton;
     }
 }

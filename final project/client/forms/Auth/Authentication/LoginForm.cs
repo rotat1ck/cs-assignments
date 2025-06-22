@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using client.forms.Auth.Authorization;
 using client.forms.MainWindow;
 using client.models.data;
 
@@ -41,7 +42,7 @@ namespace client.forms.Auth.Authentication {
                 return;
             }
 
-            MessageBox.Show("Incorrent username/email or password");
+            MessageBox.Show("Ќеверное им€ пользовател€/адрес почты или пароль");
         }
 
         private void PasswordInput_KeyDown(object sender, KeyEventArgs e) {
@@ -49,5 +50,11 @@ namespace client.forms.Auth.Authentication {
                 SignInButton_Click(this, e);
         }
 
+        private void RegisterButton_Click(object sender, EventArgs e) {
+            this.Hide();
+            RegistrationForm form = new RegistrationForm();
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
+        }
     }
 }

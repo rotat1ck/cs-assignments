@@ -53,6 +53,14 @@ namespace client.forms.MainWindow
             EmployeesLayout_Fill();
         }
 
+        private void EmployeeAccountSaveButton_Click(object sender, EventArgs e) {
+            currentUser.username = usernameInput.Text;
+            currentUser.password = passwordInput.Text;
+            currentUser.email = emailInput.Text;
+            DBController.usersModel.UpdateRecord(currentUser);
+            EmployeesLayout_Fill();
+        }
+
         private void EmployeesLayout_Fill() {
             EmployeesLayout.Controls.Clear();
 
@@ -154,7 +162,7 @@ namespace client.forms.MainWindow
         private void EmployeeAccount_Fill() {
             EmployeeAccountLayout.Controls.Clear();
 
-            if (currentUser != null) {
+            if (currentUser == null) {
                 // username
                 Label notFound = new Label {
                     Text = "Учетная запись данного работника не зарегистрирована",
@@ -163,6 +171,9 @@ namespace client.forms.MainWindow
                 EmployeeAccountLayout.Controls.Add(notFound);
                 return;
             }
+
+            EmployeeAccountSaveButton.Visible = true;
+            EmployeeAccountPasswordResetButton.Visible = true ? DBController.settingsModel.Filter(("name", "password-hashing"))[0].value == 1 : false;
 
             // email
             emailInput = new TextBox {

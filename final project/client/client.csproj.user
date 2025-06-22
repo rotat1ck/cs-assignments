@@ -13,6 +13,18 @@
     <Compile Update="forms\CollapsibleSidebar\CollapsibleSidebar.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="forms\Helper\AdminHelperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Helper\DownloadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Helper\EntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Helper\SettingsHelperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\MainWindow\Account\AccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -44,6 +56,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\Modals\NewTask\NewTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\Modals\ResetPassword\ResetPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -148,6 +148,7 @@
             EmployeeAccountPasswordResetButton.Text = "Сброс пароля";
             EmployeeAccountPasswordResetButton.UseVisualStyleBackColor = true;
             EmployeeAccountPasswordResetButton.Visible = false;
+            EmployeeAccountPasswordResetButton.Click += EmployeeAccountPasswordResetButton_Click;
             // 
             // EmployeeAccountSaveButton
             // 

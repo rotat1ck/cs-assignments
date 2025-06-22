@@ -2,6 +2,7 @@
 using client.models.data;
 using client.models.linking;
 using client.models.misc;
+using System.Runtime.ExceptionServices;
 
 namespace client {
     public static class DBController {
@@ -28,11 +29,8 @@ namespace client {
         public static void InitDB(string dbPath) {
             try {
                 db = new Database(dbPath);
-                
             } catch (Exception ex) {
-                // Call "cherry.rotatick.ru/db-sample"
-                // Add returned file next to executable
-                throw new NotImplementedException();
+                throw new ArgumentException();
             }
 
             objectsModel = new Objects(db);

@@ -10,9 +10,14 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using client.forms.Auth.Authentication;
 
 namespace client.forms.Helper {
     public partial class EntryForm : Form {
+        public static string url = "https://rotatick.ru/misc/cherry/client.db";
+        public static string fileName = Path.GetFileName(url);
+        public static string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+
         public EntryForm() {
             InitializeComponent();
         }
@@ -23,14 +28,11 @@ namespace client.forms.Helper {
                 return;
             }
 
-            string url = "https://rotatick.ru/misc/cherry/client.db";
-            string fileName = Path.GetFileName(url);
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
-
             if (!File.Exists(filePath)) {
                 using (var downloadForm = new DownloadForm()) {
                     downloadForm.Show();
 
+                    // 🥨
                     try {
                         using (var cl = new HttpClient()) {
                             using (var response = cl.GetAsync(url, HttpCompletionOption.ResponseHeadersRead).Result) {
@@ -56,8 +58,10 @@ namespace client.forms.Helper {
                     } catch (Exception ex) {
                         MessageBox.Show("Ошибка при загрузке: " + ex.Message);
                     }
+                    // 🥨
 
                     downloadForm.Close();
+                    DBController.InitDB(filePath);
                 }
             }
 

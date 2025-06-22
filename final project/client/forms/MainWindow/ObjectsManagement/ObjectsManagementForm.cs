@@ -116,17 +116,15 @@ namespace client {
                 Tasks task = DBController.tasksModel.Filter(tasksId.task_id);
 
                 Button taskButton = new Button {
-                    Size = new Size(180, 30),
+                    Size = new Size(140, 30),
                     Text = task.name
                 };
                 taskButton.Click += (s, e) => TaskButton_Click(task);
                 TasksLayout.Controls.Add(taskButton);
 
-                
                 Button deleteButton = new Button {
                     Size = new Size(65, 30),
                     Text = "Отвязать"
-
                 };
 
                 deleteButton.Click += (s, e) => {
@@ -139,11 +137,12 @@ namespace client {
                 }
                 TasksLayout.Controls.Add(deleteButton);
             }
+
+
         }
 
         private void TaskButton_Click(Tasks task) {
             ChosenInfoLayout.Controls.Clear();
-            NewTaskButton.Visible = false;
 
             isObjectChosen = false;
             currentTask = task;

@@ -38,9 +38,9 @@ namespace client.forms.Auth.Authentication {
             SignInLabel.Font = new Font("Segoe UI", 16F);
             SignInLabel.Location = new Point(10, 10);
             SignInLabel.Name = "SignInLabel";
-            SignInLabel.Size = new Size(210, 30);
+            SignInLabel.Size = new Size(280, 30);
             SignInLabel.TabIndex = 0;
-            SignInLabel.Text = "Cherry: Sign In";
+            SignInLabel.Text = "Cherry: Аутентификация ";
             SignInLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // UsernameLabel
@@ -50,7 +50,7 @@ namespace client.forms.Auth.Authentication {
             UsernameLabel.Name = "UsernameLabel";
             UsernameLabel.Size = new Size(280, 30);
             UsernameLabel.TabIndex = 1;
-            UsernameLabel.Text = "Username or email:";
+            UsernameLabel.Text = "Имя пользователя или адрес почты:";
             UsernameLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // UsernameInput
@@ -67,7 +67,7 @@ namespace client.forms.Auth.Authentication {
             label1.Name = "label1";
             label1.Size = new Size(280, 30);
             label1.TabIndex = 3;
-            label1.Text = "Password:";
+            label1.Text = "Пароль:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // PasswordInput
@@ -87,18 +87,19 @@ namespace client.forms.Auth.Authentication {
             label2.Name = "label2";
             label2.Size = new Size(172, 30);
             label2.TabIndex = 5;
-            label2.Text = "Don't have an account?";
+            label2.Text = "У вас нет аккаунта?";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // RegisterButton
             // 
             RegisterButton.Font = new Font("Segoe UI", 10F);
-            RegisterButton.Location = new Point(180, 300);
+            RegisterButton.Location = new Point(155, 300);
             RegisterButton.Name = "RegisterButton";
-            RegisterButton.Size = new Size(110, 30);
+            RegisterButton.Size = new Size(135, 30);
             RegisterButton.TabIndex = 6;
-            RegisterButton.Text = "Register";
+            RegisterButton.Text = "Зарегистрировать";
             RegisterButton.UseVisualStyleBackColor = true;
+            RegisterButton.Click += RegisterButton_Click;
             // 
             // SignInButton
             // 
@@ -107,7 +108,7 @@ namespace client.forms.Auth.Authentication {
             SignInButton.Name = "SignInButton";
             SignInButton.Size = new Size(280, 50);
             SignInButton.TabIndex = 7;
-            SignInButton.Text = "Sign In";
+            SignInButton.Text = "Войти";
             SignInButton.UseVisualStyleBackColor = true;
             SignInButton.Click += SignInButton_Click;
             // 
@@ -128,7 +129,7 @@ namespace client.forms.Auth.Authentication {
             MinimumSize = new Size(320, 440);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Sign In";
+            Text = "Аутентификация";
             ResumeLayout(false);
             PerformLayout();
         }

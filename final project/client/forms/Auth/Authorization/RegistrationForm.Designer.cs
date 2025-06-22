@@ -44,8 +44,9 @@
             RegisterButton.Name = "RegisterButton";
             RegisterButton.Size = new Size(280, 50);
             RegisterButton.TabIndex = 15;
-            RegisterButton.Text = "Зарегистрироваться";
+            RegisterButton.Text = "Продолжить";
             RegisterButton.UseVisualStyleBackColor = true;
+            RegisterButton.Click += RegisterButton_Click;
             // 
             // LoginButton
             // 

@@ -43,7 +43,6 @@
             ContinueButton.TabIndex = 7;
             ContinueButton.Text = "Продолжить";
             ContinueButton.UseVisualStyleBackColor = true;
-            ContinueButton.Click += this.StartButton_Click;
             // 
             // WelcomeLabel
             // 
@@ -54,7 +53,6 @@
             WelcomeLabel.TabIndex = 5;
             WelcomeLabel.Text = "Настройка профиля Администратора";
             WelcomeLabel.TextAlign = ContentAlignment.MiddleLeft;
-            WelcomeLabel.Click += this.WelcomeLabel_Click;
             // 
             // InitializeLabel
             // 
@@ -65,7 +63,6 @@
             InitializeLabel.TabIndex = 4;
             InitializeLabel.Text = "Cherry: Инициализация";
             InitializeLabel.TextAlign = ContentAlignment.MiddleLeft;
-            InitializeLabel.Click += InitializeLabel_Click;
             // 
             // RepeatPasswordInput
             // 
@@ -137,8 +134,10 @@
             Controls.Add(ContinueButton);
             Controls.Add(WelcomeLabel);
             Controls.Add(InitializeLabel);
+            MaximumSize = new Size(320, 440);
+            MinimumSize = new Size(320, 440);
             Name = "AdminHelperForm";
-            Text = "AdminHelperForm";
+            Text = "Создание учетной записи";
             ResumeLayout(false);
             PerformLayout();
         }

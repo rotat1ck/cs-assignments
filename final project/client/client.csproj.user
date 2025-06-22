@@ -16,6 +16,9 @@
     <Compile Update="forms\Helper\AdminHelperForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\Helper\DownloadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\Helper\EntryForm.cs">
       <SubType>Form</SubType>
     </Compile>

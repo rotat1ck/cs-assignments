@@ -1,4 +1,5 @@
 using client.forms.Auth.Authentication;
+using client.forms.Helper;
 
 namespace client;
 
@@ -14,6 +15,6 @@ static class Program
         // see https://aka.ms/applicationconfiguration.
         DBController.InitDB("client.db");
         ApplicationConfiguration.Initialize();
-        Application.Run(new LoginForm());
+        Application.Run(new EntryForm());
     }    
 }

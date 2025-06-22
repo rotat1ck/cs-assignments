@@ -68,6 +68,7 @@
             StartButton.TabIndex = 3;
             StartButton.Text = "Начать";
             StartButton.UseVisualStyleBackColor = true;
+            StartButton.Click += StartButton_Click;
             // 
             // EntryForm
             // 
@@ -78,6 +79,8 @@
             Controls.Add(InfoLabel);
             Controls.Add(WelcomeLabel);
             Controls.Add(InitializeLabel);
+            MaximumSize = new Size(320, 440);
+            MinimumSize = new Size(320, 440);
             Name = "EntryForm";
             Text = "Инициализация";
             ResumeLayout(false);

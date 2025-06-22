@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace client.forms.Helper {
-    public partial class AdminHelperForm : Form {
-        public AdminHelperForm() {
+    public partial class DownloadForm : Form {
+        public DownloadForm() {
             InitializeComponent();
         }
     }

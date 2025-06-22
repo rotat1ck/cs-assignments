@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -55,7 +56,9 @@ namespace client.forms.MainWindow
 
         private void EmployeeAccountSaveButton_Click(object sender, EventArgs e) {
             currentUser.username = usernameInput.Text;
-            currentUser.password = passwordInput.Text;
+            if (DBController.settingsModel.Filter(("name", "password-hashing"))[0].value == 0) {
+                currentUser.password = passwordInput.Text;
+            }
             currentUser.email = emailInput.Text;
             DBController.usersModel.UpdateRecord(currentUser);
             EmployeesLayout_Fill();
@@ -200,6 +203,17 @@ namespace client.forms.MainWindow
                 Dock = DockStyle.Top
             };
             EmployeeAccountLayout.Controls.Add(usernameInput);
+        }
+
+        public static string Hash(string password) {
+            using (SHA256 sha256Hash = SHA256.Create()) {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++) {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }

@@ -4,6 +4,9 @@
     <Compile Update="forms\Auth\Authentication\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\Auth\Authorization\NewUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\Auth\Authorization\RegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>

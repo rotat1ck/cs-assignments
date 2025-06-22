@@ -71,6 +71,11 @@ namespace client.forms.Auth.Authorization {
                 MessageBox.Show("Указаны неверные данные сотрудника");
                 return;
             }
+
+            this.Hide();
+            NewUserForm form = new NewUserForm(foundEmployee);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
         }
 
         private void UnsafeRegister() {
@@ -109,7 +114,10 @@ namespace client.forms.Auth.Authorization {
                 return;
             }
 
-
+            this.Hide();
+            NewUserForm form = new NewUserForm(foundEmployee);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.Show();
         }
     }
 }

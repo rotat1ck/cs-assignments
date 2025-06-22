@@ -71,12 +71,10 @@
             // 
             // LastNameInput
             // 
-            LastNameInput.Location = new Point(12, 136);
+            LastNameInput.Location = new Point(12, 139);
             LastNameInput.Name = "LastNameInput";
-            LastNameInput.PasswordChar = '*';
             LastNameInput.Size = new Size(280, 23);
             LastNameInput.TabIndex = 12;
-            LastNameInput.UseSystemPasswordChar = true;
             // 
             // LastNameLabel
             // 
@@ -119,10 +117,8 @@
             // 
             RoleInput.Location = new Point(12, 248);
             RoleInput.Name = "RoleInput";
-            RoleInput.PasswordChar = '*';
             RoleInput.Size = new Size(280, 23);
             RoleInput.TabIndex = 19;
-            RoleInput.UseSystemPasswordChar = true;
             // 
             // RoleLabel
             // 

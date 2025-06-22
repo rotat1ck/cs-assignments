@@ -19,7 +19,7 @@ namespace client.forms.Auth.Authentication {
         private void SignInButton_Click(object sender, EventArgs e) {
             Form childForm = null;
 
-            List<Users> userByUsername = DBController.usersModel.Filter(("username", UsernameInput.Text), ("password", UsernameInput.Text));
+            List<Users> userByUsername = DBController.usersModel.Filter(("username", UsernameInput.Text), ("password", PasswordInput.Text));
 
             if (userByUsername.Count > 0) {
                 DBController.currentUser = userByUsername[userByUsername.Count - 1];
@@ -30,7 +30,7 @@ namespace client.forms.Auth.Authentication {
                 return;
             }
 
-            List<Users> userByEmail = DBController.usersModel.Filter(("email", UsernameInput.Text), ("password", UsernameInput.Text));
+            List<Users> userByEmail = DBController.usersModel.Filter(("email", UsernameInput.Text), ("password", PasswordInput.Text));
 
             if (userByEmail.Count > 0) {
                 DBController.currentUser = userByEmail[userByEmail.Count - 1];

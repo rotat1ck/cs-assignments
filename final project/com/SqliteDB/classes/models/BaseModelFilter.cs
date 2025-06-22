@@ -1,6 +1,5 @@
 namespace SqliteDB;
 
-using System.ComponentModel;
 using System.Data;
 using Microsoft.Data.Sqlite;
 

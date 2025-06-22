@@ -79,7 +79,7 @@
             // CancelButton
             // 
             CancelButton.ImeMode = ImeMode.NoControl;
-            CancelButton.Location = new Point(192, 145);
+            CancelButton.Location = new Point(12, 144);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(130, 35);
             CancelButton.TabIndex = 33;
@@ -90,7 +90,7 @@
             // CreateButton
             // 
             CreateButton.ImeMode = ImeMode.NoControl;
-            CreateButton.Location = new Point(12, 145);
+            CreateButton.Location = new Point(192, 144);
             CreateButton.Name = "CreateButton";
             CreateButton.Size = new Size(130, 35);
             CreateButton.TabIndex = 32;

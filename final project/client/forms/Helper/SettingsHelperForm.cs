@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using client.forms.Auth.Authentication;
 using client.models.data;
+using client.models.misc;
 
 namespace client.forms.Helper {
     public partial class SettingsHelperForm : Form {
@@ -41,11 +42,27 @@ namespace client.forms.Helper {
                 email = ""
             };
 
+            Settings passwordHashing = new Settings {
+                name = "password-hashing",
+                value = 0
+            };
+            Settings safeRegister = new Settings {
+                name = "safe-register",
+                value = 0
+            };
+
             if (PasswordHashingCheckBox.Checked) {
                 adminUser.password = Hash(passwordEntry);
+                passwordHashing.value = 1;
+            }
+            if (SafeRegisterCheckBox.Checked) {
+                safeRegister.value = 1;
             }
 
             DBController.usersModel.CreateRecord(adminUser);
+
+            DBController.settingsModel.CreateRecord(passwordHashing);
+            DBController.settingsModel.CreateRecord(safeRegister);
 
             this.Hide();
             LoginForm form = new LoginForm();

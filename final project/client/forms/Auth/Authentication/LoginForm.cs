@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,7 +21,12 @@ namespace client.forms.Auth.Authentication {
         private void SignInButton_Click(object sender, EventArgs e) {
             Form childForm = null;
 
-            List<Users> userByUsername = DBController.usersModel.Filter(("username", UsernameInput.Text), ("password", PasswordInput.Text));
+            List<Users> userByUsername;
+            if (DBController.settingsModel.Filter(("name", "password-hashing"))[0].value == 1) {
+                userByUsername = DBController.usersModel.Filter(("username", UsernameInput.Text), ("password", Hash(PasswordInput.Text)));
+            } else {
+                userByUsername = DBController.usersModel.Filter(("username", UsernameInput.Text), ("password", PasswordInput.Text));
+            }
 
             if (userByUsername.Count > 0) {
                 DBController.currentUser = userByUsername[userByUsername.Count - 1];
@@ -31,7 +37,12 @@ namespace client.forms.Auth.Authentication {
                 return;
             }
 
-            List<Users> userByEmail = DBController.usersModel.Filter(("email", UsernameInput.Text), ("password", PasswordInput.Text));
+            List<Users> userByEmail;
+            if (DBController.settingsModel.Filter(("name", "password-hashing"))[0].value == 1) {
+                userByEmail = DBController.usersModel.Filter(("email", UsernameInput.Text), ("password", Hash(PasswordInput.Text)));
+            } else {
+                userByEmail = DBController.usersModel.Filter(("email", UsernameInput.Text), ("password", PasswordInput.Text));
+            }
 
             if (userByEmail.Count > 0) {
                 DBController.currentUser = userByEmail[userByEmail.Count - 1];
@@ -55,6 +66,17 @@ namespace client.forms.Auth.Authentication {
             RegistrationForm form = new RegistrationForm();
             form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
+        }
+
+        public static string Hash(string password) {
+            using (SHA256 sha256Hash = SHA256.Create()) {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++) {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }

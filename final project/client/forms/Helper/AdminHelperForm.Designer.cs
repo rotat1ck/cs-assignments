@@ -43,6 +43,7 @@
             ContinueButton.TabIndex = 7;
             ContinueButton.Text = "Продолжить";
             ContinueButton.UseVisualStyleBackColor = true;
+            ContinueButton.Click += ContinueButton_Click;
             // 
             // WelcomeLabel
             // 

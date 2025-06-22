@@ -12,10 +12,8 @@ static class Program {
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
-        string fileName = Path.GetFileName("https://rotatick.ru/misc/cherry/client.db");
-        string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
 
-        if (!File.Exists(filePath)) {
+        if (!File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "client.db"))) {
             Application.Run(new EntryForm());
         } else {
             Application.Run(new LoginForm());

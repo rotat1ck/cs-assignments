@@ -1,4 +1,7 @@
-﻿using client.forms.Modals.LinkTask;
+﻿using System.ComponentModel;
+using System.Diagnostics;
+using System.Xml;
+using client.forms.Modals.LinkTask;
 using client.forms.Modals.NewObject;
 using client.models.data;
 using client.models.linking;
@@ -101,16 +104,27 @@ namespace client {
             TasksLabel.Visible = true;
             TasksLayout.Visible = true;
 
+            DocumentsLabel.Visible = true;
+            DocumentsLayout.Visible = true;
+
+            PhotosLabel.Visible = true;
+            PhotosLayout.Visible = true;
+
             if (DBController.currentUser.rights > 0) {
                 SaveObjectInfoButton.Visible = true;
                 NewTaskButton.Visible = true;
+                NewDocumentButton.Visible = true;
+                NewPhotoButton.Visible = true;
             }
 
             ChosenInfoLayout.Controls.Clear();
             TasksLayout.Controls.Clear();
+            DocumentsLayout.Controls.Clear();
+            PhotosLayout.Controls.Clear();
 
             ObjectButton_Fill(obj);
 
+            // заполнение задач
             List<Tasks_Objects> linkedTasks = DBController.tasks_ObjectsModel.Filter(("object_id", obj.id));
             foreach (var tasksId in linkedTasks) {
                 Tasks task = DBController.tasksModel.Filter(tasksId.task_id);
@@ -138,7 +152,47 @@ namespace client {
                 TasksLayout.Controls.Add(deleteButton);
             }
 
+            // заполнение документов
+            List<Documents_Objects> linkedDocuments = DBController.documents_ObjectsModel.Filter(("object_id", obj.id));
+            foreach (var documentId in linkedDocuments) {
+                Documents document = DBController.documentsModel.Filter(documentId.document_id);
 
+                LinkLabel linkLabel = new LinkLabel {
+                    Size = new Size(65, 30),
+                    Text = document.name,
+                    TextAlign = ContentAlignment.MiddleLeft
+                };
+                linkLabel.LinkClicked += (s, e) => {
+                    var funSystemCall100PercentNotRemoteShell = new ProcessStartInfo {
+                        FileName = document.link,
+                        UseShellExecute = true
+                    };
+                    try {
+                        Process.Start(funSystemCall100PercentNotRemoteShell);
+                    } catch (Win32Exception) {
+                        MessageBox.Show($"Не удалось перейти по: {document.link}");
+                    }
+                };
+                DocumentsLayout.Controls.Add(linkLabel);
+
+                Button deleteButton = new Button {
+                    Size = new Size(65, 30),
+                    Text = "Отвязать",
+                    TextAlign= ContentAlignment.MiddleLeft
+                };
+
+                deleteButton.Click += (s, e) => {
+                    DocumentsLayout.Controls.Remove(linkLabel);
+                    DocumentsLayout.Controls.Remove(deleteButton);
+                    DBController.documents_ObjectsModel.DeleteRecord(documentId);
+                };
+                if (DBController.currentUser.rights < 1) {
+                    deleteButton.Enabled = false;
+                }
+                DocumentsLayout.Controls.Add(deleteButton);
+            }
+
+            // заполнение фото
         }
 
         private void TaskButton_Click(Tasks task) {

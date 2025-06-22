@@ -178,8 +178,8 @@
             PhotosLayout.AutoScroll = true;
             PhotosLayout.BackColor = Color.Transparent;
             PhotosLayout.ColumnCount = 2;
-            PhotosLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
-            PhotosLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            PhotosLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55F));
+            PhotosLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45F));
             PhotosLayout.Location = new Point(427, 249);
             PhotosLayout.Margin = new Padding(3, 2, 3, 2);
             PhotosLayout.Name = "PhotosLayout";
@@ -215,8 +215,8 @@
             DocumentsLayout.AutoScroll = true;
             DocumentsLayout.BackColor = Color.Transparent;
             DocumentsLayout.ColumnCount = 2;
-            DocumentsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
-            DocumentsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            DocumentsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55F));
+            DocumentsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45F));
             DocumentsLayout.Location = new Point(263, 249);
             DocumentsLayout.Margin = new Padding(3, 2, 3, 2);
             DocumentsLayout.Name = "DocumentsLayout";
@@ -241,12 +241,15 @@
             // 
             TasksYoursCheckBox.AutoSize = true;
             TasksYoursCheckBox.BackColor = Color.Transparent;
+            TasksYoursCheckBox.Checked = true;
+            TasksYoursCheckBox.CheckState = CheckState.Checked;
             TasksYoursCheckBox.Location = new Point(139, 226);
             TasksYoursCheckBox.Name = "TasksYoursCheckBox";
             TasksYoursCheckBox.Size = new Size(99, 19);
             TasksYoursCheckBox.TabIndex = 19;
             TasksYoursCheckBox.Text = "Только ваши";
             TasksYoursCheckBox.UseVisualStyleBackColor = false;
+            TasksYoursCheckBox.Visible = false;
             // 
             // ObjectsManagementForm
             // 

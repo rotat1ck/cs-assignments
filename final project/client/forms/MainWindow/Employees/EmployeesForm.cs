@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using client.forms.Modals.NewEmployee;
+using client.forms.Modals.ResetPassword;
 using client.models.data;
 using client.models.linking;
 
@@ -62,6 +63,15 @@ namespace client.forms.MainWindow
             currentUser.email = emailInput.Text;
             DBController.usersModel.UpdateRecord(currentUser);
             EmployeesLayout_Fill();
+        }
+
+        private void EmployeeAccountPasswordResetButton_Click(object sender, EventArgs e) {
+            using (ResetPasswordForm form = new ResetPasswordForm()) {
+                if (form.ShowDialog() == DialogResult.OK) {
+                    currentUser.password = Hash(form.NewPassword);
+                    DBController.usersModel.UpdateRecord(currentUser);
+                }
+            }
         }
 
         private void EmployeesLayout_Fill() {

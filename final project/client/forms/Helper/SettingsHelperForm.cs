@@ -48,7 +48,7 @@ namespace client.forms.Helper {
             };
             Settings safeRegister = new Settings {
                 name = "safe-register",
-                value = 0
+                value = 1
             };
 
             if (PasswordHashingCheckBox.Checked) {
@@ -56,7 +56,7 @@ namespace client.forms.Helper {
                 passwordHashing.value = 1;
             }
             if (SafeRegisterCheckBox.Checked) {
-                safeRegister.value = 1;
+                safeRegister.value = 0;
             }
 
             DBController.usersModel.CreateRecord(adminUser);

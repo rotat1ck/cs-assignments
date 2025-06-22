@@ -58,5 +58,8 @@
     <Compile Update="forms\Modals\NewTask\NewTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\Modals\ResetPassword\ResetPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

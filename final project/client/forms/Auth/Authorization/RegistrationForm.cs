@@ -24,7 +24,7 @@ namespace client.forms.Auth.Authorization {
         }
 
         private void RegisterButton_Click(object sender, EventArgs e) {
-            var safeCheck = DBController.settingsModel.Filter(("name", "safe_register"));
+            var safeCheck = DBController.settingsModel.Filter(("name", "safe-register"));
             if (safeCheck.Count > 0) {
                 if (safeCheck[0].value == 0) {
                     UnsafeRegister();

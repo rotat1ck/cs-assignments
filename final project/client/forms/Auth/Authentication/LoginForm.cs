@@ -42,7 +42,7 @@ namespace client.forms.Auth.Authentication {
                 return;
             }
 
-            MessageBox.Show("Incorrent username/email or password");
+            MessageBox.Show("Ќеверное им€ пользовател€/адрес почты или пароль");
         }
 
         private void PasswordInput_KeyDown(object sender, KeyEventArgs e) {

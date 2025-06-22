@@ -93,11 +93,11 @@ namespace client.forms.Auth.Authentication {
             // RegisterButton
             // 
             RegisterButton.Font = new Font("Segoe UI", 10F);
-            RegisterButton.Location = new Point(155, 300);
+            RegisterButton.Location = new Point(146, 300);
             RegisterButton.Name = "RegisterButton";
-            RegisterButton.Size = new Size(135, 30);
+            RegisterButton.Size = new Size(144, 30);
             RegisterButton.TabIndex = 6;
-            RegisterButton.Text = "Зарегистрировать";
+            RegisterButton.Text = "Зарегистрироваться";
             RegisterButton.UseVisualStyleBackColor = true;
             RegisterButton.Click += RegisterButton_Click;
             // 

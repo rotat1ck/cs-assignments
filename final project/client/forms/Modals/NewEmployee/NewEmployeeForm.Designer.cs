@@ -30,10 +30,10 @@
             CreateLabel = new Label();
             CancelButton = new Button();
             CreateButton = new Button();
-            label1 = new Label();
-            comboBox1 = new ComboBox();
-            label2 = new Label();
-            comboBox2 = new ComboBox();
+            PositionLabel = new Label();
+            PositionComboBox = new ComboBox();
+            RoleLabel = new Label();
+            RolesComboBox = new ComboBox();
             SuspendLayout();
             // 
             // LastNameLabel
@@ -89,6 +89,7 @@
             CancelButton.TabIndex = 26;
             CancelButton.Text = "Отмена";
             CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
             // 
             // CreateButton
             // 
@@ -99,50 +100,57 @@
             CreateButton.TabIndex = 25;
             CreateButton.Text = "Создать";
             CreateButton.UseVisualStyleBackColor = true;
+            CreateButton.Click += CreateButton_Click;
             // 
-            // label1
+            // PositionLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 134);
-            label1.Name = "label1";
-            label1.Size = new Size(58, 15);
-            label1.TabIndex = 32;
-            label1.Text = "Позиция:";
+            PositionLabel.AutoSize = true;
+            PositionLabel.Location = new Point(12, 134);
+            PositionLabel.Name = "PositionLabel";
+            PositionLabel.Size = new Size(58, 15);
+            PositionLabel.TabIndex = 32;
+            PositionLabel.Text = "Позиция:";
             // 
-            // comboBox1
+            // PositionComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(99, 131);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(223, 23);
-            comboBox1.TabIndex = 33;
+            PositionComboBox.AutoCompleteMode = AutoCompleteMode.Append;
+            PositionComboBox.DisplayMember = "name";
+            PositionComboBox.FormattingEnabled = true;
+            PositionComboBox.Location = new Point(99, 131);
+            PositionComboBox.Name = "PositionComboBox";
+            PositionComboBox.Size = new Size(223, 23);
+            PositionComboBox.TabIndex = 33;
+            PositionComboBox.ValueMember = "id";
+            PositionComboBox.KeyDown += PositionComboBox_KeyDown;
             // 
-            // label2
+            // RoleLabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 180);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 34;
-            label2.Text = "label2";
+            RoleLabel.AutoSize = true;
+            RoleLabel.Location = new Point(12, 180);
+            RoleLabel.Name = "RoleLabel";
+            RoleLabel.Size = new Size(37, 15);
+            RoleLabel.TabIndex = 34;
+            RoleLabel.Text = "Роль:";
             // 
-            // comboBox2
+            // RolesComboBox
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(99, 177);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(223, 23);
-            comboBox2.TabIndex = 35;
+            RolesComboBox.DisplayMember = "name";
+            RolesComboBox.FormattingEnabled = true;
+            RolesComboBox.Location = new Point(99, 177);
+            RolesComboBox.Name = "RolesComboBox";
+            RolesComboBox.Size = new Size(223, 23);
+            RolesComboBox.TabIndex = 35;
+            RolesComboBox.ValueMember = "id";
             // 
             // NewEmployeeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(334, 285);
-            Controls.Add(comboBox2);
-            Controls.Add(label2);
-            Controls.Add(comboBox1);
-            Controls.Add(label1);
+            Controls.Add(RolesComboBox);
+            Controls.Add(RoleLabel);
+            Controls.Add(PositionComboBox);
+            Controls.Add(PositionLabel);
             Controls.Add(LastNameLabel);
             Controls.Add(LastNameInput);
             Controls.Add(FirstNameInput);
@@ -165,9 +173,9 @@
         private Label CreateLabel;
         private Button CancelButton;
         private Button CreateButton;
-        private Label label1;
-        private ComboBox comboBox1;
-        private Label label2;
-        private ComboBox comboBox2;
+        private Label PositionLabel;
+        private ComboBox PositionComboBox;
+        private Label RoleLabel;
+        private ComboBox RolesComboBox;
     }
 }

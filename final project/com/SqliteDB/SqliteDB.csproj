@@ -8,8 +8,11 @@
     <PackageId>SqliteDB</PackageId>
     <Title>SqliteDB</Title>
     <Authors>rotatick</Authors>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <RepositoryUrl>https://github.com/rotat1ck/cs-assignments/tree/main/final%20project/com/SqliteDB</RepositoryUrl>
+    <Description>Simple yet enough abstract SQLite wrapper. Provides models and direct SQL execution.
+
+No docs will be written. This is an educational derivative project. Use at your own risk.</Description>
   </PropertyGroup>
 
   <ItemGroup>

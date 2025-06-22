@@ -86,6 +86,7 @@
             NewEmployeeButton.TabIndex = 3;
             NewEmployeeButton.Text = "Добавить сотрудника";
             NewEmployeeButton.UseVisualStyleBackColor = true;
+            NewEmployeeButton.Click += NewEmployeeButton_Click;
             // 
             // EmployeeInfoLabel
             // 

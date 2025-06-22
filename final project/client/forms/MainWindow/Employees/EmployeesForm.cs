@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using client.forms.Modals.NewEmployee;
 using client.models.data;
 using client.models.linking;
 
@@ -33,6 +34,13 @@ namespace client.forms.MainWindow
                 NewEmployeeButton.Visible = false;
             }
         }
+
+        private void NewEmployeeButton_Click(object sender, EventArgs e) {
+            using (NewEmployeeForm form = new NewEmployeeForm()) {
+                form.ShowDialog();
+            }
+        }
+
         private void EmployeeInfoSaveButton_Click(object sender, EventArgs e) {
             currentEmployee.first_name = firstNameInput.Text;
             currentEmployee.last_name = lastNameInput.Text;

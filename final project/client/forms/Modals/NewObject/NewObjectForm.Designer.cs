@@ -84,6 +84,7 @@
             // 
             resources.ApplyResources(ObjectTypeComboBox, "ObjectTypeComboBox");
             ObjectTypeComboBox.Name = "ObjectTypeComboBox";
+            ObjectTypeComboBox.KeyDown += ObjectTypeComboBox_KeyDown;
             // 
             // NewObjectForm
             // 

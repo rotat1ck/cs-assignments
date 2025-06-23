@@ -7,8 +7,25 @@ namespace client.forms.Modals.NewObject {
 
         public NewObjectForm() {
             InitializeComponent();
+            ObjectTypeComboBox_Fill();
+        }
+
+        private void ObjectTypeComboBox_Fill() {
             ObjectTypeComboBox.DataSource = DBController.objects_TypesModel.Query();
             ObjectTypeComboBox.DisplayMember = "name";
+        }
+
+        private void ObjectTypeComboBox_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter && ObjectTypeComboBox.Text != "") {
+                List<Objects_Types> objectsTypes = DBController.objects_TypesModel.Filter(("name", ObjectTypeComboBox.Text));
+                if (objectsTypes.Count == 0) {
+                    DBController.objects_TypesModel.CreateRecord(new Objects_Types {
+                        name = ObjectTypeComboBox.Text,
+                    });
+                    ObjectTypeComboBox_Fill();
+                    ObjectTypeComboBox.SelectedItem = DBController.objects_TypesModel.Filter(("name", ObjectTypeComboBox.Text))[0];
+                }
+            }
         }
 
         private void CreateButton_Click(object sender, EventArgs e) {

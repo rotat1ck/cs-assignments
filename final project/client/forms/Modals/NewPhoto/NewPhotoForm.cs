@@ -11,7 +11,7 @@ using client.models.data;
 
 namespace client.forms.Modals.NewPhoto {
     public partial class NewPhotoForm : Form {
-        public Photos Photo { get; set; }
+        public Photos Photo;
         public NewPhotoForm() {
             InitializeComponent();
         }

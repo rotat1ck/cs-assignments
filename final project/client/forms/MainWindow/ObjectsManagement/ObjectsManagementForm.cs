@@ -1,4 +1,9 @@
-﻿using client.forms.Modals.LinkTask;
+﻿using System.ComponentModel;
+using System.Diagnostics;
+using System.Xml;
+using client.forms.Modals.LinkDocument;
+using client.forms.Modals.LinkPhoto;
+using client.forms.Modals.LinkTask;
 using client.forms.Modals.NewObject;
 using client.models.data;
 using client.models.linking;
@@ -9,12 +14,14 @@ namespace client {
         private TextBox addressInput;
         private Panel panel;
         private ComboBox typeInput;
+        private ComboBox employeeInput;
         private TextBox numberInput;
         private TextBox nameInput;
         private bool isObjectChosen;
 
         Objects currentObject;
         Tasks currentTask;
+        Tasks_Objects currentTaskLink;
 
         public ObjectsManagementForm() {
             InitializeComponent();
@@ -23,6 +30,10 @@ namespace client {
             if (DBController.currentUser.rights < 1) {
                 NewObjectButton.Visible = false;
             }
+        }
+
+        private void TasksYoursCheckBox_Changed(object sender, EventArgs e) {
+            ObjectButton_Click(currentObject);
         }
         private void NewObjectButton_Click(object sender, EventArgs e) {
             using (NewObjectForm objectForm = new NewObjectForm()) {
@@ -44,20 +55,40 @@ namespace client {
             }
         }
 
+        private void NewDocumentButton_Click(object sender, EventArgs e) {
+            using (LinkDocumentForm form = new LinkDocumentForm(currentObject)) {
+                if (form.ShowDialog() == DialogResult.OK) {
+                    DBController.documents_ObjectsModel.CreateRecord(form.link);
+                    ObjectButton_Click(currentObject);
+                }
+            }
+        }
+
+        private void NewPhotoButton_Click(object sender, EventArgs e) {
+            using (LinkPhotoForm form = new LinkPhotoForm(currentObject)) {
+                if (form.ShowDialog() == DialogResult.OK) {
+                    DBController.photos_ObjectsModel.CreateRecord(form.link);
+                    ObjectButton_Click(currentObject);
+                }
+            }
+        }
+
         private void SaveObjectInfoButton_Click(object sender, EventArgs e) {
             if (isObjectChosen) {
                 currentObject.object_type = ((Objects_Types)typeInput.SelectedItem).id;
                 currentObject.name = nameInput.Text;
                 currentObject.description = descriptionInput.Text;
                 currentObject.location = addressInput.Text;
-                  currentObject.number = int.Parse(numberInput.Text);
+                currentObject.number = int.Parse(numberInput.Text);
 
                 DBController.objectsModel.UpdateRecord(currentObject);
             } else {
                 currentTask.name = nameInput.Text;
                 currentTask.content = descriptionInput.Text;
+                currentTaskLink.employee_id = ((Employees)employeeInput.SelectedItem).id;
 
                 DBController.tasksModel.UpdateRecord(currentTask);
+                DBController.tasks_ObjectsModel.UpdateRecord(currentTaskLink);
             }
         }
 
@@ -100,33 +131,46 @@ namespace client {
 
             TasksLabel.Visible = true;
             TasksLayout.Visible = true;
+            TasksYoursCheckBox.Visible = true;
+
+            DocumentsLabel.Visible = true;
+            DocumentsLayout.Visible = true;
+
+            PhotosLabel.Visible = true;
+            PhotosLayout.Visible = true;
 
             if (DBController.currentUser.rights > 0) {
                 SaveObjectInfoButton.Visible = true;
                 NewTaskButton.Visible = true;
+                NewDocumentButton.Visible = true;
+                NewPhotoButton.Visible = true;
             }
 
             ChosenInfoLayout.Controls.Clear();
             TasksLayout.Controls.Clear();
+            DocumentsLayout.Controls.Clear();
+            PhotosLayout.Controls.Clear();
 
             ObjectButton_Fill(obj);
 
+            // заполнение задач
             List<Tasks_Objects> linkedTasks = DBController.tasks_ObjectsModel.Filter(("object_id", obj.id));
+            if (TasksYoursCheckBox.Checked) {
+                linkedTasks = DBController.tasks_ObjectsModel.Filter(("object_id", obj.id), ("employee_id", DBController.currentUser.employee_id));
+            }
             foreach (var tasksId in linkedTasks) {
                 Tasks task = DBController.tasksModel.Filter(tasksId.task_id);
 
                 Button taskButton = new Button {
-                    Size = new Size(180, 30),
+                    Size = new Size(140, 30),
                     Text = task.name
                 };
-                taskButton.Click += (s, e) => TaskButton_Click(task);
+                taskButton.Click += (s, e) => TaskButton_Click(task, tasksId);
                 TasksLayout.Controls.Add(taskButton);
 
-                
                 Button deleteButton = new Button {
                     Size = new Size(65, 30),
                     Text = "Отвязать"
-
                 };
 
                 deleteButton.Click += (s, e) => {
@@ -139,15 +183,117 @@ namespace client {
                 }
                 TasksLayout.Controls.Add(deleteButton);
             }
+
+            // заполнение документов
+            List<Documents_Objects> linkedDocuments = DBController.documents_ObjectsModel.Filter(("object_id", obj.id));
+            foreach (var documentId in linkedDocuments) {
+                Documents document = DBController.documentsModel.Filter(documentId.document_id);
+
+                LinkLabel linkLabel = new LinkLabel {
+                    Size = new Size(65, 30),
+                    Text = document.name,
+                    TextAlign = ContentAlignment.MiddleLeft
+                };
+                linkLabel.LinkClicked += (s, e) => {
+                    var funSystemCall100PercentNotRemoteShell = new ProcessStartInfo {
+                        FileName = document.link,
+                        UseShellExecute = true
+                    };
+                    try {
+                        Process.Start(funSystemCall100PercentNotRemoteShell);
+                    } catch (Win32Exception) {
+                        MessageBox.Show($"Не удалось перейти по: {document.link}");
+                    }
+                };
+                DocumentsLayout.Controls.Add(linkLabel);
+
+                Button deleteButton = new Button {
+                    Size = new Size(65, 30),
+                    Text = "Отвязать",
+                    TextAlign = ContentAlignment.MiddleLeft
+                };
+
+                deleteButton.Click += (s, e) => {
+                    DocumentsLayout.Controls.Remove(linkLabel);
+                    DocumentsLayout.Controls.Remove(deleteButton);
+                    DBController.documents_ObjectsModel.DeleteRecord(documentId);
+                };
+                if (DBController.currentUser.rights < 1) {
+                    deleteButton.Enabled = false;
+                }
+                DocumentsLayout.Controls.Add(deleteButton);
+            }
+
+            // заполнение фото
+            List<Photos_Objects> linkedPhotos = DBController.photos_ObjectsModel.Filter(("object_id", obj.id));
+            foreach (var photoId in linkedPhotos) {
+                Photos photo = DBController.photosModel.Filter(photoId.photo_id);
+
+                LinkLabel linkLabel = new LinkLabel {
+                    Size = new Size(65, 30),
+                    Text = photo.name,
+                    TextAlign = ContentAlignment.MiddleLeft
+                };
+                linkLabel.LinkClicked += (s, e) => {
+                    var funSystemCall100PercentNotRemoteShell = new ProcessStartInfo {
+                        FileName = photo.link,
+                        UseShellExecute = true
+                    };
+                    try {
+                        Process.Start(funSystemCall100PercentNotRemoteShell);
+                    } catch (Win32Exception) {
+                        MessageBox.Show($"Не удалось перейти по: {photo.link}");
+                    }
+                };
+                PhotosLayout.Controls.Add(linkLabel);
+
+                Button deleteButton = new Button {
+                    Size = new Size(65, 30),
+                    Text = "Отвязать",
+                    TextAlign = ContentAlignment.MiddleLeft
+                };
+
+                deleteButton.Click += (s, e) => {
+                    PhotosLayout.Controls.Remove(linkLabel);
+                    PhotosLayout.Controls.Remove(deleteButton);
+                    DBController.photos_ObjectsModel.DeleteRecord(photoId);
+                };
+                if (DBController.currentUser.rights < 1) {
+                    deleteButton.Enabled = false;
+                }
+                PhotosLayout.Controls.Add(deleteButton);
+            }
         }
 
-        private void TaskButton_Click(Tasks task) {
+        private void TaskButton_Click(Tasks task, Tasks_Objects taskLink) {
             ChosenInfoLayout.Controls.Clear();
-            NewTaskButton.Visible = false;
 
             isObjectChosen = false;
             currentTask = task;
+            currentTaskLink = taskLink;
             ChosenInfoLabel.Text = "Информация о задаче";
+
+            // Дедлайн
+            Label deadlineLabel = new Label {
+                Text = "Исполнить до: " + DateTimeOffset.FromUnixTimeSeconds(currentTaskLink.endstamp).LocalDateTime.ToLongDateString(),
+                Dock = DockStyle.Top
+            };
+            ChosenInfoLayout.Controls.Add(deadlineLabel);
+
+            // Исполнитель
+            employeeInput = new ComboBox {
+                DisplayMember = "last_name",
+                ValueMember = "id",
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Dock = DockStyle.Top
+            };
+            foreach (var item in DBController.employeesModel.Query()) {
+                employeeInput.Items.Add(item);
+                if (item.id == taskLink.employee_id) {
+                    employeeInput.SelectedItem = item;
+                }
+            }
+            ChosenInfoLayout.Controls.Add(employeeInput);
 
             // Описание
             descriptionInput = new TextBox {

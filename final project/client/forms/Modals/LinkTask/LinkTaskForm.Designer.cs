@@ -32,10 +32,13 @@
             label1 = new Label();
             Endstamp = new DateTimePicker();
             DescriptionLabel = new Label();
+            EmployeesList = new ComboBox();
+            label2 = new Label();
             SuspendLayout();
             // 
             // TasksList
             // 
+            TasksList.DropDownStyle = ComboBoxStyle.DropDownList;
             TasksList.FormattingEnabled = true;
             TasksList.Location = new Point(12, 44);
             TasksList.Name = "TasksList";
@@ -55,7 +58,7 @@
             // SearchLabel
             // 
             SearchLabel.AutoSize = true;
-            SearchLabel.Location = new Point(51, 136);
+            SearchLabel.Location = new Point(51, 112);
             SearchLabel.Name = "SearchLabel";
             SearchLabel.Size = new Size(54, 15);
             SearchLabel.TabIndex = 2;
@@ -63,10 +66,11 @@
             // 
             // SearchInput
             // 
-            SearchInput.Location = new Point(111, 133);
+            SearchInput.Location = new Point(111, 109);
             SearchInput.Name = "SearchInput";
             SearchInput.Size = new Size(211, 23);
             SearchInput.TabIndex = 3;
+            SearchInput.KeyDown += SearchInput_KeyDown;
             // 
             // CancelButton
             // 
@@ -93,7 +97,7 @@
             // 
             // label1
             // 
-            label1.Location = new Point(12, 162);
+            label1.Location = new Point(12, 138);
             label1.Name = "label1";
             label1.Size = new Size(100, 23);
             label1.TabIndex = 6;
@@ -102,7 +106,7 @@
             // 
             // Endstamp
             // 
-            Endstamp.Location = new Point(111, 162);
+            Endstamp.Location = new Point(111, 138);
             Endstamp.MinDate = new DateTime(2025, 6, 15, 20, 39, 58, 0);
             Endstamp.Name = "Endstamp";
             Endstamp.Size = new Size(211, 23);
@@ -113,14 +117,34 @@
             // 
             DescriptionLabel.Location = new Point(12, 70);
             DescriptionLabel.Name = "DescriptionLabel";
-            DescriptionLabel.Size = new Size(310, 60);
+            DescriptionLabel.Size = new Size(310, 40);
             DescriptionLabel.TabIndex = 8;
+            // 
+            // EmployeesList
+            // 
+            EmployeesList.DropDownStyle = ComboBoxStyle.DropDownList;
+            EmployeesList.FormattingEnabled = true;
+            EmployeesList.Location = new Point(111, 167);
+            EmployeesList.Name = "EmployeesList";
+            EmployeesList.Size = new Size(211, 23);
+            EmployeesList.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.Location = new Point(12, 166);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 23);
+            label2.TabIndex = 10;
+            label2.Text = "Исполнитель:";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // LinkTaskForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(334, 241);
+            Controls.Add(label2);
+            Controls.Add(EmployeesList);
             Controls.Add(DescriptionLabel);
             Controls.Add(Endstamp);
             Controls.Add(label1);
@@ -149,5 +173,7 @@
         private Label label1;
         private DateTimePicker Endstamp;
         private Label DescriptionLabel;
+        private ComboBox EmployeesList;
+        private Label label2;
     }
 }

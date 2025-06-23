@@ -33,11 +33,18 @@
             TasksLayout = new TableLayoutPanel();
             SaveObjectInfoButton = new Button();
             NewTaskButton = new Button();
+            NewPhotoButton = new Button();
+            PhotosLayout = new TableLayoutPanel();
+            PhotosLabel = new Label();
+            NewDocumentButton = new Button();
+            DocumentsLayout = new TableLayoutPanel();
+            DocumentsLabel = new Label();
+            TasksYoursCheckBox = new CheckBox();
             SuspendLayout();
             // 
             // NewObjectButton
             // 
-            NewObjectButton.Location = new Point(482, 309);
+            NewObjectButton.Location = new Point(165, 0);
             NewObjectButton.Margin = new Padding(3, 2, 3, 2);
             NewObjectButton.Name = "NewObjectButton";
             NewObjectButton.Size = new Size(104, 22);
@@ -80,7 +87,7 @@
             // 
             ObjectsLabel.AutoSize = true;
             ObjectsLabel.BackColor = Color.Transparent;
-            ObjectsLabel.Location = new Point(57, 7);
+            ObjectsLabel.Location = new Point(57, 4);
             ObjectsLabel.Name = "ObjectsLabel";
             ObjectsLabel.Size = new Size(102, 15);
             ObjectsLabel.TabIndex = 6;
@@ -103,7 +110,7 @@
             ChosenInfoLayout.Location = new Point(406, 24);
             ChosenInfoLayout.Margin = new Padding(3, 2, 3, 15);
             ChosenInfoLayout.Name = "ChosenInfoLayout";
-            ChosenInfoLayout.Size = new Size(180, 197);
+            ChosenInfoLayout.Size = new Size(180, 172);
             ChosenInfoLayout.TabIndex = 8;
             ChosenInfoLayout.Visible = false;
             // 
@@ -111,11 +118,11 @@
             // 
             TasksLabel.AutoSize = true;
             TasksLabel.BackColor = Color.Transparent;
-            TasksLabel.Location = new Point(57, 232);
+            TasksLabel.Location = new Point(57, 228);
             TasksLabel.Name = "TasksLabel";
-            TasksLabel.Size = new Size(138, 15);
+            TasksLabel.Size = new Size(46, 15);
             TasksLabel.TabIndex = 9;
-            TasksLabel.Text = "Прикрепленные задачи";
+            TasksLabel.Text = "Задачи";
             TasksLabel.Visible = false;
             // 
             // TasksLayout
@@ -123,20 +130,20 @@
             TasksLayout.AutoScroll = true;
             TasksLayout.BackColor = Color.Transparent;
             TasksLayout.ColumnCount = 2;
-            TasksLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
-            TasksLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            TasksLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65F));
+            TasksLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
             TasksLayout.Location = new Point(57, 249);
             TasksLayout.Margin = new Padding(3, 2, 3, 2);
             TasksLayout.Name = "TasksLayout";
             TasksLayout.RowCount = 1;
             TasksLayout.RowStyles.Add(new RowStyle());
-            TasksLayout.Size = new Size(239, 82);
+            TasksLayout.Size = new Size(200, 82);
             TasksLayout.TabIndex = 10;
             TasksLayout.Visible = false;
             // 
             // SaveObjectInfoButton
             // 
-            SaveObjectInfoButton.Location = new Point(406, 228);
+            SaveObjectInfoButton.Location = new Point(405, 198);
             SaveObjectInfoButton.Name = "SaveObjectInfoButton";
             SaveObjectInfoButton.Size = new Size(181, 23);
             SaveObjectInfoButton.TabIndex = 11;
@@ -147,14 +154,105 @@
             // 
             // NewTaskButton
             // 
-            NewTaskButton.Location = new Point(482, 264);
+            NewTaskButton.Location = new Point(109, 223);
             NewTaskButton.Name = "NewTaskButton";
-            NewTaskButton.Size = new Size(105, 40);
+            NewTaskButton.Size = new Size(24, 24);
             NewTaskButton.TabIndex = 12;
-            NewTaskButton.Text = "Привязать задачу";
+            NewTaskButton.Text = "🔗";
             NewTaskButton.UseVisualStyleBackColor = true;
             NewTaskButton.Visible = false;
             NewTaskButton.Click += NewTaskButton_Click;
+            // 
+            // NewPhotoButton
+            // 
+            NewPhotoButton.Location = new Point(468, 223);
+            NewPhotoButton.Name = "NewPhotoButton";
+            NewPhotoButton.Size = new Size(24, 24);
+            NewPhotoButton.TabIndex = 15;
+            NewPhotoButton.Text = "🔗";
+            NewPhotoButton.UseVisualStyleBackColor = true;
+            NewPhotoButton.Visible = false;
+            NewPhotoButton.Click += NewPhotoButton_Click;
+            // 
+            // PhotosLayout
+            // 
+            PhotosLayout.AutoScroll = true;
+            PhotosLayout.BackColor = Color.Transparent;
+            PhotosLayout.ColumnCount = 2;
+            PhotosLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55F));
+            PhotosLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45F));
+            PhotosLayout.Location = new Point(427, 249);
+            PhotosLayout.Margin = new Padding(3, 2, 3, 2);
+            PhotosLayout.Name = "PhotosLayout";
+            PhotosLayout.RowCount = 1;
+            PhotosLayout.RowStyles.Add(new RowStyle());
+            PhotosLayout.Size = new Size(159, 82);
+            PhotosLayout.TabIndex = 14;
+            PhotosLayout.Visible = false;
+            // 
+            // PhotosLabel
+            // 
+            PhotosLabel.AutoSize = true;
+            PhotosLabel.BackColor = Color.Transparent;
+            PhotosLabel.Location = new Point(427, 228);
+            PhotosLabel.Name = "PhotosLabel";
+            PhotosLabel.Size = new Size(35, 15);
+            PhotosLabel.TabIndex = 13;
+            PhotosLabel.Text = "Фото";
+            PhotosLabel.Visible = false;
+            // 
+            // NewDocumentButton
+            // 
+            NewDocumentButton.Location = new Point(339, 223);
+            NewDocumentButton.Name = "NewDocumentButton";
+            NewDocumentButton.Size = new Size(24, 24);
+            NewDocumentButton.TabIndex = 18;
+            NewDocumentButton.Text = "🔗";
+            NewDocumentButton.UseVisualStyleBackColor = true;
+            NewDocumentButton.Visible = false;
+            NewDocumentButton.Click += NewDocumentButton_Click;
+            // 
+            // DocumentsLayout
+            // 
+            DocumentsLayout.AutoScroll = true;
+            DocumentsLayout.BackColor = Color.Transparent;
+            DocumentsLayout.ColumnCount = 2;
+            DocumentsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55F));
+            DocumentsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45F));
+            DocumentsLayout.Location = new Point(263, 249);
+            DocumentsLayout.Margin = new Padding(3, 2, 3, 2);
+            DocumentsLayout.Name = "DocumentsLayout";
+            DocumentsLayout.RowCount = 1;
+            DocumentsLayout.RowStyles.Add(new RowStyle());
+            DocumentsLayout.Size = new Size(159, 82);
+            DocumentsLayout.TabIndex = 17;
+            DocumentsLayout.Visible = false;
+            // 
+            // DocumentsLabel
+            // 
+            DocumentsLabel.AutoSize = true;
+            DocumentsLabel.BackColor = Color.Transparent;
+            DocumentsLabel.Location = new Point(263, 228);
+            DocumentsLabel.Name = "DocumentsLabel";
+            DocumentsLabel.Size = new Size(70, 15);
+            DocumentsLabel.TabIndex = 16;
+            DocumentsLabel.Text = "Документы";
+            DocumentsLabel.Visible = false;
+            // 
+            // TasksYoursCheckBox
+            // 
+            TasksYoursCheckBox.AutoSize = true;
+            TasksYoursCheckBox.BackColor = Color.Transparent;
+            TasksYoursCheckBox.Checked = true;
+            TasksYoursCheckBox.CheckState = CheckState.Checked;
+            TasksYoursCheckBox.Location = new Point(139, 226);
+            TasksYoursCheckBox.Name = "TasksYoursCheckBox";
+            TasksYoursCheckBox.Size = new Size(99, 19);
+            TasksYoursCheckBox.TabIndex = 19;
+            TasksYoursCheckBox.Text = "Только ваши";
+            TasksYoursCheckBox.UseVisualStyleBackColor = false;
+            TasksYoursCheckBox.Visible = false;
+            TasksYoursCheckBox.CheckedChanged += TasksYoursCheckBox_Changed;
             // 
             // ObjectsManagementForm
             // 
@@ -164,9 +262,16 @@
             BackgroundImage = Properties.Resources.photo_2025_05_30_11_56_46;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(598, 346);
+            Controls.Add(collapsibleSidebar1);
+            Controls.Add(TasksYoursCheckBox);
+            Controls.Add(NewDocumentButton);
+            Controls.Add(DocumentsLayout);
+            Controls.Add(DocumentsLabel);
+            Controls.Add(NewPhotoButton);
+            Controls.Add(PhotosLayout);
+            Controls.Add(PhotosLabel);
             Controls.Add(NewTaskButton);
             Controls.Add(SaveObjectInfoButton);
-            Controls.Add(collapsibleSidebar1);
             Controls.Add(TasksLayout);
             Controls.Add(NewObjectButton);
             Controls.Add(TasksLabel);
@@ -200,5 +305,12 @@
         private TableLayoutPanel TasksLayout;
         private Button SaveObjectInfoButton;
         private Button NewTaskButton;
+        private Button NewPhotoButton;
+        private TableLayoutPanel PhotosLayout;
+        private Label PhotosLabel;
+        private Button NewDocumentButton;
+        private TableLayoutPanel DocumentsLayout;
+        private Label DocumentsLabel;
+        private CheckBox TasksYoursCheckBox;
     }
 }

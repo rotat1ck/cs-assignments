@@ -49,17 +49,17 @@
             collapsibleSidebar1.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
             collapsibleSidebar1.Location = new Point(0, 0);
             collapsibleSidebar1.Name = "collapsibleSidebar1";
-            collapsibleSidebar1.Padding = new Padding(6, 3, 0, 3);
-            collapsibleSidebar1.Size = new Size(62, 451);
+            collapsibleSidebar1.Padding = new Padding(5, 2, 0, 2);
+            collapsibleSidebar1.Size = new Size(54, 344);
             collapsibleSidebar1.TabIndex = 0;
             collapsibleSidebar1.Text = "collapsibleSidebar1";
             // 
             // TasksLabel
             // 
             TasksLabel.AutoSize = true;
-            TasksLabel.Location = new Point(65, 9);
+            TasksLabel.Location = new Point(57, 7);
             TasksLabel.Name = "TasksLabel";
-            TasksLabel.Size = new Size(85, 20);
+            TasksLabel.Size = new Size(66, 15);
             TasksLabel.TabIndex = 1;
             TasksLabel.Text = "Все задачи";
             // 
@@ -69,19 +69,21 @@
             TasksLayout.ColumnCount = 2;
             TasksLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
             TasksLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            TasksLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 21F));
-            TasksLayout.Location = new Point(65, 32);
+            TasksLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 18F));
+            TasksLayout.Location = new Point(57, 24);
+            TasksLayout.Margin = new Padding(3, 2, 3, 2);
             TasksLayout.Name = "TasksLayout";
             TasksLayout.RowCount = 1;
             TasksLayout.RowStyles.Add(new RowStyle());
-            TasksLayout.Size = new Size(405, 409);
+            TasksLayout.Size = new Size(354, 307);
             TasksLayout.TabIndex = 2;
             // 
             // NewTaskButton
             // 
-            NewTaskButton.Location = new Point(507, 397);
+            NewTaskButton.Location = new Point(444, 298);
+            NewTaskButton.Margin = new Padding(3, 2, 3, 2);
             NewTaskButton.Name = "NewTaskButton";
-            NewTaskButton.Size = new Size(127, 43);
+            NewTaskButton.Size = new Size(111, 32);
             NewTaskButton.TabIndex = 3;
             NewTaskButton.Text = "Новое задание";
             NewTaskButton.UseVisualStyleBackColor = true;
@@ -90,9 +92,9 @@
             // CurrentTaskLabel
             // 
             CurrentTaskLabel.AutoSize = true;
-            CurrentTaskLabel.Location = new Point(475, 9);
+            CurrentTaskLabel.Location = new Point(416, 7);
             CurrentTaskLabel.Name = "CurrentTaskLabel";
-            CurrentTaskLabel.Size = new Size(166, 20);
+            CurrentTaskLabel.Size = new Size(130, 15);
             CurrentTaskLabel.TabIndex = 4;
             CurrentTaskLabel.Text = "Информация о задаче";
             CurrentTaskLabel.Visible = false;
@@ -102,33 +104,34 @@
             CurrentTaskLayout.BackColor = Color.Transparent;
             CurrentTaskLayout.Controls.Add(CurrentTaskContent);
             CurrentTaskLayout.Controls.Add(CurrentTaskName);
-            CurrentTaskLayout.Location = new Point(475, 32);
+            CurrentTaskLayout.Location = new Point(416, 24);
+            CurrentTaskLayout.Margin = new Padding(3, 2, 3, 2);
             CurrentTaskLayout.Name = "CurrentTaskLayout";
-            CurrentTaskLayout.Size = new Size(194, 360);
+            CurrentTaskLayout.Size = new Size(170, 270);
             CurrentTaskLayout.TabIndex = 5;
             CurrentTaskLayout.Visible = false;
             // 
             // CurrentTaskContent
             // 
-            CurrentTaskContent.Location = new Point(3, 116);
+            CurrentTaskContent.Location = new Point(3, 87);
             CurrentTaskContent.Name = "CurrentTaskContent";
-            CurrentTaskContent.Size = new Size(187, 80);
+            CurrentTaskContent.Size = new Size(164, 60);
             CurrentTaskContent.TabIndex = 1;
             // 
             // CurrentTaskName
             // 
-            CurrentTaskName.Location = new Point(3, 25);
+            CurrentTaskName.Location = new Point(3, 19);
             CurrentTaskName.Name = "CurrentTaskName";
-            CurrentTaskName.Size = new Size(187, 80);
+            CurrentTaskName.Size = new Size(164, 60);
             CurrentTaskName.TabIndex = 0;
             // 
             // TasksForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.photo_2025_05_30_11_56_46;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(681, 451);
+            ClientSize = new Size(598, 344);
             Controls.Add(collapsibleSidebar1);
             Controls.Add(CurrentTaskLayout);
             Controls.Add(CurrentTaskLabel);
@@ -136,12 +139,13 @@
             Controls.Add(TasksLayout);
             Controls.Add(TasksLabel);
             MainMenuStrip = collapsibleSidebar1;
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
-            MaximumSize = new Size(699, 498);
+            MaximumSize = new Size(614, 383);
             MinimizeBox = false;
-            MinimumSize = new Size(699, 498);
+            MinimumSize = new Size(614, 383);
             Name = "TasksForm";
-            Text = "TasksForm";
+            Text = "Управление задачами";
             CurrentTaskLayout.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

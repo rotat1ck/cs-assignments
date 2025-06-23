@@ -82,9 +82,9 @@
             // 
             // ObjectTypeComboBox
             // 
-            ObjectTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             resources.ApplyResources(ObjectTypeComboBox, "ObjectTypeComboBox");
             ObjectTypeComboBox.Name = "ObjectTypeComboBox";
+            ObjectTypeComboBox.KeyDown += ObjectTypeComboBox_KeyDown;
             // 
             // NewObjectForm
             // 

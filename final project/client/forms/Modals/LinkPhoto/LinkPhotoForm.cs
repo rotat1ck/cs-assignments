@@ -66,7 +66,7 @@ namespace client.forms.Modals.LinkPhoto {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             } else {
-                MessageBox.Show("Выберите задачу из выпадающего списка");
+                MessageBox.Show("Выберите фото из выпадающего списка");
             }
         }
 

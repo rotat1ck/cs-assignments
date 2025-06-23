@@ -273,6 +273,13 @@ namespace client {
             currentTaskLink = taskLink;
             ChosenInfoLabel.Text = "Информация о задаче";
 
+            // Дедлайн
+            Label deadlineLabel = new Label {
+                Text = "Исполнить до: " + DateTimeOffset.FromUnixTimeSeconds(currentTaskLink.endstamp).LocalDateTime.ToLongDateString(),
+                Dock = DockStyle.Top
+            };
+            ChosenInfoLayout.Controls.Add(deadlineLabel);
+
             // Исполнитель
             employeeInput = new ComboBox {
                 DisplayMember = "last_name",

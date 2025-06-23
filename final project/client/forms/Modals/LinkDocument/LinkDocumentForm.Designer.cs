@@ -90,6 +90,7 @@
             // 
             // DocumentsList
             // 
+            DocumentsList.DropDownStyle = ComboBoxStyle.DropDownList;
             DocumentsList.FormattingEnabled = true;
             DocumentsList.Location = new Point(12, 27);
             DocumentsList.Name = "DocumentsList";

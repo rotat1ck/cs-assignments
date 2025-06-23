@@ -65,7 +65,7 @@ namespace client.forms.Modals.LinkDocument {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             } else {
-                MessageBox.Show("Выберите задачу из выпадающего списка");
+                MessageBox.Show("Выберите документ из выпадающего списка");
             }
         }
 

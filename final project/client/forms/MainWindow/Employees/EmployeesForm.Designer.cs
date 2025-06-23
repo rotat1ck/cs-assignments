@@ -168,6 +168,8 @@
             BackgroundImage = Properties.Resources.photo_2025_05_30_11_56_46;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(598, 346);
+            Controls.Add(EmployeesLayout);
+            Controls.Add(collapsibleSidebar1);
             Controls.Add(EmployeeAccountSaveButton);
             Controls.Add(EmployeeAccountPasswordResetButton);
             Controls.Add(EmployeeInfoSaveButton);
@@ -176,9 +178,7 @@
             Controls.Add(EmployeeInfoLayout);
             Controls.Add(EmployeeInfoLabel);
             Controls.Add(NewEmployeeButton);
-            Controls.Add(EmployeesLayout);
             Controls.Add(EmployeesLabel);
-            Controls.Add(collapsibleSidebar1);
             MainMenuStrip = collapsibleSidebar1;
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;

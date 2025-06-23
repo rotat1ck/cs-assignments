@@ -3,7 +3,7 @@ using client.models.linking;
 
 namespace client.forms.Modals.NewObject {
     public partial class NewObjectForm : Form {
-        public Objects NewObject { get; private set; }
+        public Objects NewObject;
 
         public NewObjectForm() {
             InitializeComponent();

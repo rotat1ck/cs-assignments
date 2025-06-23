@@ -11,7 +11,7 @@ using client.models.data;
 
 namespace client.forms.Modals.NewDocument {
     public partial class NewDocumentForm : Form {
-        public Documents Document { get; set; }
+        public Documents Document;
         public NewDocumentForm() {
             InitializeComponent();
         }

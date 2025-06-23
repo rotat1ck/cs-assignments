@@ -2,6 +2,10 @@
 
 # C#
 
+## Cherry - Финальный проект
+  > [Исходный код](final%20project) \
+  > [Скачать](https://github.com/rotat1ck/cs-assignments/releases/tag/executable)
+
 ## Работы на парах
 
 * [Май 2025](classwork/2025.05)

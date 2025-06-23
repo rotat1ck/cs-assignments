@@ -19,7 +19,6 @@
 	
   <ItemGroup>
     <Folder Include="forms\MainWindow\Tasks\" />
-    <Folder Include="forms\MainWindow\Account\" />
     <Folder Include="forms\MainWindow\ObjectsManagement\" />
     <Folder Include="models\data\" />
   </ItemGroup>

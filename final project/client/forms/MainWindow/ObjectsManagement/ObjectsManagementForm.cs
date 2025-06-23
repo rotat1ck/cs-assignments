@@ -82,6 +82,7 @@ namespace client {
                 currentObject.number = int.Parse(numberInput.Text);
 
                 DBController.objectsModel.UpdateRecord(currentObject);
+                UpdateObjectsLayout();
             } else {
                 currentTask.name = nameInput.Text;
                 currentTask.content = descriptionInput.Text;
@@ -89,6 +90,7 @@ namespace client {
 
                 DBController.tasksModel.UpdateRecord(currentTask);
                 DBController.tasks_ObjectsModel.UpdateRecord(currentTaskLink);
+                ObjectButton_Click(currentObject);
             }
         }
 

@@ -43,14 +43,13 @@ namespace client.forms.MainWindow
                 new MenuItemData { Icon = "📊", Text = "Управление объектами", Checked = true },
                 new MenuItemData { Icon = "✅", Text = "Задачи", Checked = false },
                 new MenuItemData { Icon = "🗃️", Text = "Материалы", Checked = false },
-                new MenuItemData { Icon = "👤", Text = "Учетная запись", Checked = false },
                 new MenuItemData { Icon = "🚪", Text = "Выход", Checked = false }
             };
 
             
             if (DBController.currentUser != null) {
                 if (DBController.currentUser.rights > 0) {
-                    menuItems.Insert(4, new MenuItemData { Icon = "👥", Text = "Сотрудники", Checked = false });
+                    menuItems.Insert(3, new MenuItemData { Icon = "👥", Text = "Сотрудники", Checked = false });
                 }
             }
 
@@ -127,13 +126,6 @@ namespace client.forms.MainWindow
 
                 case "Сотрудники":
                     childForm = new EmployeesForm();
-                    this.Parent.Hide();
-                    childForm.StartPosition = FormStartPosition.CenterScreen;
-                    childForm.Show();
-                    break;
-
-                case "Учетная запись":
-                    childForm = new AccountForm();
                     this.Parent.Hide();
                     childForm.StartPosition = FormStartPosition.CenterScreen;
                     childForm.Show();

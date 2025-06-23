@@ -14,12 +14,14 @@ namespace client {
         private TextBox addressInput;
         private Panel panel;
         private ComboBox typeInput;
+        private ComboBox employeeInput;
         private TextBox numberInput;
         private TextBox nameInput;
         private bool isObjectChosen;
 
         Objects currentObject;
         Tasks currentTask;
+        Tasks_Objects currentTaskLink;
 
         public ObjectsManagementForm() {
             InitializeComponent();
@@ -28,6 +30,10 @@ namespace client {
             if (DBController.currentUser.rights < 1) {
                 NewObjectButton.Visible = false;
             }
+        }
+
+        private void TasksYoursCheckBox_Changed(object sender, EventArgs e) {
+            ObjectButton_Click(currentObject);
         }
         private void NewObjectButton_Click(object sender, EventArgs e) {
             using (NewObjectForm objectForm = new NewObjectForm()) {
@@ -79,8 +85,10 @@ namespace client {
             } else {
                 currentTask.name = nameInput.Text;
                 currentTask.content = descriptionInput.Text;
+                currentTaskLink.employee_id = ((Employees)employeeInput.SelectedItem).id;
 
                 DBController.tasksModel.UpdateRecord(currentTask);
+                DBController.tasks_ObjectsModel.UpdateRecord(currentTaskLink);
             }
         }
 
@@ -123,6 +131,7 @@ namespace client {
 
             TasksLabel.Visible = true;
             TasksLayout.Visible = true;
+            TasksYoursCheckBox.Visible = true;
 
             DocumentsLabel.Visible = true;
             DocumentsLayout.Visible = true;
@@ -146,6 +155,9 @@ namespace client {
 
             // заполнение задач
             List<Tasks_Objects> linkedTasks = DBController.tasks_ObjectsModel.Filter(("object_id", obj.id));
+            if (TasksYoursCheckBox.Checked) {
+                linkedTasks = DBController.tasks_ObjectsModel.Filter(("object_id", obj.id), ("employee_id", DBController.currentUser.employee_id));
+            }
             foreach (var tasksId in linkedTasks) {
                 Tasks task = DBController.tasksModel.Filter(tasksId.task_id);
 
@@ -153,7 +165,7 @@ namespace client {
                     Size = new Size(140, 30),
                     Text = task.name
                 };
-                taskButton.Click += (s, e) => TaskButton_Click(task);
+                taskButton.Click += (s, e) => TaskButton_Click(task, tasksId);
                 TasksLayout.Controls.Add(taskButton);
 
                 Button deleteButton = new Button {
@@ -253,12 +265,28 @@ namespace client {
             }
         }
 
-        private void TaskButton_Click(Tasks task) {
+        private void TaskButton_Click(Tasks task, Tasks_Objects taskLink) {
             ChosenInfoLayout.Controls.Clear();
 
             isObjectChosen = false;
             currentTask = task;
+            currentTaskLink = taskLink;
             ChosenInfoLabel.Text = "Информация о задаче";
+
+            // Исполнитель
+            employeeInput = new ComboBox {
+                DisplayMember = "last_name",
+                ValueMember = "id",
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Dock = DockStyle.Top
+            };
+            foreach (var item in DBController.employeesModel.Query()) {
+                employeeInput.Items.Add(item);
+                if (item.id == taskLink.employee_id) {
+                    employeeInput.SelectedItem = item;
+                }
+            }
+            ChosenInfoLayout.Controls.Add(employeeInput);
 
             // Описание
             descriptionInput = new TextBox {

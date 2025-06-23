@@ -48,6 +48,15 @@ namespace client.forms.Modals.LinkTask {
                 TasksList.SelectedIndex = 0;
                 DescriptionLabel.Text = ((Tasks)TasksList.SelectedItem).content;
             }
+
+            List<Employees> employees = DBController.employeesModel.Query();
+            foreach (Employees employee in employees) {
+                EmployeesList.Items.Add(employee);
+            }
+            EmployeesList.DisplayMember = "last_name";
+            if (EmployeesList.Items.Count > 0) {
+                EmployeesList.SelectedIndex = 0;
+            }
         }
 
         private void TasksList_Update(object sender, EventArgs e) {
@@ -63,6 +72,7 @@ namespace client.forms.Modals.LinkTask {
             if (TasksList.SelectedItem != null) {
                 newLink = new Tasks_Objects {
                     endstamp = (int)((DateTimeOffset)Endstamp.Value).ToUnixTimeSeconds(),
+                    employee_id = ((Employees)EmployeesList.SelectedItem).id,
                     object_id = obj.id,
                     task_id = ((Tasks)TasksList.SelectedItem).id
                 };

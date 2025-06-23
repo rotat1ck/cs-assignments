@@ -252,6 +252,7 @@
             TasksYoursCheckBox.Text = "Только ваши";
             TasksYoursCheckBox.UseVisualStyleBackColor = false;
             TasksYoursCheckBox.Visible = false;
+            TasksYoursCheckBox.CheckedChanged += TasksYoursCheckBox_Changed;
             // 
             // ObjectsManagementForm
             // 
@@ -261,6 +262,7 @@
             BackgroundImage = Properties.Resources.photo_2025_05_30_11_56_46;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(598, 346);
+            Controls.Add(collapsibleSidebar1);
             Controls.Add(TasksYoursCheckBox);
             Controls.Add(NewDocumentButton);
             Controls.Add(DocumentsLayout);
@@ -270,7 +272,6 @@
             Controls.Add(PhotosLabel);
             Controls.Add(NewTaskButton);
             Controls.Add(SaveObjectInfoButton);
-            Controls.Add(collapsibleSidebar1);
             Controls.Add(TasksLayout);
             Controls.Add(NewObjectButton);
             Controls.Add(TasksLabel);

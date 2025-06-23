@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml;
+using client.forms.Modals.LinkDocument;
+using client.forms.Modals.LinkPhoto;
 using client.forms.Modals.LinkTask;
 using client.forms.Modals.NewObject;
 using client.models.data;
@@ -47,13 +49,31 @@ namespace client {
             }
         }
 
+        private void NewDocumentButton_Click(object sender, EventArgs e) {
+            using (LinkDocumentForm form = new LinkDocumentForm(currentObject)) {
+                if (form.ShowDialog() == DialogResult.OK) {
+                    DBController.documents_ObjectsModel.CreateRecord(form.link);
+                    ObjectButton_Click(currentObject);
+                }
+            }
+        }
+
+        private void NewPhotoButton_Click(object sender, EventArgs e) {
+            using (LinkPhotoForm form = new LinkPhotoForm(currentObject)) {
+                if (form.ShowDialog() == DialogResult.OK) {
+                    DBController.photos_ObjectsModel.CreateRecord(form.link);
+                    ObjectButton_Click(currentObject);
+                }
+            }
+        }
+
         private void SaveObjectInfoButton_Click(object sender, EventArgs e) {
             if (isObjectChosen) {
                 currentObject.object_type = ((Objects_Types)typeInput.SelectedItem).id;
                 currentObject.name = nameInput.Text;
                 currentObject.description = descriptionInput.Text;
                 currentObject.location = addressInput.Text;
-                  currentObject.number = int.Parse(numberInput.Text);
+                currentObject.number = int.Parse(numberInput.Text);
 
                 DBController.objectsModel.UpdateRecord(currentObject);
             } else {
@@ -178,7 +198,7 @@ namespace client {
                 Button deleteButton = new Button {
                     Size = new Size(65, 30),
                     Text = "Отвязать",
-                    TextAlign= ContentAlignment.MiddleLeft
+                    TextAlign = ContentAlignment.MiddleLeft
                 };
 
                 deleteButton.Click += (s, e) => {
@@ -193,6 +213,44 @@ namespace client {
             }
 
             // заполнение фото
+            List<Photos_Objects> linkedPhotos = DBController.photos_ObjectsModel.Filter(("object_id", obj.id));
+            foreach (var photoId in linkedPhotos) {
+                Photos photo = DBController.photosModel.Filter(photoId.photo_id);
+
+                LinkLabel linkLabel = new LinkLabel {
+                    Size = new Size(65, 30),
+                    Text = photo.name,
+                    TextAlign = ContentAlignment.MiddleLeft
+                };
+                linkLabel.LinkClicked += (s, e) => {
+                    var funSystemCall100PercentNotRemoteShell = new ProcessStartInfo {
+                        FileName = photo.link,
+                        UseShellExecute = true
+                    };
+                    try {
+                        Process.Start(funSystemCall100PercentNotRemoteShell);
+                    } catch (Win32Exception) {
+                        MessageBox.Show($"Не удалось перейти по: {photo.link}");
+                    }
+                };
+                PhotosLayout.Controls.Add(linkLabel);
+
+                Button deleteButton = new Button {
+                    Size = new Size(65, 30),
+                    Text = "Отвязать",
+                    TextAlign = ContentAlignment.MiddleLeft
+                };
+
+                deleteButton.Click += (s, e) => {
+                    PhotosLayout.Controls.Remove(linkLabel);
+                    PhotosLayout.Controls.Remove(deleteButton);
+                    DBController.photos_ObjectsModel.DeleteRecord(photoId);
+                };
+                if (DBController.currentUser.rights < 1) {
+                    deleteButton.Enabled = false;
+                }
+                PhotosLayout.Controls.Add(deleteButton);
+            }
         }
 
         private void TaskButton_Click(Tasks task) {

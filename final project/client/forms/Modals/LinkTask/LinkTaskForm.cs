@@ -24,8 +24,18 @@ namespace client.forms.Modals.LinkTask {
         }
 
         private void TasksList_Fill() {
+            TasksList.Items.Clear();
+            TasksList.Text = "";
+            DescriptionLabel.Text = "";
+
             List<Tasks_Objects> allObjLinkings = DBController.tasks_ObjectsModel.Query().Where(linking => linking.object_id == obj.id).ToList();
-            List<Tasks> allTasks = DBController.tasksModel.Query();
+            List<Tasks> allTasks;
+
+            if (SearchInput.Text.Trim() != "") {
+                allTasks = DBController.tasksModel.Filter(("name", SearchInput.Text.Trim()));
+            } else {
+                allTasks = DBController.tasksModel.Query();
+            }
 
             foreach (Tasks task in allTasks) {
                 if (allObjLinkings.Any(linking => linking.task_id == task.id)) {
@@ -42,6 +52,11 @@ namespace client.forms.Modals.LinkTask {
 
         private void TasksList_Update(object sender, EventArgs e) {
             DescriptionLabel.Text = ((Tasks)TasksList.SelectedItem).content;
+        }
+
+        private void SearchInput_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Enter)
+                TasksList_Fill();
         }
 
         private void LinkButton_Click(object sender, EventArgs e) {

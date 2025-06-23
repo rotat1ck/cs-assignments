@@ -67,6 +67,7 @@
             SearchInput.Name = "SearchInput";
             SearchInput.Size = new Size(211, 23);
             SearchInput.TabIndex = 3;
+            SearchInput.KeyDown += SearchInput_KeyDown;
             // 
             // CancelButton
             // 

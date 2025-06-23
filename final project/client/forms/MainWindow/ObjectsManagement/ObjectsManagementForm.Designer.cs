@@ -172,6 +172,7 @@
             NewPhotoButton.Text = "🔗";
             NewPhotoButton.UseVisualStyleBackColor = true;
             NewPhotoButton.Visible = false;
+            NewPhotoButton.Click += NewPhotoButton_Click;
             // 
             // PhotosLayout
             // 
@@ -209,6 +210,7 @@
             NewDocumentButton.Text = "🔗";
             NewDocumentButton.UseVisualStyleBackColor = true;
             NewDocumentButton.Visible = false;
+            NewDocumentButton.Click += NewDocumentButton_Click;
             // 
             // DocumentsLayout
             // 

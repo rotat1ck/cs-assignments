@@ -1,0 +1,66 @@
+﻿<Window x:Class="UdpShapes.Client.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UdpShapes.Client"
+        mc:Ignorable="d"
+        Title="Подключиться к игре" Height="450" Width="450" FontSize="24">
+    <Window.DataContext>
+        <local:LoginVM />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Label
+            Grid.Row="0" Grid.Column="0"
+            VerticalAlignment="Center"
+            Target="{Binding ElementName=name}">Ваше _имя</Label>
+        <TextBox
+            Grid.Row="0" Grid.Column="1" x:Name="name"
+            VerticalAlignment="Center"
+            Text="{Binding Name}" />
+
+        <Label
+            Grid.Row="1" Grid.Column="0"
+            VerticalAlignment="Center"
+            Target="{Binding ElementName=color}">_Цвет</Label>
+        <ComboBox
+            Grid.Row="1" Grid.Column="1" x:Name="color"
+            VerticalAlignment="Center"
+            ItemsSource="{Binding NamedColors}"
+            SelectedItem="{Binding NamedColor}"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel Background="{Binding Brush}" MinHeight="30" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label
+            Grid.Row="2" Grid.Column="0"
+            VerticalAlignment="Center"
+            Target="{Binding ElementName=shape}">_Фигура</Label>
+        <ComboBox
+            Grid.Row="2" Grid.Column="1" x:Name="shape"
+            VerticalAlignment="Center"
+            ItemsSource="{Binding Shapes}"
+            SelectedItem="{Binding Shape}" />
+
+        <Button
+            Grid.Row="3" Grid.Column="1"
+            VerticalAlignment="Center" Padding="24"
+            Click="ConnectButton_Click">Подключиться</Button>
+    </Grid>
+</Window>

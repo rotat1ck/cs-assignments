@@ -1,0 +1,53 @@
+﻿@page "{handler?}"
+@model page_handlers.Pages.ProductsModel
+@{
+}
+
+<ul>
+    @foreach (var product in Model.Products)
+    {
+        <li>@product.Name - @product.Price, ID: @product.Id</li>
+    }
+</ul>
+
+@if (Model.SelectedProduct is not null)
+{
+    var selected = Model.SelectedProduct;
+    <br />
+    @:Выбранный продукт - @selected.Name - @selected.Price, ID: @selected.Id
+}
+
+<br />
+
+<form method="post">
+    <div>
+        ID
+        <input inputmode="numeric" asp-for="NewProduct.Id" />
+    </div>
+    <div>
+        Название
+        <input asp-for="NewProduct.Name" />
+    </div>
+    <div>
+        Цена
+        <input inputmode="numeric" asp-for="NewProduct.Price" />
+    </div>
+
+    <button type="submit" asp-page-handler="Add">Добавить</button>
+</form>
+
+<br />
+
+<form>
+    <div>
+        Мин. цена
+        <input inputmode="numeric" name="minPrice" />
+    </div>
+    <div>
+        Макс. цена
+        <input inputmode="numeric" name="maxPrice" />
+    </div>
+
+    <button type="submit" asp-page-handler="ByPriceMin">Отфильтровать от</button>
+    <button type="submit" asp-page-handler="ByPriceMax">Отфильтровать до</button>
+</form>
